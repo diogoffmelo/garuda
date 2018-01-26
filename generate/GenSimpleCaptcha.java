@@ -10,7 +10,7 @@ import nl.captcha.noise.*;
 
 import java.util.Random;
 
-public class HelloWorld {
+public class GenSimpleCaptcha {
 
     public static int min = 0;
     public static int max = 255;
