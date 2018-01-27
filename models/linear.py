@@ -4,10 +4,11 @@ import h5py
 
 from util.layers import full_layer, char_accuracy, xentropy_loss, word_accuracy
 from util.batch import NumpyBatchGenerator, SampleMode
+from util.report import report
 
 
-db_path = '../generate/data.hdf5'
-nepochs = 30
+db_path = '../generate/datatest.hdf5'
+nepochs = 1
 
 with h5py.File(db_path, 'r') as datadb:
     idxs = datadb['train']
@@ -99,32 +100,49 @@ def food(batch):
 
 
 
-def report(bgen):
-    _a, _l, N = [0 for _ in range(Ypos)], [0 for _ in range(Ypos)], 0
-    _w = 0.0
-    _m = 0.0
-    for batch in bgen.gen_batches():
-        a, l, w, m = sess.run([accuracy, loss, mwacc, mpacc], feed_dict=food(batch))
+class Model(object):
+    def __init__(self):
+        self.metrics = {
+            'cacc': accuracy,
+            'loss': loss,
+            'wacc': mwacc, 
+            'pacc': mpacc,
+        }
 
-        _a = [_a[p] + a[p] for p in range(Ypos)]
-        _l = [_l[p] + l[p] for p in range(Ypos)]
-        _w += w
-        _m += m
-        N = N + 1
+    def food(self, batch):
+        _X, _Y = batch
+        return {Ytrue: _Y, Xtrue: _X.reshape([-1, Xresized])}
 
-    ___a = ', '.join(['{:.2f}'.format(_a[p]/N) for p in range(Ypos)])
-    ___l = ', '.join(['{:.2f}'.format(_l[p]/N) for p in range(Ypos)])
 
-    return 'acc=[{}]\nxent=[{}]\nex={:.4f}, wcc=[{:.4f}]'.format(___a, 
-                                                                 ___l, 
-                                                                 _m/N, 
-                                                                 _w/N)
+linear = Model()
+
+
+# def report2(bgen):
+#     _a, _l, N = [0 for _ in range(Ypos)], [0 for _ in range(Ypos)], 0
+#     _w = 0.0
+#     _m = 0.0
+#     for batch in bgen.gen_batches():
+#         a, l, w, m = sess.run([accuracy, loss, mwacc, mpacc], feed_dict=food(batch))
+
+#         _a = [_a[p] + a[p] for p in range(Ypos)]
+#         _l = [_l[p] + l[p] for p in range(Ypos)]
+#         _w += w
+#         _m += m
+#         N = N + 1
+
+#     ___a = ', '.join(['{:.2f}'.format(_a[p]/N) for p in range(Ypos)])
+#     ___l = ', '.join(['{:.2f}'.format(_l[p]/N) for p in range(Ypos)])
+
+#     return 'acc=[{}]\nxent=[{}]\nex={:.4f}, wcc=[{:.4f}]'.format(___a, 
+#                                                                  ___l, 
+#                                                                  _m/N, 
+#                                                                  _w/N)
 
 
 def epoch_hook(epoch):
     if epoch%3 == 0:
         print('Train @t={}'.format(epoch))
-        print(report(batchgenloss))
+        print(report(linear, batchgenloss, sess))
 
 
 with tf.Session() as sess:
@@ -135,4 +153,4 @@ with tf.Session() as sess:
         sess.run(train, feed_dict=food(batch))
 
     print('Vadation:')
-    print(report(batchgenv))
+    print(report(linear, batchgenv, sess))

@@ -29,13 +29,13 @@ def char_accuracy(Ytrue, Ypred, namescope):
     layer = {}
     with tf.name_scope(namescope):
         correct_pred = tf.equal(tf.argmax(Ypred, 1), tf.argmax(Ytrue, 1))
-        accuracy = tf.reduce_mean(
-            tf.cast(correct_pred, tf.float32), name='accuracy')
+        cacc = tf.reduce_mean(
+            tf.cast(correct_pred, tf.float32), name='cacc')
 
         layer['correct_pred'] = correct_pred
-        layer['accuracy'] = accuracy
+        layer['accuracy'] = cacc
         layer['summary'] = [
-             summary.scalar(_cname(namescope,'accuracy'), accuracy),
+             summary.scalar(_cname(namescope,'cacc'), cacc),
         ]
 
     return layer
