@@ -1,6 +1,7 @@
 from enum import Enum
 import numpy as np
 
+# TODO implement sequential witohut losses
 class SampleMode(Enum):
     SEQUENTIAL = 0
     RANDOM = 1

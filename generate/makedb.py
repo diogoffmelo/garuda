@@ -34,9 +34,9 @@ def images_to_db(data_path, db_path, specs):
     total = len(finds)
     ignored = []
 
-    h5db = h5py.File("data.hdf5", "w")
-    xset = h5db.create_dataset("X", (total,) + SHAPE, dtype=np.float32)
-    yset = h5db.create_dataset("Y", 
+    h5db = h5py.File(db_path, 'w')
+    xset = h5db.create_dataset('X', (total,) + SHAPE, dtype=np.float32)
+    yset = h5db.create_dataset('Y', 
                                 (total, specs['text_length'], len(VOCAB)), 
                                 dtype=np.int8)
 
@@ -70,10 +70,11 @@ def images_to_db(data_path, db_path, specs):
     idxs_train = np.asarray(idxs[:cut])
     idxs_test = np.asarray(idxs[cut:])
 
-    train = h5db.create_dataset("train", idxs_train.shape, dtype=idxs_train.dtype)
-    test = h5db.create_dataset("test", idxs_test.shape, dtype=idxs_test.dtype)
+    train = h5db.create_dataset('train', idxs_train.shape, dtype=idxs_train.dtype)
+    test = h5db.create_dataset('test', idxs_test.shape, dtype=idxs_test.dtype)
     train[...] = idxs_train
     test[...] = idxs_test
+    h5db.close()
     print('done.')
 
 
@@ -85,4 +86,5 @@ specs = {
 }
 
 data_path = './images'
-images_to_db(data_path, './data.hdf5', specs)
+db_path = './data.hdf5'
+images_to_db(data_path, db_path, specs)
