@@ -58,48 +58,6 @@ def food(batch):
     return {Ytrue: _Y, Xtrue: _X.reshape([-1, Xresized])}
 
 
-# Ytrues = []
-# layers = []
-# Ylogits = []
-# correct_preds = []
-# Ypreds = []
-# accuracy = []
-# xentropy = []
-# loss = []
-# train = []
-# for p in range(Ypos):
-#     Ytrues.append(tf.placeholder(tf.float32, [None, Yclasses]))
-#     layers.append(full_layer(Xtrue, [Xresized, Yclasses], 'layer{}'.format(p), None))
-#     Ylogits.append(layers[p]['aout'])
-#     Ypreds.append(tf.nn.softmax(Ylogits[p]))
-#     correct_preds.append(tf.equal(tf.argmax(Ypreds[p], 1), tf.argmax(Ytrues[p], 1)))
-#     accuracy.append(tf.reduce_mean(tf.cast(correct_preds[p], tf.float32)))
-#     xentropy.append(tf.nn.softmax_cross_entropy_with_logits(logits=Ylogits[p], labels=Ytrues[p]))
-#     loss.append(tf.reduce_mean(xentropy[p]) * 1000)
-#     train.append(tf.train.AdamOptimizer(0.001).minimize(xentropy[p]))
-# def food(batch):
-#     _X, _Y = batch
-#     food = {Ytrues[p]: _Y[:, p, :].reshape([-1, Yclasses])  for p in range(Ypos)}
-#     food[Xtrue] = _X.reshape([-1, Xresized])
-#     return food
-
-
-#__cont1 = tf.concat(preds, axis=0)
-#_wacc1 = tf.reduce_all(__cont1, 0)
-
-#tf.reduce_all(tf.reshape(__cont1, [-1, 5]), axis=1, keep_dims=True)
-#tf.reduce_mean(tf.cast(preds_red, tf.float32), name='waccuracy')
-
-
-
-#        accuracy = tf.reduce_mean(
-#            tf.cast(preds_red, tf.float32), name='waccuracy')
-
-
-#__cont2 = tf.concat(preds, 1)
-
-
-
 class Model(object):
     def __init__(self):
         self.metrics = {
@@ -115,29 +73,6 @@ class Model(object):
 
 
 linear = Model()
-
-
-# def report2(bgen):
-#     _a, _l, N = [0 for _ in range(Ypos)], [0 for _ in range(Ypos)], 0
-#     _w = 0.0
-#     _m = 0.0
-#     for batch in bgen.gen_batches():
-#         a, l, w, m = sess.run([accuracy, loss, mwacc, mpacc], feed_dict=food(batch))
-
-#         _a = [_a[p] + a[p] for p in range(Ypos)]
-#         _l = [_l[p] + l[p] for p in range(Ypos)]
-#         _w += w
-#         _m += m
-#         N = N + 1
-
-#     ___a = ', '.join(['{:.2f}'.format(_a[p]/N) for p in range(Ypos)])
-#     ___l = ', '.join(['{:.2f}'.format(_l[p]/N) for p in range(Ypos)])
-
-#     return 'acc=[{}]\nxent=[{}]\nex={:.4f}, wcc=[{:.4f}]'.format(___a, 
-#                                                                  ___l, 
-#                                                                  _m/N, 
-#                                                                  _w/N)
-
 
 def epoch_hook(epoch):
     if epoch%3 == 0:
