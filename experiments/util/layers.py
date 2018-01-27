@@ -28,12 +28,11 @@ def full_layer(ain, shape, namescope, activation=None):
 def char_accuracy(Ytrue, Ypred, namescope):
     layer = {}
     with tf.name_scope(namescope):
-        correct_pred = tf.equal(tf.argmax(Ypred, 1), tf.argmax(Ytrue, 1))
-        cacc = tf.reduce_mean(
-            tf.cast(correct_pred, tf.float32), name='cacc')
+        cpred = tf.equal(tf.argmax(Ypred, 1), tf.argmax(Ytrue, 1))
+        cacc = tf.reduce_mean(tf.cast(cpred, tf.float32), name='cacc')
 
-        layer['correct_pred'] = correct_pred
-        layer['accuracy'] = cacc
+        layer['cpred'] = cpred
+        layer['cacc'] = cacc
         layer['summary'] = [
              summary.scalar(_cname(namescope,'cacc'), cacc),
         ]
@@ -63,15 +62,15 @@ def word_accuracy(preds, accs, namescope):
 def xentropy_loss(Ylogit, Ytrue, namescope, norm=1000):
     layer = {}
     with tf.name_scope(namescope):
-        xentropy = tf.nn.softmax_cross_entropy_with_logits(
+        xent = tf.nn.softmax_cross_entropy_with_logits(
             logits=Ylogit, labels=Ytrue)
         
-        loss = tf.reduce_mean(xentropy) * norm
+        loss = tf.reduce_mean(xent) * norm
 
         layer['loss'] = loss
-        layer['xentropy'] = xentropy
+        layer['xent'] = xent
         layer['summary'] = [
-            summary.histogram(_cname(namescope,'xentropy'), xentropy),
+            summary.histogram(_cname(namescope,'xent'), xent),
             summary.scalar(_cname(namescope,'loss'), loss),
         ]
 

@@ -47,7 +47,7 @@ model = list(map(selector, Ps))
 train = [x[0][6] for x in model]
 loss = [x[2] for x in model]
 accuracy = [x[1] for x in model]
-preds = [x[0][4]['correct_pred'] for x in model]
+preds = [x[0][4]['pred'] for x in model]
 _wacc = word_accuracy(preds, accuracy, 'wacc')
 
 mpacc = _wacc['pacc']
