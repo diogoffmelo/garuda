@@ -8,7 +8,7 @@ from util.report import report
 
 
 db_path = '../generate/datatest.hdf5'
-nepochs = 1
+nepochs = 100
 
 with h5py.File(db_path, 'r') as datadb:
     idxs = datadb['train']
