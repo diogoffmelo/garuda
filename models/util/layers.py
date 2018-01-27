@@ -41,29 +41,21 @@ def char_accuracy(Ytrue, Ypred, namescope):
     return layer
 
 
-def word_accuracy(correct_preds, namescope):
-    correct_preds = [tf.reshape(c, [-1, 1]) for c in correct_preds]
+def word_accuracy(preds, accs, namescope):
     layer = {}    
     with tf.name_scope(namescope):
-        def match(acc, elems):
-            return tf.foldl(
-                    fn=tf.logical_and, 
-                    elems=elems,
-                    #initializer=tf.constant(True, shape=[1], dtype=tf.bool),
-                    back_prop=False,
-                )
+        pacc = tf.reduce_prod(accs, name='pacc')
+        wacc = tf.reduce_mean(
+                    tf.cast(tf.reduce_all(preds, axis=0),
+                            tf.float32),
+                    name='wacc')
 
-        preds_red = tf.scan(
-                fn=match,
-                elems=correct_preds,
-                initializer=tf.constant(True, shape=[1], dtype=tf.bool),
-                back_prop=False,
-            )    
-
-        accuracy = tf.reduce_mean(
-            tf.cast(preds_red, tf.float32), name='waccuracy')
-
-        layer['accuracy'] = accuracy
+        layer['pacc'] = pacc
+        layer['wacc'] = wacc
+        layer['sumary'] = {
+            summary.scalar(_cname(namescope,'pacc'), pacc),
+            summary.scalar(_cname(namescope,'wacc'), wacc),
+        }
 
     return layer
 
