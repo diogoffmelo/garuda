@@ -5,8 +5,9 @@ import h5py
 from util.batch import NumpyBatchGenerator, SampleMode
 from util.report import report
 from models.linear import LinearW
+from models.mlp import Mlp
 
-db_path = '../generate/data.hdf5'
+db_path = '../generate/datatest.hdf5'
 nepochs = 30
 
 with h5py.File(db_path, 'r') as datadb:
@@ -31,7 +32,8 @@ with graph.as_default():
     Xtrue = tf.placeholder(tf.float32, [None, Xresized])
     Ytrue = tf.placeholder(tf.float32, [None, Ypos, Yclasses])
 
-model = LinearW(Xtrue, Ytrue, graph, 'linear')
+#model = LinearW(Xtrue, Ytrue, graph, 'linear')
+model = Mlp(Xtrue, Ytrue, 1000, graph, 'mlp')
 
 with graph.as_default():
     train = [tf.train.AdamOptimizer(0.001).minimize(x) for x in model.xent]

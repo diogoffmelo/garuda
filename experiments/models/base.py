@@ -10,6 +10,7 @@ class BaseModel(object):
         self.yshape = [int(d) for d in yin.shape[1:]]
         self.name = name
         self.vars = []
+        self.metrics = {}
 
 
     def bname(self, comp):

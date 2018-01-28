@@ -29,20 +29,27 @@ class LinearC(BaseModel):
         self.vars += [self.fl['W'], self.fl['b']]
 
 
-class LinearW(BaseModel):
-    def __init__(self, xin, yin, graph, name):
-        BaseModel.__init__(self, xin, yin, graph, name)
+class CopyMeticsLayerMixin(object):
+    _M = ['metrics', 'cacc', 'cpred', 'loss', 'xent']
+    def copy_metrics(self, other):
+        for m in self._M:
+            setattr(self, m, getattr(other, m))
+
+
+class LinearWMixin(object):
+    def install_linearw(self):
         self.nchars, self.nclasses = self.yshape
         self.cmodels = []
         self.cacc = []
         self.cpred = []
         self.loss = []
         self.xent = []
+
         for i in range(self.nchars):
             with self.g.as_default():
                 cyi = tf.reshape(self.yin[:, i, :], [-1, self.nclasses])
             
-            cmodel = LinearC(xin, cyi, graph, self.bname('cm{}'.format(i)))
+            cmodel = LinearC(self.lxin, cyi, self.g, self.bname('cm{}'.format(i)))
             self.cmodels.append(cmodel)
             self.vars += cmodel.vars
             self.cacc.append(cmodel.cacc)
@@ -53,14 +60,22 @@ class LinearW(BaseModel):
         with self.g.as_default():
             self.wacc = word_accuracy(self.cpred, self.cacc, self.bname('wacc'))
 
-        self.metrics = {
+        self.metrics.update({
             'cacc': self.cacc,
             'loss': self.loss,
             'pacc': self.wacc['pacc'], 
             'wacc': self.wacc['wacc'],
-        }
+        })
 
 
+class LinearFoodMixin(object):
     def food(self, batch):
         _X, _Y = batch
         return {self.yin: _Y, self.xin: _X.reshape([-1, self.xshape[-1]])}
+
+
+class LinearW(BaseModel, LinearWMixin, LinearFoodMixin):
+    def __init__(self, xin, yin, graph, name):
+        BaseModel.__init__(self, xin, yin, graph, name)
+        self.lxin = self.xin
+        self.install_linearw()
