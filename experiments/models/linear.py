@@ -74,7 +74,7 @@ class LinearFoodMixin(object):
         return {self.yin: _Y, self.xin: _X.reshape([-1, self.xshape[-1]])}
 
 
-class LinearW(BaseModel, LinearWMixin, LinearFoodMixin):
+class LinearW(LinearWMixin, LinearFoodMixin, BaseModel):
     def __init__(self, xin, yin, graph, name):
         BaseModel.__init__(self, xin, yin, graph, name)
         self.lxin = self.xin

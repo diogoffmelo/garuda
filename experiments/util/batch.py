@@ -43,6 +43,8 @@ class NumpyBatchGenerator(BatchGeneratorMixin, BatchGeneratorEpochsMixin):
     def __init__(self, X, Y, mode=SampleMode.RANDOM, batch_size=128):
         self.X = X
         self.Y = Y
+        self.xshape = X.shape[1:]
+        self.yshape = Y.shape[1:]
         BatchGeneratorMixin.__init__(self, mode, X.shape[0], batch_size)
 
     def gen_batches(self):
