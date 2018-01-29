@@ -51,10 +51,10 @@ def word_accuracy(preds, accs, namescope):
 
         layer['pacc'] = pacc
         layer['wacc'] = wacc
-        layer['sumary'] = {
+        layer['summary'] = [
             summary.scalar(_cname(namescope,'pacc'), pacc),
             summary.scalar(_cname(namescope,'wacc'), wacc),
-        }
+        ]
 
     return layer
 

@@ -14,3 +14,4 @@ class Mlp(LinearFoodMixin, CopyMeticsLayerMixin, BaseModel):
         
         self.lin = LinearW(self.fl['aout'], yin, graph, self.bname('lin'))
         self.copy_metrics(self.lin)
+        self.vars += [self.fl['W'], self.fl['b']]

@@ -30,7 +30,7 @@ class LinearC(BaseModel):
 
 
 class CopyMeticsLayerMixin(object):
-    _M = ['metrics', 'cacc', 'cpred', 'loss', 'xent']
+    _M = ['metrics', 'cacc', 'cpred', 'loss', 'xent', 'vars', 'wacc']
     def copy_metrics(self, other):
         for m in self._M:
             setattr(self, m, getattr(other, m))
@@ -46,10 +46,17 @@ class LinearWMixin(object):
         self.xent = []
 
         for i in range(self.nchars):
-            with self.g.as_default():
-                cyi = tf.reshape(self.yin[:, i, :], [-1, self.nclasses])
+            mname = 'cm{}'.format(i)
+            with self.g.as_default(), tf.name_scope(self.bname(mname)):
+                with tf.name_scope(self.bname(mname + '.reshape')):
+                    cyi = tf.reshape(self.yin[:, i, :], 
+                                     [-1, self.nclasses])
+                
+                cmodel = LinearC(self.lxin, 
+                                 cyi, 
+                                 self.g, 
+                                 self.bname(mname))
             
-            cmodel = LinearC(self.lxin, cyi, self.g, self.bname('cm{}'.format(i)))
             self.cmodels.append(cmodel)
             self.vars += cmodel.vars
             self.cacc.append(cmodel.cacc)
