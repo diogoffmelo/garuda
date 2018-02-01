@@ -39,7 +39,7 @@ def load_to_batches(dbargs,
     
     train_gen = NumpyBatchGenerator(Xtrain, 
                                     Ytrain,
-                                    SampleMode.RANDOM, 
+                                    SampleMode.SEQUENTIAL, 
                                     batch_size=train_bsize)
     
     report_gen = NumpyBatchGenerator(Xtrain,

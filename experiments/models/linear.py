@@ -1,88 +1,94 @@
 import tensorflow as tf
 
-from .base import BaseModel
+from .base import BaseModel, Layer, OuputLayer
 from util.layers import full_layer, xentropy_loss, char_accuracy, word_accuracy
 
 
-class LinearC(BaseModel):
-    def __init__(self, xin, yin, graph, name):
-        BaseModel.__init__(self, xin, yin, graph, name)
-        self.shape = [self.xshape[-1], self.yshape[-1]]
-        with self.g.as_default():
-            self.fl = full_layer(self.xin, self.shape, self.bname('fl'), None)
+class LinearSingleCharOutputLayer(OuputLayer):
+    def __init__(self, ichar, graph, name):
+        Layer.__init__(self, graph, name)
+        self.ichar = ichar
+        self.name = '{}_{}'.format(self.name, ichar)
+    
+    def build(self, other):
+        xin = other.xout
+        yin = other.yin
+        with self.g.as_default(), tf.name_scope(self.name):
+            self.cyin = tf.reshape(yin[:, self.ichar, :], 
+                             [-1, yin.shape[-1]], name='select')
+
+            self.shape = [int(xin.shape[-1]), int(self.cyin.shape[-1])]            
+            self.fl = full_layer(xin, self.shape, self.bname('fl'), None)
             self.ylogits = self.fl['aout']
             self.ypreds = tf.nn.softmax(self.ylogits)
             self.accl = char_accuracy(
-                            self.yin, 
+                            self.cyin, 
                             self.ypreds, 
                             self.bname('acc'))
             self.xentl = xentropy_loss(
                             self.ylogits, 
-                            self.yin, 
+                            self.cyin, 
                             self.bname('xent'))
-
 
         self.cacc = self.accl['cacc']
         self.cpred = self.accl['cpred']
         self.loss = self.xentl['loss']
         self.xent = self.xentl['xent']
         self.vars += [self.fl['W'], self.fl['b']]
+        
+        self.summ += self.xentl['summary'] + self.accl['summary']
+        self.summ_ext += self.fl['summary']
+        self.metrics = {
+            'cacc': self.cacc,
+            'loss': self.loss
+        }
 
 
-class CopyMeticsLayerMixin(object):
-    _M = ['metrics', 'cacc', 'cpred', 'loss', 'xent', 'vars', 'wacc']
-    def copy_metrics(self, other):
-        for m in self._M:
-            setattr(self, m, getattr(other, m))
+class LinearLayer(Layer):
+    def __init__(self, ishape, graph, name):
+        Layer.__init__(self, graph, name)
+        self.ishape = ishape
+
+    def build(self, other):
+        self.xin = other.xout
+        self.yin = other.yin
+        with self.g.as_default():
+            self.fl = full_layer(self.xin, self.ishape, self.bname('fl'), tf.nn.relu)
+
+        self.xout = self.fl['aout']
+        self.vars += [self.fl['W'], self.fl['b']]
+        self.summ_ext += self.fl['summary']
 
 
-class LinearWMixin(object):
-    def install_linearw(self):
-        self.nchars, self.nclasses = self.yshape
-        self.cmodels = []
+class LinearMultiCharOutputLayer(OuputLayer):
+    def __init__(self, nchars, graph, name):
+        Layer.__init__(self, graph, name)
+        self.nchars = nchars
+        self.cmodels = [LinearSingleCharOutputLayer(i, graph, name)
+                                for i in range(nchars)]
+
+    def build(self, other):
         self.cacc = []
         self.cpred = []
         self.loss = []
         self.xent = []
-
-        for i in range(self.nchars):
-            mname = 'cm{}'.format(i)
-            with self.g.as_default(), tf.name_scope(self.bname(mname)):
-                with tf.name_scope(self.bname(mname + '.reshape')):
-                    cyi = tf.reshape(self.yin[:, i, :], 
-                                     [-1, self.nclasses])
-                
-                cmodel = LinearC(self.lxin, 
-                                 cyi, 
-                                 self.g, 
-                                 self.bname(mname))
-            
-            self.cmodels.append(cmodel)
+        for cmodel in self.cmodels:
+            cmodel.build(other)
             self.vars += cmodel.vars
             self.cacc.append(cmodel.cacc)
             self.cpred.append(cmodel.cpred)
             self.loss.append(cmodel.loss)
             self.xent.append(cmodel.xent)
+            self.summ += cmodel.summ
+            self.summ_ext += cmodel.summ_ext
 
         with self.g.as_default():
             self.wacc = word_accuracy(self.cpred, self.cacc, self.bname('wacc'))
 
-        self.metrics.update({
+        self.summ = self.wacc['summary']
+        self.metrics = {
             'cacc': self.cacc,
             'loss': self.loss,
             'pacc': self.wacc['pacc'], 
             'wacc': self.wacc['wacc'],
-        })
-
-
-class LinearFoodMixin(object):
-    def food(self, batch):
-        _X, _Y = batch
-        return {self.yin: _Y, self.xin: _X.reshape([-1, self.xshape[-1]])}
-
-
-class LinearW(LinearWMixin, LinearFoodMixin, BaseModel):
-    def __init__(self, xin, yin, graph, name):
-        BaseModel.__init__(self, xin, yin, graph, name)
-        self.lxin = self.xin
-        self.install_linearw()
+        }
