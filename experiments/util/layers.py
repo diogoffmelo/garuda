@@ -1,8 +1,10 @@
 import tensorflow as tf
 from tensorflow import summary
 
+
 def _cname(namescope, varname):
     return '{}.{}'.format(namescope, varname) if namescope else varname
+
 
 def full_layer(ain, shape, namescope, activation=None):
     layer = {}
@@ -72,6 +74,31 @@ def xentropy_loss(Ylogit, Ytrue, namescope, norm=1000):
         layer['summary'] = [
             summary.histogram(_cname(namescope,'xent'), xent),
             summary.scalar(_cname(namescope,'loss'), loss),
+        ]
+
+    return layer
+
+
+def conv_layer(ain, shape, namespace, **kwargs):
+    layer = {}
+    stridep = kwargs.get('stridep', 1)
+    strides = kwargs.get('strides', [1, stridep, stridep, 1])
+    padding = kwargs.get('padding', 'SAME')
+    activation = kwargs.get('activation', None)
+    with tf.name_scope(namespace):
+        layer['W'] = tf.Variable(tf.truncated_normal(shape, stddev=0.1), name='W')
+        layer['b'] = tf.Variable(tf.ones([shape[-1]])/10.0, name='b')
+        conv = tf.nn.conv2d(ain,
+                            layer['W'],
+                            strides=strides,
+                            padding=padding,
+                            name='conv')
+        layer['a'] = tf.add(conv, layer['b'], name='convsig')
+        layer['aout'] = activation(layer['a']) if activation else layer['a']
+        layer['summary'] = [
+            tf.summary.histogram('W', layer['W'], family=namespace),
+            tf.summary.histogram('b', layer['b'], family=namespace),
+            tf.summary.histogram('a', layer['a'], family=namespace),
         ]
 
     return layer

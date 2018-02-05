@@ -1,24 +1,23 @@
 import tensorflow as tf
 
-from .base import BaseModel, Layer, OuputLayer
+from .base import Layer, OuputLayer
 from util.layers import full_layer, xentropy_loss, char_accuracy, word_accuracy
 
 
 class LinearSingleCharOutputLayer(OuputLayer):
     def __init__(self, ichar, graph, name):
-        Layer.__init__(self, graph, name)
+        OuputLayer.__init__(self, graph, name)
         self.ichar = ichar
         self.name = '{}_{}'.format(self.name, ichar)
     
     def build(self, other):
-        xin = other.xout
-        yin = other.yin
+        OuputLayer.build(self, other)
         with self.g.as_default(), tf.name_scope(self.name):
-            self.cyin = tf.reshape(yin[:, self.ichar, :], 
-                             [-1, yin.shape[-1]], name='select')
+            self.cyin = tf.reshape(self.yin[:, self.ichar, :], 
+                             [-1, self.yin.shape[-1]], name='select')
 
-            self.shape = [int(xin.shape[-1]), int(self.cyin.shape[-1])]            
-            self.fl = full_layer(xin, self.shape, self.bname('fl'), None)
+            self.shape = [int(self.xin.shape[-1]), int(self.cyin.shape[-1])]            
+            self.fl = full_layer(self.xin, self.shape, self.bname('fl'), None)
             self.ylogits = self.fl['aout']
             self.ypreds = tf.nn.softmax(self.ylogits)
             self.accl = char_accuracy(
@@ -50,8 +49,7 @@ class LinearLayer(Layer):
         self.ishape = ishape
 
     def build(self, other):
-        self.xin = other.xout
-        self.yin = other.yin
+        Layer.build(self, other)
         with self.g.as_default():
             self.fl = full_layer(self.xin, self.ishape, self.bname('fl'), tf.nn.relu)
 
@@ -62,12 +60,13 @@ class LinearLayer(Layer):
 
 class LinearMultiCharOutputLayer(OuputLayer):
     def __init__(self, nchars, graph, name):
-        Layer.__init__(self, graph, name)
+        OuputLayer.__init__(self, graph, name)
         self.nchars = nchars
         self.cmodels = [LinearSingleCharOutputLayer(i, graph, name)
                                 for i in range(nchars)]
 
     def build(self, other):
+        OuputLayer.build(self, other)
         self.cacc = []
         self.cpred = []
         self.loss = []

@@ -1,21 +1,6 @@
 import numpy as np
 import tensorflow as tf
 
-class BaseModel(object):
-    def __init__(self, xin, yin, graph, name):
-        self.g = graph
-        self.xin = xin
-        self.yin = yin
-        self.xshape = [int(d) for d in xin.shape[1:]]
-        self.yshape = [int(d) for d in yin.shape[1:]]
-        self.name = name
-        self.vars = []
-        self.metrics = {}
-
-
-    def bname(self, comp):
-        return '{}.{}'.format(self.name, comp)
-
 
 class Layer(object):
     def __init__(self, graph, name):
@@ -29,7 +14,12 @@ class Layer(object):
         return '{}.{}'.format(self.name, comp)
 
     def build(self, other):
-        raise NotImplementedError()
+        self.xin = other.xout
+        self.yin = other.yout
+        self.yout = self.yin
+        self.xout = self.yin
+        
+        #raise NotImplementedError()
 
 
 class InputLayer(Layer):
@@ -44,24 +34,54 @@ class InputLayer(Layer):
                                    name='Y')
 
         self.xout = self.xin
+        self.yout = self.yin
+
 
     def food(self, batch):
         _X, _Y = batch
         return {self.yin: _Y, self.xin: _X}
 
 
+    def build(self, other):
+        raise NotImplementedError()
+
+
 class OuputLayer(Layer):
     pass
 
 
-class LinearInputLayer(InputLayer):
-    def __init__(self, xshape, yshape, graph, name):
-        InputLayer.__init__(self, xshape, yshape, graph, name)
-        x1, x2, x3 = list(map(int, self.xin.shape[1:]))
-        with graph.as_default(), tf.name_scope(self.bname('reshape')):
+class ReshapeLayer(Layer):
+    def __init__(self, outshape, graph, name):
+        Layer.__init__(self, graph, name)
+        self.outshape = list(map(int, outshape)) if outshape else []
+
+
+    def build(self, other):
+        Layer.build(self, other)
+        with self.g.as_default(), tf.name_scope(self.bname('reshape')):
             self.xout = tf.reshape(self.xin, 
-                                   [-1, x1 * x2 * x3],
+                                   self.outshape,
                                    name='reshape')
+
+
+class LinearReshapeLayer(ReshapeLayer):
+    def __init__(self, graph, name):
+        ReshapeLayer.__init__(self, None, graph, name)
+
+
+    def build(self, other):
+        _, x1 ,x2, x3 = other.xout.shape
+        self.outshape = [-1, int(x1)*int(x2)*int(x3)]
+        ReshapeLayer.build(self, other)
+
+# class LinearInputLayer(InputLayer):
+#     def __init__(self, xshape, yshape, graph, name):
+#         InputLayer.__init__(self, xshape, yshape, graph, name)
+#         x1, x2, x3 = list(map(int, self.xin.shape[1:]))
+#         with graph.as_default(), tf.name_scope(self.bname('reshape')):
+#             self.xout = tf.reshape(self.xin, 
+#                                    [-1, x1 * x2 * x3],
+#                                    name='reshape')
 
 
 class StackedLayers(object):

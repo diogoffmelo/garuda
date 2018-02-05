@@ -30,24 +30,30 @@ batchargs = {
 train_gen, report_gen, val_gen = load_to_batches(dbargs, batchargs)
 graph = tf.Graph()
 
-from models.base import StackedLayers, LinearInputLayer
+#from models.base import StackedLayers, LinearInputLayer
+from models.base import StackedLayers
 from models.linear import LinearMultiCharOutputLayer, LinearLayer
 from models.linear import LinearSingleCharOutputLayer
+from models.base import LinearReshapeLayer, InputLayer
+from models.conv import ConvLayer
+
 
 
 model = StackedLayers(
-        LinearInputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
-        LinearLayer([(50 * 200 * 3), 2000], graph, 'linear'),
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        ConvLayer([5, 5, 3, 6], 1, graph, 'conv1'),
+        LinearReshapeLayer(graph, 'reshape'),
+        #LinearLayer([(50 * 200 * 3), 2000], graph, 'linear'),
         #LinearLayer([2000, 200], graph, 'LINEAR2'),
-        LinearMultiCharOutputLayer(5, graph, 'classificador'),
-        #LinearSingleCharOutputLayer(0, graph, 'classificador'),
+        #LinearMultiCharOutputLayer(5, graph, 'classificador'),
+        LinearSingleCharOutputLayer(0, graph, 'classificador'),
     ).model
 
 
 
 with graph.as_default(), tf.name_scope('backprop'):
-    train = [tf.train.AdamOptimizer(0.001).minimize(x) for x in model.xent]
-    #train = tf.train.AdamOptimizer(0.001).minimize(model.xent)
+    #train = [tf.train.AdamOptimizer(0.001).minimize(x) for x in model.xent]
+    train = tf.train.AdamOptimizer(0.001).minimize(model.xent)
 
 writer = tf.summary.FileWriter('./graphs/test')
 writer.add_graph(model.g)
