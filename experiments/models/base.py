@@ -74,15 +74,6 @@ class LinearReshapeLayer(ReshapeLayer):
         self.outshape = [-1, int(x1)*int(x2)*int(x3)]
         ReshapeLayer.build(self, other)
 
-# class LinearInputLayer(InputLayer):
-#     def __init__(self, xshape, yshape, graph, name):
-#         InputLayer.__init__(self, xshape, yshape, graph, name)
-#         x1, x2, x3 = list(map(int, self.xin.shape[1:]))
-#         with graph.as_default(), tf.name_scope(self.bname('reshape')):
-#             self.xout = tf.reshape(self.xin, 
-#                                    [-1, x1 * x2 * x3],
-#                                    name='reshape')
-
 
 class StackedLayers(object):
     def __init__(self, *layers):
@@ -95,8 +86,3 @@ class StackedLayers(object):
 
         layers[-1].food = layers[0].food
         self.model = layers[-1]
-
-
-
-
-
