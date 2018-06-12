@@ -1,3 +1,5 @@
 *.hdf5
 *__pycache__*
 experiments/graphs*
+*.pkl
+*.ipynb_checkpoints*

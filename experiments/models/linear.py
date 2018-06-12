@@ -30,6 +30,7 @@ class LinearSingleCharOutputLayer(OuputLayer):
                             self.bname('xent'))
 
         self.cacc = self.accl['cacc']
+        self.nacc = self.accl['nacc']
         self.cpred = self.accl['cpred']
         self.loss = self.xentl['loss']
         self.xent = self.xentl['xent']
@@ -44,14 +45,15 @@ class LinearSingleCharOutputLayer(OuputLayer):
 
 
 class LinearLayer(Layer):
-    def __init__(self, ishape, graph, name):
+    def __init__(self, oshape, graph, name):
         Layer.__init__(self, graph, name)
-        self.ishape = ishape
+        self.oshape = oshape
 
     def build(self, other):
         Layer.build(self, other)
         with self.g.as_default():
-            self.fl = full_layer(self.xin, self.ishape, self.bname('fl'), tf.nn.relu)
+            shape = [int(self.xin.shape[-1]), int(self.oshape)]
+            self.fl = full_layer(self.xin, shape, self.bname('fl'), tf.nn.relu)
 
         self.xout = self.fl['aout']
         self.vars += [self.fl['W'], self.fl['b']]
@@ -71,10 +73,12 @@ class LinearMultiCharOutputLayer(OuputLayer):
         self.cpred = []
         self.loss = []
         self.xent = []
+        self.cnacc = []
         for cmodel in self.cmodels:
             cmodel.build(other)
             self.vars += cmodel.vars
             self.cacc.append(cmodel.cacc)
+            self.cnacc.append(cmodel.nacc)
             self.cpred.append(cmodel.cpred)
             self.loss.append(cmodel.loss)
             self.xent.append(cmodel.xent)
@@ -84,6 +88,7 @@ class LinearMultiCharOutputLayer(OuputLayer):
         with self.g.as_default():
             self.wacc = word_accuracy(self.cpred, self.cacc, self.bname('wacc'))
 
+        self.nacc = self.wacc['nacc']
         self.summ = self.wacc['summary']
         self.metrics = {
             'cacc': self.cacc,

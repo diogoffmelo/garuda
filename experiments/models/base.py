@@ -18,8 +18,6 @@ class Layer(object):
         self.yin = other.yout
         self.yout = self.yin
         self.xout = self.yin
-        
-        #raise NotImplementedError()
 
 
 class InputLayer(Layer):
@@ -35,7 +33,6 @@ class InputLayer(Layer):
 
         self.xout = self.xin
         self.yout = self.yin
-
 
     def food(self, batch):
         _X, _Y = batch

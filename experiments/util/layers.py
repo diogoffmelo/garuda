@@ -31,10 +31,12 @@ def char_accuracy(Ytrue, Ypred, namescope):
     layer = {}
     with tf.name_scope(namescope):
         cpred = tf.equal(tf.argmax(Ypred, 1), tf.argmax(Ytrue, 1))
+        nacc = tf.reduce_sum(tf.cast(cpred, tf.int8), name='ncacc')
         cacc = tf.reduce_mean(tf.cast(cpred, tf.float32), name='cacc')
 
         layer['cpred'] = cpred
         layer['cacc'] = cacc
+        layer['nacc'] = nacc
         layer['summary'] = [
              summary.scalar(_cname(namescope,'cacc'), cacc),
         ]
@@ -46,6 +48,10 @@ def word_accuracy(preds, accs, namescope):
     layer = {}    
     with tf.name_scope(namescope):
         pacc = tf.reduce_prod(accs, name='pacc')
+        nacc = tf.reduce_sum(
+                    tf.cast(tf.reduce_all(preds, axis=0),
+                            tf.float32),
+                    name='nacc')
         wacc = tf.reduce_mean(
                     tf.cast(tf.reduce_all(preds, axis=0),
                             tf.float32),
@@ -53,6 +59,7 @@ def word_accuracy(preds, accs, namescope):
 
         layer['pacc'] = pacc
         layer['wacc'] = wacc
+        layer['nacc'] = nacc
         layer['summary'] = [
             summary.scalar(_cname(namescope,'pacc'), pacc),
             summary.scalar(_cname(namescope,'wacc'), wacc),

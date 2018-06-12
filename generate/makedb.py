@@ -28,17 +28,21 @@ def images_to_db(data_path, db_path, specs):
     VOCAB = specs['vocab']
     CLASSES = np.asarray(list(VOCAB))
 
-    finds = os.listdir(data_path)
+    finds = os.listdir(data_path)[:20000]
     finds = [f for f in finds if f.split('.')[-1] == specs['format']]
 
     total = len(finds)
     ignored = []
 
-    h5db = h5py.File(db_path, 'w')
-    xset = h5db.create_dataset('X', (total,) + SHAPE, dtype=np.float32)
-    yset = h5db.create_dataset('Y', 
-                                (total, specs['text_length'], len(VOCAB)), 
-                                dtype=np.int8)
+    if specs['db_type'] == 'h5db':
+        h5db = h5py.File(db_path, 'w')
+        xset = h5db.create_dataset('X', (total,) + SHAPE, dtype=np.float32)
+        yset = h5db.create_dataset('Y', 
+                                    (total, specs['text_length'], len(VOCAB)), 
+                                    dtype=np.int8)
+    else:
+        xset = np.zeros((total,) + SHAPE, dtype=np.float32)
+        yset = np.zeros((total, specs['text_length'], len(VOCAB)), dtype=np.int8)
 
     print('looking for images....')
     cnt_read = 0
@@ -70,11 +74,22 @@ def images_to_db(data_path, db_path, specs):
     idxs_train = np.asarray(idxs[:cut])
     idxs_test = np.asarray(idxs[cut:])
 
-    train = h5db.create_dataset('train', idxs_train.shape, dtype=idxs_train.dtype)
-    test = h5db.create_dataset('test', idxs_test.shape, dtype=idxs_test.dtype)
-    train[...] = idxs_train
-    test[...] = idxs_test
-    h5db.close()
+    if specs['db_type'] == 'h5db':
+        train = h5db.create_dataset('train', idxs_train.shape, dtype=idxs_train.dtype)
+        test = h5db.create_dataset('test', idxs_test.shape, dtype=idxs_test.dtype)
+        train[...] = idxs_train
+        test[...] = idxs_test
+        h5db.close()
+
+    else:
+        with open(db_path, 'wb') as f:
+            pickle.dump({
+                            'Xtrain':xset[idxs_train],
+                            'Ytrain':yset[idxs_train],
+                            'Xtest':xset[idxs_test],
+                            'Ytest':yset[idxs_test],
+                        }, f)
+
     print('done.')
 
 
@@ -83,8 +98,10 @@ specs = {
     'shape': (50, 200, 3),
     'text_length': 5,
     'format': 'png',
+    'db_type': 'pkl',
 }
 
 data_path = './images'
-db_path = './data.hdf5'
+#db_path = './data.hdf5'
+db_path = './data20k.pkl'
 images_to_db(data_path, db_path, specs)
