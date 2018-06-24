@@ -1,0 +1,163 @@
+\documentclass[openany, a4paper,12pt, oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amsfonts}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{units}
+\usepackage{placeins}
+\usepackage{listings}
+\usepackage{tabularx,colortbl}
+\usepackage{fancyhdr,lastpage}
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{anysize}
+\marginsize{3.0cm}{2.5cm}{3.0cm}{2.5cm}
+\oddsidemargin 0.0cm
+\usepackage{transparent}
+\usepackage{eso-pic}
+\usepackage[T1]{fontenc}
+\usepackage{lscape}
+\usepackage{lettrine}
+\usepackage{etoolbox}
+
+\usepackage{diagbox}
+%\usepackage{slashbox}
+
+
+\apptocmd{\thebibliography}{\csname phantomsection\endcsname\addcontentsline{toc}{chapter}{\bibname}}{}{}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{rotating}
+\usepackage{setspace}
+\usepackage[titletoc]{appendix}
+\usepackage{pdfpages}
+
+
+\begin{document}
+\pagestyle{empty}
+\begin{flushright}
+	\noindent\rule{15cm}{0.4pt}\\[0.5cm]
+	\textbf{{ \LARGE Projeto de Conclusão de Curso}}\\[0.1cm]
+	\noindent\rule{15cm}{0.4pt}\\[7cm]
+	\textbf{{\Large Aprendizado profundo com capacidade computacional reduzida: uma aplicação à quebra de captchas.}}\\[4cm]
+\end{flushright}
+
+\begin{center}	
+	\textbf{\large Diogo Felipe Félix de Melo}\\[3cm]	
+	
+	\textbf{\large Área de Concentra\c{c}\~{a}o:} Aprendizado de Máquina.\\	
+	\textbf{\large Orientador(a):} Pablo de Azevedo Sampaio\\[2cm]
+	\vfill
+	\textsc{Recife, Maio/2018}.
+\end{center}
+\pagebreak
+\pagenumbering{gobble}
+
+\begin{center}	
+	\textbf{\textsc{\large Documento de Projeto de Pesquisa}}\\[1cm]
+\end{center}
+\section{Identificac\~{a}o}
+
+\textbf{Aluno(a):} Diogo Felipe Félix de Melo (diogoffmelo@gmail.com)\\
+\textbf{Orientador(a):} Pablo de Azevedo Sampaio (prof.pablo.sampaio@gmail.com)\\
+\textbf{Título:} Aprendizado profundo com capacidade computacional reduzida: uma aplicação à quebra de captchas.\\
+\textbf{Área de Concentração:} Aprendizado de Máquina\\
+\textbf{Linha de Pesquisa:} Redes Neurais de aprendizado profundo\\
+
+
+\section{Introdução}
+
+Modelos de aprendizado baseados em neurologia são conhecidos desde meados do século passado\cite{perceptron_58}. Das proposições iniciais até os dias de hoje, essa classe modelos tem evoluído em complexidade e técnicas de forma contínua,
+culminando em modelos com muitas camadas e níveis cada vez mais abstratos de representações (ver \cite{Goodfellow-et-al-2016} para uma breve revisão histórica).
+Apesar dos avanços na área, foi apenas recentemente que modelos neurais 
+começaram a redefinir o estado da arte, superando outras classes de algoritmos de aprendizado de máquina\cite{imagenet_2012}
+e até mesmo alcançando performances sobre humanas\cite{mnih2015humanlevel}.
+Tais avanços foram possíveis devido a três fatores chaves: a viabilização de bases de treino
+cada vez maiores o aumento do poder computacional e o desenvolvimento de novas arquiteturas neurais, como redes convolucionais e redes recursivas.
+
+A crescente melhoria de performance dos modelos de aprendizado profundo tem motivado
+estudos em áreas onde se é preciso distinguir computadores e humanos. CAPTCHAs \cite{captcha_2003} (do inglês Completely
+Automated  Public  Turing  tests  to  tell  Computers  and
+Humans Apart) definem uma coleção de técnicas que tem como objetivo bloquear a 
+ação de agentes autônomos na rede mundial de computadores. O subconjunto mais conhecido dessas técnicas talvez seja o de captchas baseados em texto\cite{captcha_review_2017}. 
+Nesse tipo de desafio, uma imagem contendo uma sequência de caracteres é exibida.
+A validação é feita pela comparação entre o texto informado pelo usuário e a resposta
+correta. Em trabalhos recentes, foram relatadas acurácias próximos à humana em sequências formadas exclusivamente por números\cite{captcha_break_2013} ou por uma única fonte\cite{captcha_break_2017}. Para o problema geral de 
+quebrar captchas baseados em texto, entretanto, modelos de aprendizado profundo ainda mostram
+desempenho inferior ao humano. Contudo, pesquisas recentes apontam para avanços claros nos próximos anos\cite{Bursztein2014TheEI}. Em comum, esses modelos possuem a 
+necessidade de muito poder computacional e/ou bases de dados extensivas.
+O treino dessas redes é tipicamente executado em clusters e/ou sistemas de computação sob demanda, com alto poder de paralelização e utilizando hardware de alto poder de processamento como GPUs e TPUs. Adicionalmente, As bases de treino comumente alcançam alguns terrabytes e envolvem grandes operações de aquisição e/ou geração.
+
+
+\section{Problema de Pesquisa}
+
+Neste trabalho vamos estudar a viabilidade do treino e validação de redes de aprendizado profundo em computador com pode de processamento mais modesto do que os usualmente utilizados nos melhores resultados encontrados na literatura.
+Mas especificamente, investigaremos se é possível construir um modelo de aprendizado profundo
+para quebra de captchas de texto em um computador pessoal e ainda alcançar
+resultados próximos do estado da arte conhecido na literatura.
+
+\section{Justificativa}
+
+O estado da arte em redes de aprendizado profundo tem aberto portas para aplicações em áreas como processamento de texto \cite{word2vec_2013},
+detecção de objetos \cite{Redmon2017YOLO9000BF} e
+jogos \cite{mnih2015humanlevel, alphagozero_2017}. Essas aplicações
+demandam por uma grande capacidade computacional, o que pode inviabilizar o acesso
+a essas novas tecnologias em realidades com orçamento mais baixo ou onde uma prototipação rápida e barata seja necessária. Com este trabalho esperamos demonstrar viabilidade da aplicação de modelos de aprendizado profundo para a quebra de captcha em realidades mais restritivas.
+
+\section{Objetivos}
+\textbf{Objetivo Geral:\\}
+
+Testar a viabilidade do uso de modelos de aprendizado profundo 
+em um computador pessoal.
+
+\textbf{Objetivos Específicos:\\}
+\begin{enumerate}
+	\item Investigar técnicas de aprendizado profundo aplicáveis ao problema.
+	\item Treinar e/ou validar modelos de aprendizado profundo em um computador pessoal para quebra de captcha.
+	\item Disponibilizar os resultados da experimentação de forma pública.
+\end{enumerate}
+
+\section{Etapas de Pesquisa}
+
+Durante a execução da pesquisa será realizada uma revisão da literatura as técnicas
+utilizadas em aprendizado profundo, com enfoque em  
+problemas correlatos à extração de texto de imagens (quebra de captcha).
+Experimentar modelos e arquiteturas progressivamente mais complexas, 
+sendo o tempo de treino, uso de memória e acurácia na quebra de uma
+classe específica de captcha baseado em texto as variáveis de interesse. 
+
+
+Etapas:\\
+\begin{enumerate}
+\item Revisão literária.
+\item Experimentação.
+\item Confecção do TCC.
+\item Apresentação do TCC.
+\end{enumerate}
+
+\section{Cronograma}
+
+\begin{center}
+	\begin{tabular}{|c|c|c|c|}\hline
+		\backslashbox{Etapa}{Mês}
+		&\makebox[4em]{Maio}
+		&\makebox[4em]{Junho}
+		&\makebox[4em]{Julho} \\\hline\hline
+		
+		Revisão bibliográfica & X & X & X \\\hline
+		Experimentos 		  &   & X &   \\\hline
+		Confecção do TCC      &   & X & X \\\hline
+		Apresentação do TCC   &   &   & X \\\hline
+	\end{tabular}
+\end{center}
+
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+
+\end{document}

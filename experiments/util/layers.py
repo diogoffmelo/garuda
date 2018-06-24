@@ -6,11 +6,38 @@ def _cname(namescope, varname):
     return '{}.{}'.format(namescope, varname) if namescope else varname
 
 
+def conv_layer(ain, shape, namespace, **kwargs):
+    layer = {}
+    stridep = kwargs.get('stridep', 1)
+    strides = kwargs.get('strides', [1, stridep, stridep, 1])
+    padding = kwargs.get('padding', 'SAME')
+    activation = kwargs.get('activation', None)
+    with tf.name_scope(namespace):
+        stdev = tf.sqrt(2.0/(shape[0] * shape[1] * shape[-1]))
+        layer['W'] = tf.Variable(tf.truncated_normal(shape, stddev=stdev), name='W')
+        layer['b'] = tf.Variable(tf.zeros([shape[-1]]), name='b')
+        conv = tf.nn.conv2d(ain,
+                            layer['W'],
+                            strides=strides,
+                            padding=padding,
+                            name='conv')
+        layer['a'] = tf.add(conv, layer['b'], name='convsig')
+        layer['aout'] = activation(layer['a']) if activation else layer['a']
+        layer['summary'] = [
+            tf.summary.histogram('W', layer['W'], family=namespace),
+            tf.summary.histogram('b', layer['b'], family=namespace),
+            tf.summary.histogram('a', layer['a'], family=namespace),
+        ]
+
+    return layer
+
+
 def full_layer(ain, shape, namescope, activation=None):
     layer = {}
     with tf.name_scope(namescope):
+        stdev = tf.sqrt(2.0/shape[-1])
         W = tf.Variable(tf.truncated_normal(shape, stddev=0.1), name='W')
-        b = tf.Variable(tf.ones([shape[-1]])/10.0, name='b')
+        b = tf.Variable(tf.zeros([shape[-1]]), name='b')
         a = tf.matmul(ain, W) + b
         aout = activation(a) if activation else a
         
@@ -68,13 +95,13 @@ def word_accuracy(preds, accs, namescope):
     return layer
 
 
-def xentropy_loss(Ylogit, Ytrue, namescope, norm=1000):
+def xentropy_loss(Ylogit, Ytrue, namescope):
     layer = {}
     with tf.name_scope(namescope):
         xent = tf.nn.softmax_cross_entropy_with_logits(
             logits=Ylogit, labels=Ytrue)
         
-        loss = tf.reduce_mean(xent) * norm
+        loss = tf.reduce_mean(xent)
 
         layer['loss'] = loss
         layer['xent'] = xent
@@ -86,26 +113,3 @@ def xentropy_loss(Ylogit, Ytrue, namescope, norm=1000):
     return layer
 
 
-def conv_layer(ain, shape, namespace, **kwargs):
-    layer = {}
-    stridep = kwargs.get('stridep', 1)
-    strides = kwargs.get('strides', [1, stridep, stridep, 1])
-    padding = kwargs.get('padding', 'SAME')
-    activation = kwargs.get('activation', None)
-    with tf.name_scope(namespace):
-        layer['W'] = tf.Variable(tf.truncated_normal(shape, stddev=0.1), name='W')
-        layer['b'] = tf.Variable(tf.ones([shape[-1]])/10.0, name='b')
-        conv = tf.nn.conv2d(ain,
-                            layer['W'],
-                            strides=strides,
-                            padding=padding,
-                            name='conv')
-        layer['a'] = tf.add(conv, layer['b'], name='convsig')
-        layer['aout'] = activation(layer['a']) if activation else layer['a']
-        layer['summary'] = [
-            tf.summary.histogram('W', layer['W'], family=namespace),
-            tf.summary.histogram('b', layer['b'], family=namespace),
-            tf.summary.histogram('a', layer['a'], family=namespace),
-        ]
-
-    return layer

@@ -1,0 +1,38 @@
+\chapter{Fundamentação}
+
+\section{CAPTCHAS}
+
+CAPTCHAS podem ser formulados com um desafio sobre um conjunto de domínio cuja a resposta é um token. O domínio pode ser um trecho de áudio, uma sequencia de imagens ou até mesmo o histórico de navegação ou ambiente de desafiado. O token pode ser constituído de um conjunto de ações, o texto extraído do áudio ou imagem, ou possuir um histórico de navegação de baixo risco.
+
+CAPTCHAS de texto podem ser vistos como um problema de extração de texto em imagens, sendo assim uma generalização para o problema de OCR (optical character recognition). Entretanto, CAPTCHAS são especialmente desenvolvidos para serem de difícil solução para computadores e preferencialmente fáceis para seres humanos. Assim, algoritmos usuais de OCR tendem a demonstrar baixo desempenho na solução desses desafios.
+
+
+
+\section{Redes Neurais}
+
+De forma geral, aprendizado de máquina supervisionado pode ser descrito como, dado um conjunto de exemplos $D = \{(x, y)\}$, onde $x$  pertence ao domínio do treino e $y$ o rótulo associado, desejamos encontrar a função $\hat{y} = f(x)$, de tal modo que $\hat{y}$ seja o mais similar o possível à $y$ dado $x$. Por 'mais similar o possível' entende-se que conhecemos uma função de erro que é tão menor quanto melhor for a aproximação dada por $f(x)$. Formalmente, desejamos encontrar $f^*$ tal que
+\begin{equation}
+f^* = \min_f \langle err(y, f(x)) \rangle_{D},
+\end{equation}   
+onde $\langle \ldots \rangle_{D}$ representa o valor esperado no conjunto $D$. $J_D = \langle err(y, f(x)) \rangle_{D}$ é usualmente referido como o \textit{custo}.
+
+Redes neurais são um conjunto de técnicas inspiradas em processos cognitivos desempenhados pelo sistema nervoso que fornecem uma maneira de descrever famílias de funções. Dada uma família de funções $f^{\Theta} : x \leftarrow y$ definida por uma rede neural e parametrizadas por $\Theta$, podemos vasculhar o espaço de busca induzido por $\{\Theta\}$ para encontrar um função que satisfaça alguma propriedade de interesse. Em particular, no caso de aprendizado de máquina, estamos interessados em encontrar o parâmetro $\Theta^*$ tal que:
+\begin{equation}
+\Theta^* = \min_{\Theta} \langle err(y, f^{\Theta}(x)) \rangle_{D}.
+\end{equation} 
+
+
+
+
+Quando munidos de um algoritmo de busca, podemos vasculhar a família de funções descritas por uma rede neural em 
+
+Redes Neurais 
+
+
+
+Camadas Totalmente conectadas. 
+
+
+
+
+

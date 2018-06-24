@@ -1,0 +1,109 @@
+\chapter{Metodologia}
+
+\section{Geração dos CAPTCHAS}
+
+foram geradas 30000 imagens usando diferentes efeitos e cores com tokens de comprimento fixo em 5 utilizando-se a biblioteca \cite{simplecaptcha}
+
+um exemplo constitui de um tensor $(200, 50, 3)$ e de um token $(5, 36)$
+
+exemplos normalizados entre 0-1, token codificado one-hot, de modo que 
+
+\begin{equation}
+   p(y[i]|x)= 
+	\begin{cases}
+		1,	& \text{if } y[i]=w_i\\
+		0,  & \text{caso contrário.}
+	\end{cases}
+\end{equation}
+
+Os 30000 exemplos foram separados, de forma aleatória, em dois conjuntos:
+o conjunto de treino, $D_{tr}$, e o de validação, $D_{va}$, com 20000 e 10000 exemplos, respectivamente.
+
+\begin{figure}[ht]
+	\begin{subfigure}{.5\textwidth}
+		\centering
+	 	\includegraphics[width=.9\linewidth]{figuras/7103_b26bf.png}
+		\caption{b26bf}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{figuras/9456_ep8nb.png}
+		\caption{ep8nb}
+	\end{subfigure}%
+	\vspace{.05\linewidth}
+
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{figuras/21856_b7rw8.png}
+		\caption{b7rw8}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{figuras/19816_74wf6.png}
+		\caption{74wf6}
+	\end{subfigure}%
+	\vspace{.05\linewidth}
+
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{figuras/12248_dnyny.png}
+		\caption{dnyny}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{figuras/8873_g4cxh.png}
+		\caption{g4cxh}
+	\end{subfigure}%
+	\vspace{.05\linewidth}
+
+	\caption{Exemplos de CAPTCHAS gerados e seus respectivos tokens.}
+\end{figure}
+
+
+
+\section{Grandezas de interesse}
+
+\begin{equation}
+	S_i^{(D)} = \sum_{(x,y) \in D} p(y[i]|x) \log \hat{p}(y[i]|x)
+\end{equation}
+
+\begin{equation}
+	acc_w^{(D)} = \frac{N_w}{|D|}
+\end{equation}
+
+\begin{equation}
+\hat{p}_i^{(D)} = acc_i^{(D)} = \frac{N_i}{|D|}
+\end{equation}
+
+\begin{equation}
+\hat{p_w}^{(D)} = \prod_{i} \hat{p}_i^{(D)}
+\end{equation}
+
+\begin{equation}
+loss_i^{(D)} = \frac{S_i}{|D|}
+\end{equation}
+
+\begin{equation}
+loss^{(D)} = \sum_{i} loss_i^{(D)}
+\end{equation}
+
+$t$ tempo total de execução de uma época (treino + validação)
+$\tilde{t}$ tempo de treino em uma época.
+
+\section{Treino e Validação}
+
+Todos as redes foram treinadas em um mesmo computador com pentium core i5, 8gb de ram usando tensorflow.
+
+Redes inicializadas segundo critério de \cite{xavier_init}
+
+etapa de treino consiste em
+mini batch: sortear $D_{batch} \subset  D_{tr}$, com $|D_{batch}| = 10$ e minimizar  $S_i$'s nesse conjunto usando com \cite{adam_op} com taxa de aprendizado $l_r$. 
+
+O treino em uma época consiste em repetir $|D_{tr}|/|D_{batch}|$ vezes.
+
+calcular as grandezas de interesse em $D_{tr}$ e $D_{va}$
+
+
+experimentos realizados com diferentes taxas de aprendizado durante 10 épocas. Limite superior e inferior escolhidos manualmente baseados em melhor desempenho aprendizado rápido para a superior e estável para a inferior. Decaimento linear.
+
+Treinado usando critério de parada: mínimo de 10 épocas, máximo de 50 épocas, custo no conjunto de validação na época atual não maior que o .10 do menor valor encontrado até agora, custo no conjunto de treinamento atual menor que .03 da média dos últimos 5 valores. Inspirado em \cite{lutz_early_stop}

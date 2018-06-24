@@ -1,0 +1,23 @@
+\chapter{Introdução}
+
+Modelos de aprendizado baseados em neurologia são conhecidos desde meados do século passado\cite{perceptron_58}. Das proposições iniciais até os dias de hoje, essa classe modelos tem evoluído em complexidade e técnicas de forma contínua,
+culminando em modelos com muitas camadas e níveis cada vez mais abstratos de representações (ver \cite{Goodfellow-et-al-2016} para uma breve revisão histórica).
+Apesar dos avanços na área, foi apenas recentemente que modelos neurais 
+começaram a redefinir o estado da arte, superando outras classes de algoritmos de aprendizado de máquina\cite{imagenet_2012}
+e até mesmo alcançando performances sobre humanas\cite{mnih2015humanlevel}.
+Tais avanços foram possíveis devido a três fatores chaves: a viabilização de bases de treino
+cada vez maiores o aumento do poder computacional e o desenvolvimento de novas arquiteturas neurais, como redes convolucionais e redes recursivas.
+
+A crescente melhoria de performance dos modelos de aprendizado profundo tem motivado
+estudos em áreas onde se é preciso distinguir computadores e humanos. CAPTCHAs \cite{captcha_2003} (do inglês Completely
+Automated  Public  Turing  tests  to  tell  Computers  and
+Humans Apart) definem uma coleção de técnicas que tem como objetivo bloquear a 
+ação de agentes autônomos na rede mundial de computadores. O subconjunto mais conhecido dessas técnicas talvez seja o de captchas baseados em texto\cite{captcha_review_2017}. 
+Nesse tipo de desafio, uma imagem contendo uma sequência de caracteres é exibida.
+A validação é feita pela comparação entre o texto informado pelo usuário e a resposta
+correta. Em trabalhos recentes, foram relatadas acurácias próximos à humana em sequências formadas exclusivamente por números\cite{captcha_break_2013} ou por uma única fonte\cite{captcha_break_2017}. Para o problema geral de 
+quebrar captchas baseados em texto, entretanto, modelos de aprendizado profundo ainda mostram
+desempenho inferior ao humano. Contudo, pesquisas recentes apontam para avanços claros nos próximos anos\cite{Bursztein2014TheEI}. Em comum, esses modelos possuem a 
+necessidade de muito poder computacional e/ou bases de dados extensivas.
+O treino dessas redes é tipicamente executado em clusters e/ou sistemas de computação sob demanda, com alto poder de paralelização e utilizando hardware de alto poder de processamento como GPUs e TPUs. Adicionalmente, As bases de treino comumente alcançam alguns terrabytes e envolvem grandes operações de aquisição e/ou geração.
+

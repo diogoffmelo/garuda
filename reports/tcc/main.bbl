@@ -1,0 +1,94 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.6 }
+
+\bibitem{perceptron_58}
+\abntrefinfo{Rosenblatt}{ROSENBLATT}{1958}
+{ROSENBLATT, F. The perceptron: A probabilistic model for information storage
+  and organization in the brain.
+\emph{Psychological Review}, p. 65--386, 1958.}
+
+\bibitem{Goodfellow-et-al-2016}
+\abntrefinfo{Goodfellow, Bengio e Courville}{GOODFELLOW; BENGIO;
+  COURVILLE}{2016}
+{GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. \emph{Deep Learning}. [S.l.]: MIT
+  Press, 2016.}
+
+\bibitem{imagenet_2012}
+\abntrefinfo{Krizhevsky, Sutskever e Hinton}{KRIZHEVSKY; SUTSKEVER;
+  HINTON}{2012}
+{KRIZHEVSKY, A.; SUTSKEVER, I.; HINTON, G.~E. Imagenet classification with deep
+  convolutional neural networks. In:  PEREIRA, F. et al. (Ed.). \emph{Advances
+  in Neural Information Processing Systems 25}. Curran Associates, Inc., 2012.
+  p. 1097--1105.
+Dispon{\'\i}vel em:
+  \url{http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf}.}
+
+\bibitem{mnih2015humanlevel}
+\abntrefinfo{Mnih et al.}{MNIH et al.}{2015}
+{MNIH, V. et al. Human-level control through deep reinforcement learning.
+\emph{Nature}, Nature Publishing Group, a division of Macmillan Publishers
+  Limited. All Rights Reserved., v.~518, n.~7540, p. 529--533, fev. 2015.
+ISSN 00280836.
+Dispon{\'\i}vel em: \url{http://dx.doi.org/10.1038/nature14236}.}
+
+\bibitem{captcha_2003}
+\abntrefinfo{Ahn et al.}{AHN et al.}{2003}
+{AHN, L. von et al. Captcha: using hard ai problems for security. In:
+  \emph{Advances in Cryptology, Eurocrypt}. Berlin, Heidelberg: Springer Berlin
+  Heidelberg, 2003. v.~2656, p. 294--311.}
+
+\bibitem{captcha_review_2017}
+\abntrefinfo{Chow e Susilo}{CHOW; SUSILO}{2017}
+{CHOW, Y.~W.; SUSILO, W. Text-based captchas over the years.
+\emph{IOP Conference Series: Materials Science and Engineering}, v.~273, n.~1,
+  p. 012001, 2017.
+Dispon{\'\i}vel em: \url{http://stacks.iop.org/1757-899X/273/i=1/a=012001}.}
+
+\bibitem{captcha_break_2013}
+\abntrefinfo{Goodfellow et al.}{GOODFELLOW et al.}{2013}
+{GOODFELLOW, I.~J. et al. Multi-digit number recognition from street view
+  imagery using deep convolutional neural networks.
+\emph{CoRR}, abs/1312.6082, 2013.
+Dispon{\'\i}vel em: \url{http://arxiv.org/abs/1312.6082}.}
+
+\bibitem{captcha_break_2017}
+\abntrefinfo{George et al.}{GEORGE et al.}{2017}
+{GEORGE, D. et al. A generative vision model that trains with high data
+  efficiency and breaks text-based captchas.
+v.~358, p. eaag2612, 10 2017.}
+
+\bibitem{Bursztein2014TheEI}
+\abntrefinfo{Bursztein et al.}{BURSZTEIN et al.}{2014}
+{BURSZTEIN, E. et al. The end is nigh: Generic solving of text-based captchas.
+  In:  \emph{WOOT}. [S.l.: s.n.], 2014.}
+
+\bibitem{simplecaptcha}
+\abntrefinfo{SimpleCaptcha}{SIMPLECAPTCHA}{2018}
+{SIMPLECAPTCHA. \emph{A CAPTCHA Framework for Java}. 2018.
+Dispon{\'\i}vel em: \url{http://simplecaptcha.sourceforge.net/}. Acesso em:
+  23/06/2018.}
+
+\bibitem{xavier_init}
+\abntrefinfo{Glorot e Bengio}{GLOROT; BENGIO}{2010}
+{GLOROT, X.; BENGIO, Y. Understanding the difficulty of training deep
+  feedforward neural networks. In:  \emph{In Proceedings of the International
+  Conference on Artificial Intelligence and Statistics (AISTATS’10). Society
+  for Artificial Intelligence and Statistics}. [S.l.: s.n.], 2010.}
+
+\bibitem{adam_op}
+\abntrefinfo{Kingma e Ba}{KINGMA; BA}{2014}
+{KINGMA, D.~P.; BA, J. Adam: {A} method for stochastic optimization.
+\emph{CoRR}, abs/1412.6980, 2014.
+Dispon{\'\i}vel em: \url{http://arxiv.org/abs/1412.6980}.}
+
+\bibitem{lutz_early_stop}
+\abntrefinfo{Prechelt}{PRECHELT}{1998}
+{PRECHELT, L. Automatic early stopping using cross validation: Quantifying the
+  criteria.
+v.~11, p. 761--767, 06 1998.}
+
+\end{thebibliography}

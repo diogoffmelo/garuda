@@ -1,0 +1,13 @@
+\backcite {perceptron_58}{{8}{1}{chapter.1}}
+\backcite {Goodfellow-et-al-2016}{{8}{1}{chapter.1}}
+\backcite {imagenet_2012}{{8}{1}{chapter.1}}
+\backcite {mnih2015humanlevel}{{8}{1}{chapter.1}}
+\backcite {captcha_2003}{{8}{1}{chapter.1}}
+\backcite {captcha_review_2017}{{8}{1}{chapter.1}}
+\backcite {captcha_break_2013}{{8}{1}{chapter.1}}
+\backcite {captcha_break_2017}{{8}{1}{chapter.1}}
+\backcite {Bursztein2014TheEI}{{8}{1}{chapter.1}}
+\backcite {simplecaptcha}{{12}{4.1}{section.4.1}}
+\backcite {xavier_init}{{13}{4.3}{section.4.3}}
+\backcite {adam_op}{{13}{4.3}{section.4.3}}
+\backcite {lutz_early_stop}{{13}{4.3}{section.4.3}}

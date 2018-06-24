@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2018/dev/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: pcc.aux
+The style file: unsrt.bst
+Database file #1: bibliography.bib
+I was expecting a `,' or a `}'---line 25 of file bibliography.bib
+ :  
+ :  publisher={Springer Berlin Heidelberg},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty journal in captcha_break_2017
+Warning--empty journal in alphagozero_2017
+You've used 12 entries,
+            1791 wiz_defined-function locations,
+            527 strings with 6614 characters,
+and the built_in function-call counts, 4032 in all, are:
+= -- 319
+> -- 268
+< -- 6
++ -- 93
+- -- 81
+* -- 312
+:= -- 640
+add.period$ -- 38
+call.type$ -- 12
+change.case$ -- 11
+chr.to.int$ -- 0
+cite$ -- 14
+duplicate$ -- 170
+empty$ -- 331
+format.name$ -- 81
+if$ -- 897
+int.to.chr$ -- 0
+int.to.str$ -- 12
+missing$ -- 13
+newline$ -- 63
+num.names$ -- 14
+pop$ -- 43
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 104
+stack$ -- 0
+substring$ -- 259
+swap$ -- 62
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 2
+while$ -- 31
+width$ -- 14
+write$ -- 135
+(There was 1 error message)

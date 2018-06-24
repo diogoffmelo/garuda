@@ -12,7 +12,7 @@ from models.base import LinearReshapeLayer, InputLayer
 from models.conv import ConvLayer
 
 
-TEST = True
+TEST = False
 model_path = './graphs/linearw/'
 
 model_path_ckpts = model_path + 'ckpts/epoch' 
@@ -46,12 +46,12 @@ else:
 train_gen, report_gen, val_gen = load_to_batches(dbargs, batchargs)
 graph = tf.Graph()
 
-model = StackedLayers(
+model_spec = StackedLayers(
         InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
-        #ConvLayer([5, 5, 3, 6], 1, graph, 'conv1'),
-        #ConvLayer([5, 5, 6, 12], 2, graph, 'conv2'),
+        ConvLayer([5, 5, 3, 6], 1, graph, 'conv1'),
+        ConvLayer([5, 5, 6, 12], 2, graph, 'conv2'),
         LinearReshapeLayer(graph, 'reshape'),
-        LinearLayer(2000, graph, 'linear'),
+        LinearLayer(200, graph, 'linear'),
         #LinearMultiCharOutputLayer(5, graph, 'classificador'),
         #ConvLayer([5, 5, 3, 6], 1, graph, 'conv1'),
         #ConvLayer([5, 5, 6, 12], 2, graph, 'conv1'),
@@ -60,7 +60,9 @@ model = StackedLayers(
         #LinearLayer([2000, 200], graph, 'LINEAR2'),
         LinearMultiCharOutputLayer(5, graph, 'classificador'),
         #LinearSingleCharOutputLayer(0, graph, 'classificador'),
-    ).model
+    )
+
+model = model_spec.model
 
 
 
@@ -75,10 +77,11 @@ with graph.as_default(), tf.name_scope('backprop'):
 print('start training ...')
 
 with tf.Session(graph=model.g) as sess:
-    saver = tf.train.Saver(tf.trainable_variables(), max_to_keep=nepochs+1)
+    #saver = tf.train.Saver(tf.trainable_variables(), max_to_keep=nepochs+1)
     
     def epoch_hook(epoch):
-        saver.save(sess, model_path_ckpts, global_step=epoch+1, write_meta_graph=False)
+        print(report(model, val_gen, sess))
+        #saver.save(sess, model_path_ckpts, global_step=epoch+1, write_meta_graph=False)
         # return
         # for vbatch in val_gen.gen_batches():
         #     summ = sess.run(sum_merged, feed_dict=model.food(vbatch))
@@ -93,14 +96,14 @@ with tf.Session(graph=model.g) as sess:
 
 
     sess.run(tf.global_variables_initializer())
-    saver.save(sess, model_path_ckpts, global_step=0)
+    #saver.save(sess, model_path_ckpts, global_step=0)
 
     cnt = 0
     for batch in train_gen.gen_batch_epochs(nepochs, epoch_hook):
         cnt += 1
         sess.run(train, feed_dict=model.food(batch))
         if cnt == 9: #cnt % 10 == 0:
-            print(report_meal(model, [model.food(batch)], sess))
+            print(report_meal(model, [model_spec.food(batch)], sess))
             cnt = 0
 
 

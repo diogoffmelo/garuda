@@ -1,0 +1,84 @@
+\begin{thebibliography}{10}
+
+\bibitem{perceptron_58}
+F.~Rosenblatt.
+\newblock The perceptron: A probabilistic model for information storage and
+  organization in the brain.
+\newblock {\em Psychological Review}, pages 65--386, 1958.
+
+\bibitem{Goodfellow-et-al-2016}
+Ian Goodfellow, Yoshua Bengio, and Aaron Courville.
+\newblock {\em Deep Learning}.
+\newblock MIT Press, 2016.
+
+\bibitem{imagenet_2012}
+Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E Hinton.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In F.~Pereira, C.~J.~C. Burges, L.~Bottou, and K.~Q. Weinberger,
+  editors, {\em Advances in Neural Information Processing Systems 25}, pages
+  1097--1105. Curran Associates, Inc., 2012.
+
+\bibitem{mnih2015humanlevel}
+Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Andrei~A. Rusu, Joel Veness,
+  Marc~G. Bellemare, Alex Graves, Martin Riedmiller, Andreas~K. Fidjeland,
+  Georg Ostrovski, Stig Petersen, Charles Beattie, Amir Sadik, Ioannis
+  Antonoglou, Helen King, Dharshan Kumaran, Daan Wierstra, Shane Legg, and
+  Demis Hassabis.
+\newblock Human-level control through deep reinforcement learning.
+\newblock {\em Nature}, 518(7540):529--533, February 2015.
+
+\bibitem{captcha_2003}
+Luis von Ahn, Manuel Blum, Nicholas J.~Hopper, and John Langford.
+\newblock Captcha: using hard ai problems for security.
+\newblock In {\em Advances in Cryptology, Eurocrypt}, volume 2656, pages
+  294--311, 05 2003.
+
+\bibitem{captcha_review_2017}
+Y~W Chow and W~Susilo.
+\newblock Text-based captchas over the years.
+\newblock {\em IOP Conference Series: Materials Science and Engineering},
+  273(1):012001, 2017.
+
+\bibitem{captcha_break_2013}
+Ian~J. Goodfellow, Yaroslav Bulatov, Julian Ibarz, Sacha Arnoud, and Vinay~D.
+  Shet.
+\newblock Multi-digit number recognition from street view imagery using deep
+  convolutional neural networks.
+\newblock {\em CoRR}, abs/1312.6082, 2013.
+
+\bibitem{captcha_break_2017}
+Dileep George, Wolfgang Lehrach, Ken Kansky, Miguel Lazaro-Gredilla,
+  Christopher Laan, Bhaskara Marthi, Xinghua Lou, Zhaoshi Meng, Yi~Liu, Huayan
+  Wang, Alex Lavin, and D~Scott~Phoenix.
+\newblock A generative vision model that trains with high data efficiency and
+  breaks text-based captchas.
+\newblock 358:eaag2612, 10 2017.
+
+\bibitem{Bursztein2014TheEI}
+Elie Bursztein, Jonathan Aigrain, Angelique Moscicki, and John~C. Mitchell.
+\newblock The end is nigh: Generic solving of text-based captchas.
+\newblock In {\em WOOT}, 2014.
+
+\bibitem{word2vec_2013}
+Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean.
+\newblock Distributed representations of words and phrases and their
+  compositionality.
+\newblock In {\em Proceedings of the 26th International Conference on Neural
+  Information Processing Systems - Volume 2}, NIPS'13, pages 3111--3119, USA,
+  2013. Curran Associates Inc.
+
+\bibitem{Redmon2017YOLO9000BF}
+Joseph Redmon and Ali Farhadi.
+\newblock Yolo9000: Better, faster, stronger.
+\newblock {\em 2017 IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, pages 6517--6525, 2017.
+
+\bibitem{alphagozero_2017}
+David Silver, Julian Schrittwieser, Karen Simonyan, Ioannis Antonoglou, Aja
+  Huang, Arthur Guez, Thomas Hubert, Lucas Baker, Matthew Lai, Adrian Bolton,
+  Yutian Chen, Timothy Lillicrap, Fan Hui, Laurent Sifre, George van~den
+  Driessche, Thore Graepel, and Demis Hassabis.
+\newblock Mastering the game of go without human knowledge.
+\newblock 550:354--359, 10 2017.
+
+\end{thebibliography}

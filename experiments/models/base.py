@@ -1,3 +1,5 @@
+import re
+
 import numpy as np
 import tensorflow as tf
 
@@ -19,6 +21,9 @@ class Layer(object):
         self.yout = self.yin
         self.xout = self.yin
 
+    def _food(self, batch, **kwargs):
+        return {}
+
 
 class InputLayer(Layer):
     def __init__(self, xshape, yshape, graph, name):
@@ -34,7 +39,7 @@ class InputLayer(Layer):
         self.xout = self.xin
         self.yout = self.yin
 
-    def food(self, batch):
+    def _food(self, batch, **kwargs):
         _X, _Y = batch
         return {self.yin: _Y, self.xin: _X}
 
@@ -45,6 +50,23 @@ class InputLayer(Layer):
 
 class OuputLayer(Layer):
     pass
+
+
+class DropOutLayer(Layer):
+    def __init__(self, graph, name):
+        Layer.__init__(self, graph, name)
+        with graph.as_default(), tf.name_scope(self.bname('placeholders')):
+            self.pkeep = tf.placeholder(tf.float32, 
+                                        [], 
+                                        name='X')
+
+    def build(self, other):
+        Layer.build(self, other)
+        with self.g.as_default(), tf.name_scope(self.bname('dropout')):
+            self.xout = tf.nn.dropout(self.xin, self.pkeep)
+
+    def _food(self, batch, **kwargs):
+        return {self.pkeep: kwargs.get('pkeep', 1.0)}
 
 
 class ReshapeLayer(Layer):
@@ -79,7 +101,27 @@ class StackedLayers(object):
         for l1, l2 in zip(layers[:-1], layers[1:]):
             l2.build(l1)
             l2.summ = list(set(l2.summ + l1.summ))
-            l2.summ_ext = list(set(l1.summ_ext + l1.summ_ext))
-
-        layers[-1].food = layers[0].food
+            l2.summ_ext = list(set(l1.summ_ext + l2.summ_ext))
+        
         self.model = layers[-1]
+        self.g = layers[-1].g
+        self.layers = layers
+
+    def desc(self):
+        llayers = []
+        for layer in self.layers:
+            llayers.append(
+                '{}({})'.format(
+                        re.search('\'(.*)\'', str(layer.__class__)).group(1),
+                        '{} -> {}'.format(layer.xin.shape, layer.xout.shape)
+                    ),
+            )
+
+        return llayers
+
+    def food(self, batch, **kwargs):
+        _food = {}
+        for layer in self.layers:
+            _food.update(layer._food(batch, **kwargs))
+
+        return _food

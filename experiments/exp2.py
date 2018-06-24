@@ -1,5 +1,9 @@
+import pickle
+
 import numpy as np
+import pandas as pd
 import tensorflow as tf
+import time
 
 from util.batch import NumpyBatchGenerator, SampleMode
 from util.report import report, report_meal
@@ -14,7 +18,7 @@ from models.conv import ConvLayer
 TEST = False
 
 if TEST:
-    nepochs = 5
+    nepochs = 20
     dbargs = {
         'path': '../generate/datatest.hdf5',
     }
@@ -38,18 +42,19 @@ else:
 train_gen, report_gen, val_gen = load_to_batches(dbargs, batchargs)
 graph = tf.Graph()
 
+
+
+
 model = StackedLayers(
         InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
-        #ConvLayer([5, 5, 3, 6], 1, graph, 'conv1'),
+        ConvLayer([5, 5, 3, 6], 1, graph, 'conv1'),
         #ConvLayer([5, 5, 6, 12], 2, graph, 'conv2'),
         LinearReshapeLayer(graph, 'reshape'),
-        LinearLayer(2000, graph, 'linear'),
+        LinearLayer(200, graph, 'linear'),
         #LinearMultiCharOutputLayer(5, graph, 'classificador'),
         #ConvLayer([5, 5, 3, 6], 1, graph, 'conv1'),
         #ConvLayer([5, 5, 6, 12], 2, graph, 'conv1'),
         #LinearReshapeLayer(graph, 'reshape'),
-        #LinearLayer([(50 * 200 * 3), 2000], graph, 'linear'),
-        #LinearLayer([2000, 200], graph, 'LINEAR2'),
         LinearMultiCharOutputLayer(5, graph, 'classificador'),
         #LinearSingleCharOutputLayer(0, graph, 'classificador'),
     ).model
@@ -57,8 +62,23 @@ model = StackedLayers(
 
 
 with graph.as_default(), tf.name_scope('backprop'):
+
+    # learning rate decay
+    max_learning_rate = 0.01
+    min_learning_rate = 0.01
+    decay_speed = nepochs
+
+    pkeep = tf.placeholder(tf.float32)    
+    learn_step = tf.placeholder(tf.float32)
+
+    learning_rate = min_learning_rate + (max_learning_rate - min_learning_rate) * tf.exp(-learn_step/decay_speed) 
     loss = sum(model.xent)
-    train = tf.train.AdamOptimizer(0.001).minimize(loss)
+
+    #train = tf.train.AdamOptimizer(0.001).minimize(model.xent)
+    
+    train = [tf.train.AdamOptimizer(0.001).minimize(x) for x in model.xent]
+
+    #train = tf.train.AdamOptimizer(0.001).minimize(loss)
     #train = [tf.train.AdamOptimizer(0.001).minimize(x) for x in model.xent]
     #train = tf.train.AdamOptimizer(0.001).minimize(model.xent)
 
@@ -69,70 +89,132 @@ with graph.as_default(), tf.name_scope('backprop'):
 print('start training ...')
 
 with tf.Session(graph=model.g) as sess:
-
     
-    def epoch_hook(epoch):
-        print('Fim da época {}.'.format(epoch))
-        # return
-        # for vbatch in val_gen.gen_batches():
-        #     summ = sess.run(sum_merged, feed_dict=model.food(vbatch))
-        #     writer.add_summary(summ, epoch)
-
-        # if epoch%3 == 0:
-        #     print('Train @t={}'.format(epoch))
-            #print(report(model, report_gen, sess))
-            #for vbatch in val_gen.gen_batches():
-            #    summ = sess.run(sum_merged, feed_dict=model.food(vbatch))
-            #    writer.add_summary(summ, epoch)
-
-
     sess.run(tf.global_variables_initializer())
 
+    def report(batch_gen, epoch, tdelta):
+        nw = 0 # Acerto palavra completa
+        ls = np.zeros([5]) # loss/char
+        nc = np.zeros([5]) #acerto/char
+        for batch in batch_gen.gen_batches():
+            _nw, _ls, _nc = sess.run([model.nacc, model.loss, model.cnacc], feed_dict=model.food(batch))
+            nw += _nw
+            ls += _ls
+            nc += _nc
+
+        SIZE = batch_gen.max_seek * batch_gen.batch_size
+        nw /= SIZE
+        ls /= SIZE
+        nc /= SIZE
+
+        keys = ['delta'] + ['wacc'] + ['loss_{}'.format(i) for i in range(5)] + ['loss_avg'] + ['acc_{}'.format(i) for i in range(5)] + ['wprob']
+        vals = [tdelta, nw] + list(ls) + [sum(ls)/5.0] + list(nc) + [np.prod(nc)]
+        return pd.DataFrame({k:v for k,v in zip(keys, vals)}, index=[epoch])
+
+    df_train = report(train_gen, 0, 0)
+    df_val = report(val_gen, 0, 0)
+    print(df_train)
+    print(df_val)
+
+
+    #import matplotlib.pyplot as plt
+    #plt.ion()
+    #plt.figure(0)
+    #plt.figure(1)
 
     for epoch in range(nepochs):
+        print(sess.run(learning_rate, feed_dict={learn_step: epoch}))
+
+
+        tinit = time.time()
         for batch in train_gen.gen_batches():
-            sess.run(train, feed_dict=model.food(batch))
+            food = model.food(batch)
+            food.update({learn_step: epoch})
+            sess.run(train, feed_dict=food)
 
-
-        batch_gen = train_gen
-
-        nw = 0
-        ls = np.zeros([5])
-        nc = np.zeros([5])
-        for batch in batch_gen.gen_batches():
-            _nw, _ls, _nc = sess.run([model.nacc, model.loss, model.cnacc], feed_dict=model.food(batch))
-            nw += _nw
-            ls += _ls
-            nc += _nc
-
-        SIZE = batch_gen.max_seek * batch_gen.batch_size
-
-        nw /= SIZE
-        ls /= SIZE
-        nc /= SIZE
+        tfinal = time.time()
+        tdelta = tfinal - tinit
 
         print('TRAIN/TEST:')
-        print('wacc={} loss={} cacc={}'.format(nw, ls, nc))
+        df_train = df_train.append(report(train_gen, epoch+1, tdelta))
+        df_val = df_val.append(report(val_gen, epoch+1, tdelta))
+        #print(df_train.iloc[-1][['delta','loss_avg']])
+        #print(df_val.iloc[-1][['delta','loss_avg']])
+        
+
+        print('TRAIN:')
+        print(df_train[['loss_avg', 'wacc', 'wprob']])
+        
+        print('TEST:')
+        print(df_val[['loss_avg', 'wacc', 'wprob']])
+
+        #import ipdb; ipdb.set_trace()
+
+        #plt.figure(0)
+        #plt.clf()
+        #plt.plot(list(df_train['loss_avg']), 'r*')
+        #plt.plot(list(df_val['loss_avg']), 'b*')
+        
+
+        #plt.figure(1)
+        #plt.clf()
+        #plt.plot(list(df_train['wacc']), 'r*')
+        #plt.plot(list(df_val['wacc']), 'b*')
+
+        #plt.pause(0.0001)
+
+        #plt.plot(range(epoch+1), df_train['loss_avg'])
+        #plt.plot(range(epoch+1), df_val['loss_avg'])
+
+        # plt.figure(0)
+        # plt.clf()
+        # plt.plot(range(epoch+1), df_train[['loss_avg']])
 
 
-        batch_gen = val_gen
+        #import ipdb; ipdb.set_trace()
 
-        nw = 0
-        ls = np.zeros([5])
-        nc = np.zeros([5])
-        for batch in batch_gen.gen_batches():
-            _nw, _ls, _nc = sess.run([model.nacc, model.loss, model.cnacc], feed_dict=model.food(batch))
-            nw += _nw
-            ls += _ls
-            nc += _nc
 
-        SIZE = batch_gen.max_seek * batch_gen.batch_size
+        # batch_gen = train_gen
+        # nw = 0 # Acerto palavra completa
+        # ls = np.zeros([5]) # loss/char
+        # nc = np.zeros([5]) #acerto/char
+        # for batch in batch_gen.gen_batches():
+        #     _nw, _ls, _nc = sess.run([model.nacc, model.loss, model.cnacc], feed_dict=model.food(batch))
+        #     nw += _nw
+        #     ls += _ls
+        #     nc += _nc
 
-        nw /= SIZE
-        ls /= SIZE
-        nc /= SIZE
+        # SIZE = batch_gen.max_seek * batch_gen.batch_size
+        # nw /= SIZE
+        # ls /= SIZE
+        # nc /= SIZE
 
-        print('wacc={} loss={} cacc={}'.format(nw, ls, nc))
+
+        # print('TRAIN/TEST:')
+        # print('wacc={} loss={} cacc={}'.format(nw, ls, nc))
+
+        # batch_gen = val_gen
+        # nw = 0 # Acerto palavra completa
+        # ls = np.zeros([5]) # loss/char
+        # nc = np.zeros([5]) #acerto/char
+        # for batch in batch_gen.gen_batches():
+        #     _nw, _ls, _nc = sess.run([model.nacc, model.loss, model.cnacc], feed_dict=model.food(batch))
+        #     nw += _nw
+        #     ls += _ls
+        #     nc += _nc
+
+        # SIZE = batch_gen.max_seek * batch_gen.batch_size
+        # nw /= SIZE
+        # ls /= SIZE
+        # nc /= SIZE
+
+        # print('wacc={} loss={} cacc={}'.format(nw, ls, nc))
+
+
+    # df_columns = [, 'accw']
+    # df_train = pd.DataFrame(columns=df_columns)
+    # df_validation = pd.DataFrame(columns=df_columns)
+
 
 
     # cnt = 0
@@ -150,3 +232,5 @@ with tf.Session(graph=model.g) as sess:
 
     # print('Vadation:')
     # print(report(model, val_gen, sess))
+
+#plt.show(block=True)
