@@ -8,21 +8,24 @@
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdu\IeC {\c c}\IeC {\~a}o}}{8}{chapter.1}
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdução}}{8}{chapter.1}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Fundamenta\IeC {\c c}\IeC {\~a}o}}{9}{chapter.2}
-\contentsline {section}{\numberline {2.1}CAPTCHAS}{9}{section.2.1}
-\contentsline {section}{\numberline {2.2}Redes Neurais}{9}{section.2.2}
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Fundamentação}}{10}{chapter.2}
+\contentsline {section}{\numberline {2.1}CAPTCHAS}{10}{section.2.1}
+\contentsline {section}{\numberline {2.2}Redes Neurais}{12}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Camadas Densas}{13}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Camadas Convolucionais}{14}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Aprendizado e Normalização}{14}{section.2.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Modelagem}}{11}{chapter.3}
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Modelagem}}{15}{chapter.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Metodologia}}{12}{chapter.4}
-\contentsline {section}{\numberline {4.1}Gera\IeC {\c c}\IeC {\~a}o dos CAPTCHAS}{12}{section.4.1}
-\contentsline {section}{\numberline {4.2}Grandezas de interesse}{13}{section.4.2}
-\contentsline {section}{\numberline {4.3}Treino e Valida\IeC {\c c}\IeC {\~a}o}{13}{section.4.3}
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Metodologia}}{16}{chapter.4}
+\contentsline {section}{\numberline {4.1}Geração dos CAPTCHAs}{16}{section.4.1}
+\contentsline {section}{\numberline {4.2}Treino e Validação}{17}{section.4.2}
+\contentsline {section}{\numberline {4.3}Grandezas de interesse}{18}{section.4.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Resultados}}{14}{chapter.5}
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Resultados}}{20}{chapter.5}
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {Refer\^encias}}{15}{section*.12}
+\contentsline {chapter}{\uppercase {Refer\^encias}}{21}{section*.13}
 \vspace {\cftbeforechapterskip }

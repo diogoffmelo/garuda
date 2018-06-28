@@ -1,23 +1,15 @@
 \chapter{Introdução}
 
-Modelos de aprendizado baseados em neurologia são conhecidos desde meados do século passado\cite{perceptron_58}. Das proposições iniciais até os dias de hoje, essa classe modelos tem evoluído em complexidade e técnicas de forma contínua,
-culminando em modelos com muitas camadas e níveis cada vez mais abstratos de representações (ver \cite{Goodfellow-et-al-2016} para uma breve revisão histórica).
+Algoritmos de aprendizado baseados em neurologia são conhecidos desde meados do século passado\cite{perceptron_58}. Das proposições iniciais até os dias de hoje, essa classe de modelos tem evoluído em complexidade e técnicas de forma contínua,
+culminando um alto poder de expressividade e níveis cada vez mais abstratos de representação (ver \cite{Goodfellow-et-al-2016} para uma breve revisão histórica). Os poucos resultados teóricos disponíveis demonstram que redes neurais possuem um alto poder de representação, sendo capaz de, sob certas circunstâncias, codificar diversas classes de funções\cite{Barron1993UniversalAB, Andoni2014PolyAprox}. 
 Apesar dos avanços na área, foi apenas recentemente que modelos neurais 
 começaram a redefinir o estado da arte, superando outras classes de algoritmos de aprendizado de máquina\cite{imagenet_2012}
 e até mesmo alcançando performances sobre humanas\cite{mnih2015humanlevel}.
-Tais avanços foram possíveis devido a três fatores chaves: a viabilização de bases de treino
-cada vez maiores o aumento do poder computacional e o desenvolvimento de novas arquiteturas neurais, como redes convolucionais e redes recursivas.
+Tais avanços foram possíveis devido a três fatores chaves: a viabilização de bases de dados
+cada vez maiores, o aumento do poder computacional e o desenvolvimento de novas arquiteturas e técnicas de treino.
 
-A crescente melhoria de performance dos modelos de aprendizado profundo tem motivado
-estudos em áreas onde se é preciso distinguir computadores e humanos. CAPTCHAs \cite{captcha_2003} (do inglês Completely
-Automated  Public  Turing  tests  to  tell  Computers  and
-Humans Apart) definem uma coleção de técnicas que tem como objetivo bloquear a 
-ação de agentes autônomos na rede mundial de computadores. O subconjunto mais conhecido dessas técnicas talvez seja o de captchas baseados em texto\cite{captcha_review_2017}. 
-Nesse tipo de desafio, uma imagem contendo uma sequência de caracteres é exibida.
-A validação é feita pela comparação entre o texto informado pelo usuário e a resposta
-correta. Em trabalhos recentes, foram relatadas acurácias próximos à humana em sequências formadas exclusivamente por números\cite{captcha_break_2013} ou por uma única fonte\cite{captcha_break_2017}. Para o problema geral de 
-quebrar captchas baseados em texto, entretanto, modelos de aprendizado profundo ainda mostram
-desempenho inferior ao humano. Contudo, pesquisas recentes apontam para avanços claros nos próximos anos\cite{Bursztein2014TheEI}. Em comum, esses modelos possuem a 
-necessidade de muito poder computacional e/ou bases de dados extensivas.
-O treino dessas redes é tipicamente executado em clusters e/ou sistemas de computação sob demanda, com alto poder de paralelização e utilizando hardware de alto poder de processamento como GPUs e TPUs. Adicionalmente, As bases de treino comumente alcançam alguns terrabytes e envolvem grandes operações de aquisição e/ou geração.
+A crescente melhoria de performance dos modelos neurais de aprendizado profundo tem motivado
+estudos em áreas onde se é preciso distinguir computadores e humanos. Dentre essas áreas temos os CAPTCHAs \cite{captcha2003} (do inglês Completely Automated  Public  Turing  tests  to  tell  Computers  and Humans Apart), que definem uma coleção de técnicas que tem como objetivo bloquear a ação de agentes autônomos na rede mundial de computadores. Um dos subconjuntos mais conhecidos dessas técnicas talvez seja o de CAPTCHAs baseados em texto\cite{captcha_review_2017}. Nesse tipo de desafio, uma imagem contendo uma sequência de caracteres é exibida e a validação é feita pela comparação entre o texto informado pelo usuário e a resposta
+correta. Em trabalhos recentes, foram relatados modelos baseados em redes neurais capazes de burlar esse tipo de desafio com acurácias de acerto próximos à humana em sequências formadas exclusivamente por números\cite{captcha_break_2013} ou por uma única fonte tipográfica\cite{captcha_break_2017}. Para o problema geral de quebrar CAPTCHAs baseados em texto, entretanto, modelos de aprendizado profundo ainda mostram desempenho inferior ao humano. Contudo, pesquisas recentes apontam para avanços claros nos próximos anos\cite{Bursztein2014TheEI}. Em comum, esses modelos possuem a  necessidade em clusters de treinamento e/ou sistemas de computação sob demanda, com hardware de alto poder de processamento e/ou paralelização, como GPUs e TPUs. Adicionalmente, as bases de treinamento necessárias comumente alcançam alguns terrabytes e envolvem grandes operações de aquisição e/ou geração.
 
+Neste trabalho propomos uma abordagem comparativa entre diferentes arquiteturas de redes neurais para a solução de CAPTCHAs baseados em texto, nos restringindo, entretanto, à um ambiente com poder computacional reduzido. Pretendemos mostrar que é possível fazer uso dessas técnicas em computadores pessoais e ainda obter resultados próximos ao estado da arte encontrado na literatura. Este trabalho se encontra organizado como segue. No capítulo \ref{fundamentacao} apresentamos uma breve introdução sobre diferentes tipos de CAPTCHAs, com ênfase em desafios baseados em texto. Sequencialmente, arquiteturas e técnicas de redes neurais são apresentadas. No capítulo \ref{modelagem}, O problema de extração de CAPTCHAs baseados em texto é formulado matematicamente e os principais resultados da literatura na solução do problema são comparados. Por fim, uma descrição da arquitetura dos modelos usados neste estudo é feita. No Capítulo \ref{metodologia}, detalhes dos experimentos realizados são formalizados. No capítulo \ref{resultados}, os resultados dos experimentos são comparados e nossas conclusões apresentadas. 

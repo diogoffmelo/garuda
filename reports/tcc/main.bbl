@@ -17,6 +17,17 @@
 {GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. \emph{Deep Learning}. [S.l.]: MIT
   Press, 2016.}
 
+\bibitem{Barron1993UniversalAB}
+\abntrefinfo{Barron}{BARRON}{1993}
+{BARRON, A.~R. Universal approximation bounds for superpositions of a sigmoidal
+  function.
+\emph{IEEE Trans. Information Theory}, v.~39, p. 930--945, 1993.}
+
+\bibitem{Andoni2014PolyAprox}
+\abntrefinfo{Andoni et al.}{ANDONI et al.}{2014}
+{ANDONI, A. et al. Learning polynomials with neural networks.
+v.~5, p. 3955--3963, 01 2014.}
+
 \bibitem{imagenet_2012}
 \abntrefinfo{Krizhevsky, Sutskever e Hinton}{KRIZHEVSKY; SUTSKEVER;
   HINTON}{2012}
@@ -35,7 +46,7 @@ Dispon{\'\i}vel em:
 ISSN 00280836.
 Dispon{\'\i}vel em: \url{http://dx.doi.org/10.1038/nature14236}.}
 
-\bibitem{captcha_2003}
+\bibitem{captcha2003}
 \abntrefinfo{Ahn et al.}{AHN et al.}{2003}
 {AHN, L. von et al. Captcha: using hard ai problems for security. In:
   \emph{Advances in Cryptology, Eurocrypt}. Berlin, Heidelberg: Springer Berlin
@@ -66,18 +77,46 @@ v.~358, p. eaag2612, 10 2017.}
 {BURSZTEIN, E. et al. The end is nigh: Generic solving of text-based captchas.
   In:  \emph{WOOT}. [S.l.: s.n.], 2014.}
 
+\bibitem{lectures2005HIP}
+\abntrefinfo{Chellapilla et al.}{CHELLAPILLA et al.}{2005}
+{CHELLAPILLA, K. et al. \emph{Building Segmentation Based Human-Friendly Human
+  Interaction Proofs (HIPs)}. [S.l.]: Springer, Berlin, Heidelberg, 2005.
+  v.~3517. 1-26~p.}
+
+\bibitem{securimage}
+\abntrefinfo{Securimage}{SECURIMAGE}{2018}
+{SECURIMAGE. \emph{An open-source free PHP CAPTCHA script f}. 2018.
+Dispon{\'\i}vel em: \url{https://www.phpcaptcha.org/}. Acesso em: 23/06/2018.}
+
+\bibitem{recaptcha1}
+\abntrefinfo{Ahn et al.}{AHN et al.}{2008}
+{AHN, L. von et al. recaptcha: Human-based character recognition via web
+  security measures.
+v.~321, p. 1465--8, 09 2008.}
+
+\bibitem{imarobot}
+\abntrefinfo{Sivakorn, Polakis e Keromytis}{SIVAKORN; POLAKIS; KEROMYTIS}{2016}
+{SIVAKORN, S.; POLAKIS, I.; KEROMYTIS, A.~D. I am robot: (deep) learning to
+  break semantic image captchas. In:  . [S.l.]: IEEE, 2016. p. 388--403.}
+
+\bibitem{naivecaptcha}
+\abntrefinfo{Yan e Ahmad}{YAN; AHMAD}{2008}
+{YAN, J.; AHMAD, A. S.~E. Breaking visual captchas with naive pattern
+  recognition algorithms.
+p. 279--291, 01 2008.}
+
 \bibitem{simplecaptcha}
 \abntrefinfo{SimpleCaptcha}{SIMPLECAPTCHA}{2018}
 {SIMPLECAPTCHA. \emph{A CAPTCHA Framework for Java}. 2018.
 Dispon{\'\i}vel em: \url{http://simplecaptcha.sourceforge.net/}. Acesso em:
   23/06/2018.}
 
-\bibitem{xavier_init}
-\abntrefinfo{Glorot e Bengio}{GLOROT; BENGIO}{2010}
-{GLOROT, X.; BENGIO, Y. Understanding the difficulty of training deep
-  feedforward neural networks. In:  \emph{In Proceedings of the International
-  Conference on Artificial Intelligence and Statistics (AISTATS’10). Society
-  for Artificial Intelligence and Statistics}. [S.l.: s.n.], 2010.}
+\bibitem{HeZR015relu}
+\abntrefinfo{He et al.}{HE et al.}{2015}
+{HE, K. et al. Delving deep into rectifiers: Surpassing human-level performance
+  on imagenet classification.
+\emph{CoRR}, abs/1502.01852, 2015.
+Dispon{\'\i}vel em: \url{http://arxiv.org/abs/1502.01852}.}
 
 \bibitem{adam_op}
 \abntrefinfo{Kingma e Ba}{KINGMA; BA}{2014}

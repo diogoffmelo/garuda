@@ -1,3 +1,4 @@
 \babel@toc {brazil}{}
 \babel@toc {brazil}{}
-\contentsline {figure}{\numberline {1}{\ignorespaces Exemplos de CAPTCHAS gerados e seus respectivos tokens.\relax }}{12}{figure.caption.9}
+\contentsline {figure}{\numberline {1}{\ignorespaces Diferentes tipos de CAPTCHAs. (a) O desafiante deve reconhecer corretamente um texto formado por caracteres não correlacionados. (b) O desafiado deve resolver um problema simples de álgebra. (c) Palavras sorteadas de um repositório. (d) Reconhecimento de áudio. Gerados com a biblioteca Securimage.\relax }}{11}{figure.caption.9}
+\contentsline {figure}{\numberline {2}{\ignorespaces Exemplos de CAPTCHAs gerados e seus respectivos tokens.\relax }}{17}{figure.caption.10}
