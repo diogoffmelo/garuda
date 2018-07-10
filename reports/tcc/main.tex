@@ -17,11 +17,16 @@
 % Pacotes básicos 
 % ---
 
+
 %\usepackage{helvet}
 %\renewcommand{\familydefault}{\sfdefault}
 
-\usepackage{fontspec}
-\setmainfont{Arial}
+%\usepackage{fontspec}
+%\setmainfont{Arial}
+
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+
 
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
@@ -39,11 +44,15 @@
 \usepackage{blindtext}
 \usepackage{csvsimple}
 
+
+%\usepackage{url}
+%\usepackage{hyperref}
+
 % ---
 % ---
 % Pacotes de citações
 % ---
-\usepackage[brazilian]{backref}	 % Paginas com as citações na bibl
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \usepackage[num]{abntex2cite}	% Citações padrão ABNT
 
 % --- 
@@ -220,6 +229,9 @@
 \include{secoes/siglas}
 % ---
 
+\include{secoes/simbolos}
+
+
 % ---
 % inserir o sumario
 % ---
@@ -239,7 +251,8 @@
 % inclusao das secoes do texto
 % ----------------------------------------------------------
 \include{secoes/introducao}
-\include{secoes/fundamentacao}
+\include{secoes/captchas}
+\include{secoes/redesneurais}
 \include{secoes/modelagem}
 \include{secoes/metodologia}
 \include{secoes/resultados}

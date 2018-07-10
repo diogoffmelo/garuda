@@ -1,23 +1,7 @@
 \chapter{Modelagem}\label{modelagem}
 
-Nesta secção iremos definir de forma mais precisa o problema de extração de tokens dos CAPTCHAs de texto e sua formulação como um problema de minimização. Os resultados recentes encontrados na literatura serão abordados e comparados com a formulação proposta nesse trabalho. No final da secção as arquiteturas de rede utilizadas nos experimentos serão introduzidas.
-
-
-Definição do problema
-
-Matematicamente, uma imagem com altura $H$, largura $W$ e $C$ canais pode ser representada como um tensor $x \in \Re^{H x W x C}$, onde $H$, $C$  e $C$ são, respectivamente, a altura o comprimento e o número de canais da imagem. O token é uma sequencia $w$ sob um alfabeto $\Sigma$. O desafiante passa na tarefa de acertar cada elemento $w_i$ da sequencia.
-
-estado da arte
-
-CAPTCHAs de texto\cite{captcha_review_2017} podem ser vistos como um problema de extração de texto em imagens, sendo assim uma generalização para o problema de OCR. É preciso ressaltar, entretanto, que essas imagens são especialmente desenvolvidas para serem de difícil solução para computadores e preferencialmente fáceis para seres humanos. Assim, algoritmos usuais de OCR tendem a demonstrar baixo desempenho na solução desses desafios.
-
-
-antigo quebrar captcha \cite{lectures2005HIP} resultados 50 porcento
-uso massivo de reconhecimento de caracteres
-
 
 
 definição das redes
 definição da nomenclatura
-
-
+ 

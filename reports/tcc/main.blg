@@ -4,8 +4,10 @@ The top-level auxiliary file: main.aux
 A level-1 auxiliary file: secoes/agradecimentos.aux
 A level-1 auxiliary file: secoes/resumo.aux
 A level-1 auxiliary file: secoes/siglas.aux
+A level-1 auxiliary file: secoes/simbolos.aux
 A level-1 auxiliary file: secoes/introducao.aux
-A level-1 auxiliary file: secoes/fundamentacao.aux
+A level-1 auxiliary file: secoes/captchas.aux
+A level-1 auxiliary file: secoes/redesneurais.aux
 A level-1 auxiliary file: secoes/modelagem.aux
 A level-1 auxiliary file: secoes/metodologia.aux
 A level-1 auxiliary file: secoes/resultados.aux
@@ -30,44 +32,44 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 21 entries,
+You've used 39 entries,
             6714 wiz_defined-function locations,
-            1347 strings with 13753 characters,
-and the built_in function-call counts, 23760 in all, are:
-= -- 2457
-> -- 587
-< -- 383
-+ -- 626
-- -- 172
-* -- 1567
-:= -- 2961
-add.period$ -- 81
-call.type$ -- 21
-change.case$ -- 240
-chr.to.int$ -- 57
-cite$ -- 20
-duplicate$ -- 1878
-empty$ -- 1221
-format.name$ -- 916
-if$ -- 5178
+            1461 strings with 17769 characters,
+and the built_in function-call counts, 47177 in all, are:
+= -- 4847
+> -- 1218
+< -- 761
++ -- 1222
+- -- 356
+* -- 3199
+:= -- 5737
+add.period$ -- 172
+call.type$ -- 39
+change.case$ -- 482
+chr.to.int$ -- 99
+cite$ -- 38
+duplicate$ -- 3733
+empty$ -- 2475
+format.name$ -- 1876
+if$ -- 10334
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 367
-newline$ -- 109
-num.names$ -- 81
-pop$ -- 533
+missing$ -- 707
+newline$ -- 193
+num.names$ -- 153
+pop$ -- 1021
 preamble$ -- 1
-purify$ -- 90
+purify$ -- 175
 quote$ -- 0
-skip$ -- 1986
+skip$ -- 3858
 stack$ -- 1
-substring$ -- 1013
-swap$ -- 765
-text.length$ -- 31
+substring$ -- 2045
+swap$ -- 1551
+text.length$ -- 61
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 4
+type$ -- 12
 warning$ -- 0
-while$ -- 130
+while$ -- 258
 width$ -- 0
-write$ -- 284
+write$ -- 553

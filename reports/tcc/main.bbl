@@ -17,6 +17,12 @@
 {GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. \emph{Deep Learning}. [S.l.]: MIT
   Press, 2016.}
 
+\bibitem{jurgenReview2015}
+\abntrefinfo{Schmidhuber}{SCHMIDHUBER}{2015}
+{SCHMIDHUBER, J. Deep learning in neural networks: An overview.
+\emph{Neural Networks}, v.~61, p. 85--117, 2015.
+Published online 2014; based on TR arXiv:1404.7828 [cs.NE].}
+
 \bibitem{Barron1993UniversalAB}
 \abntrefinfo{Barron}{BARRON}{1993}
 {BARRON, A.~R. Universal approximation bounds for superpositions of a sigmoidal
@@ -59,6 +65,18 @@ Dispon{\'\i}vel em: \url{http://dx.doi.org/10.1038/nature14236}.}
   p. 012001, 2017.
 Dispon{\'\i}vel em: \url{http://stacks.iop.org/1757-899X/273/i=1/a=012001}.}
 
+\bibitem{lectures2005HIP}
+\abntrefinfo{Chellapilla et al.}{CHELLAPILLA et al.}{2005}
+{CHELLAPILLA, K. et al. \emph{Building Segmentation Based Human-Friendly Human
+  Interaction Proofs (HIPs)}. [S.l.]: Springer, Berlin, Heidelberg, 2005.
+  v.~3517. 1-26~p.}
+
+\bibitem{naivecaptcha}
+\abntrefinfo{Yan e Ahmad}{YAN; AHMAD}{2008}
+{YAN, J.; AHMAD, A. S.~E. Breaking visual captchas with naive pattern
+  recognition algorithms.
+p. 279--291, 01 2008.}
+
 \bibitem{captcha_break_2013}
 \abntrefinfo{Goodfellow et al.}{GOODFELLOW et al.}{2013}
 {GOODFELLOW, I.~J. et al. Multi-digit number recognition from street view
@@ -77,11 +95,11 @@ v.~358, p. eaag2612, 10 2017.}
 {BURSZTEIN, E. et al. The end is nigh: Generic solving of text-based captchas.
   In:  \emph{WOOT}. [S.l.: s.n.], 2014.}
 
-\bibitem{lectures2005HIP}
-\abntrefinfo{Chellapilla et al.}{CHELLAPILLA et al.}{2005}
-{CHELLAPILLA, K. et al. \emph{Building Segmentation Based Human-Friendly Human
-  Interaction Proofs (HIPs)}. [S.l.]: Springer, Berlin, Heidelberg, 2005.
-  v.~3517. 1-26~p.}
+\bibitem{singh2014survey}
+\abntrefinfo{Singh e Pal}{SINGH; PAL}{2014}
+{SINGH, V.~P.; PAL, P. Survey of different types of captcha.
+\emph{International Journal of Computer Science and Information Technologies},
+  v.~5, n.~2, p. 2242--2245, 2014.}
 
 \bibitem{securimage}
 \abntrefinfo{Securimage}{SECURIMAGE}{2018}
@@ -99,11 +117,115 @@ v.~321, p. 1465--8, 09 2008.}
 {SIVAKORN, S.; POLAKIS, I.; KEROMYTIS, A.~D. I am robot: (deep) learning to
   break semantic image captchas. In:  . [S.l.]: IEEE, 2016. p. 388--403.}
 
-\bibitem{naivecaptcha}
-\abntrefinfo{Yan e Ahmad}{YAN; AHMAD}{2008}
-{YAN, J.; AHMAD, A. S.~E. Breaking visual captchas with naive pattern
-  recognition algorithms.
-p. 279--291, 01 2008.}
+\bibitem{bursztein2011text}
+\abntrefinfo{Bursztein, Martin e Mitchell}{BURSZTEIN; MARTIN; MITCHELL}{2011}
+{BURSZTEIN, E.; MARTIN, M.; MITCHELL, J. Text-based captcha strengths and
+  weaknesses. In:  \emph{Proceedings of the 18th ACM Conference on Computer and
+  Communications Security}. New York, NY, USA: ACM, 2011.  (CCS '11), p.
+  125--138.
+ISBN 978-1-4503-0948-6. Dispon{\'\i}vel em:
+  \url{http://doi.acm.org/10.1145/2046707.2046724}.}
+
+\bibitem{GerstnerNeuronalDynamics}
+\abntrefinfo{Gerstner et al.}{GERSTNER et al.}{2014}
+{GERSTNER, W. et al. \emph{Neuronal dynamics: From single neurons to networks
+  and models of cognition}. Cambridge University Press, 2014. Dispon{\'\i}vel
+  em: \url{http://neuronaldynamics.epfl.ch/}. Acesso em: 23/06/2018.}
+
+\bibitem{LeCun1989}
+\abntrefinfo{LeCun et al.}{LECUN et al.}{1989}
+{LECUN, Y. et al. Backpropagation applied to handwritten zip code recognition.
+\emph{Neural Comput.}, MIT Press, Cambridge, MA, USA, v.~1, n.~4, p. 541--551,
+  dez. 1989.
+ISSN 0899-7667.
+Dispon{\'\i}vel em: \url{http://dx.doi.org/10.1162/neco.1989.1.4.541}.}
+
+\bibitem{LeCun98}
+\abntrefinfo{Lecun et al.}{LECUN et al.}{1998}
+{LECUN, Y. et al. Gradient-based learning applied to document recognition. In:
+  \emph{Proceedings of the IEEE}. [S.l.: s.n.], 1998. v.~86, p. 2278 -- 2324.}
+
+\bibitem{lee2008sparse}
+\abntrefinfo{Lee, Ekanadham e Ng}{LEE; EKANADHAM; NG}{2008}
+{LEE, H.; EKANADHAM, C.; NG, A.~Y. Sparse deep belief net model for visual area
+  v2. In:  \emph{Advances in neural information processing systems}. [S.l.:
+  s.n.], 2008. p. 873--880.}
+
+\bibitem{Gatys2015}
+\abntrefinfo{Gatys, Ecker e Bethge}{GATYS; ECKER; BETHGE}{2015}
+{GATYS, L.~A.; ECKER, A.~S.; BETHGE, M. Texture synthesis using convolutional
+  neural networks. In:  \emph{Proceedings of the 28th International Conference
+  on Neural Information Processing Systems - Volume 1}. Cambridge, MA, USA: MIT
+  Press, 2015.  (NIPS'15), p. 262--270. Dispon{\'\i}vel em:
+  \url{http://dl.acm.org/citation.cfm?id=2969239.2969269}. Acesso em:
+  23/06/2018.}
+
+\bibitem{gatys2016image}
+\abntrefinfo{Gatys, Ecker e Bethge}{GATYS; ECKER; BETHGE}{2016}
+{GATYS, L.~A.; ECKER, A.~S.; BETHGE, M. Image style transfer using
+  convolutional neural networks. In:  \emph{Proceedings of the IEEE Conference
+  on Computer Vision and Pattern Recognition}. [S.l.: s.n.], 2016. p.
+  2414--2423.}
+
+\bibitem{sabour2017dynamic}
+\abntrefinfo{Sabour, Frosst e Hinton}{SABOUR; FROSST; HINTON}{2017}
+{SABOUR, S.; FROSST, N.; HINTON, G.~E. Dynamic routing between capsules. In:
+  \emph{Advances in Neural Information Processing Systems}. [S.l.: s.n.], 2017.
+  p. 3856--3866.}
+
+\bibitem{adam_op}
+\abntrefinfo{Kingma e Ba}{KINGMA; BA}{2014}
+{KINGMA, D.~P.; BA, J. Adam: {A} method for stochastic optimization.
+\emph{CoRR}, abs/1412.6980, 2014.
+Dispon{\'\i}vel em: \url{http://arxiv.org/abs/1412.6980}.}
+
+\bibitem{friedman2001elements}
+\abntrefinfo{Friedman, Hastie e Tibshirani}{FRIEDMAN; HASTIE; TIBSHIRANI}{2001}
+{FRIEDMAN, J.; HASTIE, T.; TIBSHIRANI, R. \emph{The elements of statistical
+  learning}. [S.l.]: Springer series in statistics New York, NY, USA:, 2001.
+  v.~1.}
+
+\bibitem{hinton2012improving}
+\abntrefinfo{Hinton et al.}{HINTON et al.}{2012}
+{HINTON, G.~E. et al. Improving neural networks by preventing co-adaptation of
+  feature detectors.
+\emph{CoRR}, abs/1207.0580, 2012.
+Dispon{\'\i}vel em: \url{http://arxiv.org/abs/1207.0580}.}
+
+\bibitem{yann1998mnist}
+\abntrefinfo{Yann, Corinna e Christopher}{YANN; CORINNA; CHRISTOPHER}{1998}
+{YANN, L.; CORINNA, C.; CHRISTOPHER, J. \emph{The MNIST database of handwritten
+  digits}. 1998.
+Dispon{\'\i}vel em: \url{http://yann.lecun.com/exdb/mnist}. Acesso em:
+  23/06/2018.}
+
+\bibitem{ciresan2012column}
+\abntrefinfo{{Cire{\c s}an}, {Meier} e {Schmidhuber}}{{Cire{\c s}an}; {Meier};
+  {Schmidhuber}}{2012}
+{{Cire{\c s}an}, D.; {Meier}, U.; {Schmidhuber}, J. {Multi-column Deep Neural
+  Networks for Image Classification}.
+\emph{CoRR}, fev. 2012.}
+
+\bibitem{netzer2011reading}
+\abntrefinfo{Netzer et al.}{NETZER et al.}{2011}
+{NETZER, Y. et al. Reading digits in natural images with unsupervised feature
+  learning. In:  \emph{NIPS workshop on deep learning and unsupervised feature
+  learning}. [S.l.: s.n.], 2011. v.~2011, n.~2, p.~5.}
+
+\bibitem{sermanet2012convolutional}
+\abntrefinfo{Sermanet, Chintala e LeCun}{SERMANET; CHINTALA; LECUN}{2012}
+{SERMANET, P.; CHINTALA, S.; LECUN, Y. Convolutional neural networks applied to
+  house numbers digit classification. In:  IEEE. \emph{Pattern Recognition
+  (ICPR), 2012 21st International Conference on}. [S.l.], 2012. p. 3288--3291.}
+
+\bibitem{otaro}
+\abntrefinfo{Pinto}{PINTO}{2016}
+{PINTO, V.~A. \emph{Redes Neurais Convolucionais de Profundidade Para
+  Reconhecimento de Texto em Imagens de CAPTCHA.} Florianópolis, Santa
+  Catarina.: UNIVERSIDADE FEDERAL DE SANTA CATARINA - DEPARTAMENTO DE
+  INFORMÁTICA E ESTATÍSTICA, 2016. Dispon{\'\i}vel em:
+  \url{https://repositorio.ufsc.br/xmlui/handle/123456789/171436}. Acesso em:
+  23/06/2018.}
 
 \bibitem{simplecaptcha}
 \abntrefinfo{SimpleCaptcha}{SIMPLECAPTCHA}{2018}
@@ -118,16 +240,18 @@ Dispon{\'\i}vel em: \url{http://simplecaptcha.sourceforge.net/}. Acesso em:
 \emph{CoRR}, abs/1502.01852, 2015.
 Dispon{\'\i}vel em: \url{http://arxiv.org/abs/1502.01852}.}
 
-\bibitem{adam_op}
-\abntrefinfo{Kingma e Ba}{KINGMA; BA}{2014}
-{KINGMA, D.~P.; BA, J. Adam: {A} method for stochastic optimization.
-\emph{CoRR}, abs/1412.6980, 2014.
-Dispon{\'\i}vel em: \url{http://arxiv.org/abs/1412.6980}.}
-
 \bibitem{lutz_early_stop}
 \abntrefinfo{Prechelt}{PRECHELT}{1998}
 {PRECHELT, L. Automatic early stopping using cross validation: Quantifying the
   criteria.
 v.~11, p. 761--767, 06 1998.}
+
+\bibitem{abadi2016tensorflow}
+\abntrefinfo{Abadi et al.}{ABADI et al.}{2016}
+{ABADI, M. et al. Tensorflow: a system for large-scale machine learning. In:
+  \emph{OSDI}. Savannah, GA, USA: [s.n.], 2016. v.~16, p. 265--283.
+ISBN 978-1-931971-33-1. Dispon{\'\i}vel em:
+  \url{http://download.tensorflow.org/paper/whitepaper2015.pdf}. Acesso em:
+  23/06/2018.}
 
 \end{thebibliography}
