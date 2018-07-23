@@ -10,7 +10,7 @@ def conv_layer(ain, shape, namespace, **kwargs):
     layer = {}
     stridep = kwargs.get('stridep', 1)
     strides = kwargs.get('strides', [1, stridep, stridep, 1])
-    padding = kwargs.get('padding', 'SAME')
+    padding = kwargs.get('padding', 'VALID')
     activation = kwargs.get('activation', None)
     with tf.name_scope(namespace):
         stdev = tf.sqrt(2.0/(shape[0] * shape[1] * shape[-1]))
@@ -23,6 +23,34 @@ def conv_layer(ain, shape, namespace, **kwargs):
                             name='conv')
         layer['a'] = tf.add(conv, layer['b'], name='convsig')
         layer['aout'] = activation(layer['a']) if activation else layer['a']
+        layer['summary'] = [
+            tf.summary.histogram('W', layer['W'], family=namespace),
+            tf.summary.histogram('b', layer['b'], family=namespace),
+            tf.summary.histogram('a', layer['a'], family=namespace),
+        ]
+
+    return layer
+
+
+def conv_layer_max(ain, shape, namespace, **kwargs):
+    layer = {}
+    stridep = kwargs.get('stridep', 1)
+    strides = kwargs.get('strides', [1, stridep, stridep, 1])
+    padding = kwargs.get('padding', 'VALID')
+    activation = kwargs.get('activation', None)
+    with tf.name_scope(namespace):
+        stdev = tf.sqrt(2.0/(shape[0] * shape[1] * shape[-1]))
+        layer['W'] = tf.Variable(tf.truncated_normal(shape, stddev=stdev), name='W')
+        layer['b'] = tf.Variable(tf.zeros([shape[-1]]), name='b')
+        conv = tf.nn.conv2d(ain,
+                            layer['W'],
+                            strides=[1, 1, 1, 1],
+                            padding=padding,
+                            name='conv')
+        layer['a'] = tf.add(conv, layer['b'], name='convsig')
+        layer['_aout'] = activation(layer['a']) if activation else layer['a']
+        layer['aout'] = tf.layers.max_pooling2d(layer['_aout'], strides[1], strides[1], 'VALID')
+
         layer['summary'] = [
             tf.summary.histogram('W', layer['W'], family=namespace),
             tf.summary.histogram('b', layer['b'], family=namespace),

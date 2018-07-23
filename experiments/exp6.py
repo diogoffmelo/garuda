@@ -18,6 +18,8 @@ from models.conv import ConvLayer
 
 TEST = False
 CONVERGENCE_TOL_RATE = 0.3
+overfitting_criteria = 0.5
+low_increment_criteria = 0.3
 
 if TEST:
     MIN_EPOCHS = 2
@@ -33,9 +35,8 @@ if TEST:
         'val_bsize': 10,
     }
 else:
-    MIN_EPOCHS = 20
+    MIN_EPOCHS = 10
     MAX_EPOCHS = 50
-
 
     nepochs = MAX_EPOCHS
     dbargs = {
@@ -49,25 +50,30 @@ else:
 
 pkeep = 0.7
 train_gen, report_gen, val_gen = load_to_batches(dbargs, batchargs)
-#max_learning_rate = 0.01
-#min_learning_rate = 0.0001
-
-
-
-# max_learning_rate = 2
-# min_learning_rate = 0.001
-
 
 
 def stop_criterion(epoch, train_hist, test_hist):
     if epoch < MIN_EPOCHS:
         return False
 
-    if epoch > MAX_EPOCHS:
+    if epoch >= MAX_EPOCHS:
         return True
 
+    min_val_cost = np.min([t['loss_avg'] for t in test_hist])
+    last_val_cost = test_hist[-1]['loss_avg']
 
+    if last_val_cost > (1 + overfitting_criteria) * min_val_cost:
+        return True
 
+    k = 5
+    kcost = [t['loss_avg'] for t in train_hist[:-k]]
+    mean_train_cost = np.mean(kcost)
+    min_train_cost = np.min(kcost)
+
+    if min_train_cost > (1 - low_increment_criteria) * mean_train_cost:
+        return True
+
+    return False
 
 def variable_summaries(var):
     """Attach a lot of summaries to a Tensor (for TensorBoard visualization)."""
@@ -87,7 +93,7 @@ def variable_summaries(var):
     return summary
 
 
-def run(model_spec):
+def run(model_spec, model_name, max_learning_rate, min_learning_rate):
     model_id = uuid.uuid4()
     print('start training {}...'.format(model_id))
     print('lrate {} -> {}'.format(max_learning_rate, min_learning_rate))
@@ -188,13 +194,15 @@ def run(model_spec):
                 test_dict['acc_0']
             ))
 
-
-
             train_dict.update({'train_time': tdelta_train, 'total_time': tdelta_total, 'epoch': epoch + 1})
             test_dict.update({'train_time': tdelta_train, 'total_time': tdelta_total, 'epoch': epoch + 1})
 
             train_list.append(train_dict)
             test_list.append(test_dict)
+
+            if stop_criterion(epoch, train_list, test_list):
+                break
+
 
     df_train = pd.DataFrame(train_list)
     df_test = pd.DataFrame(test_list)
@@ -202,12 +210,15 @@ def run(model_spec):
     train_report = {
         'lrange': (min_learning_rate, max_learning_rate),
         'model': model_spec.desc(),
+        'model_size': model_spec.total_size(),
+        'model_name': model_name,
         'df_train': df_train,
         'df_test': df_test,
     }
 
     print('model:')
     print(train_report['model'])
+    print('model total size: {}'.format(train_report['model_size']))
 
     print('Train:')
     print(df_train[['loss_avg', 'wacc', 'wprob']])
@@ -295,6 +306,275 @@ def C5s6RMch(graph):
     )
 
 
+
+def C5s2o6C5s2o12C5s2o36C5s2o12MchD(graph):
+    return StackedLayers(
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        ConvLayer([5, 5, 3, 6], 2, graph, 'conv1'),
+        DropOutLayer(graph, 'dropout1'),
+        ConvLayer([5, 5, 6, 12], 2, graph, 'conv2'),
+        DropOutLayer(graph, 'dropout2'),
+        ConvLayer([5, 5, 12, 36], 2, graph, 'conv2'),
+        DropOutLayer(graph, 'dropout3'),
+        ConvLayer([5, 5, 36, 12], 2, graph, 'conv2'),
+        DropOutLayer(graph, 'dropout3'),
+        LinearReshapeLayer(graph, 'reshape'),
+        #LinearLayer(100, graph, 'dense1'),
+        LinearMultiCharOutputLayer(5, graph, 'classificador'),
+    )
+
+def C5s2o6C5s2o12C5s2o36C5s2o12MchDMax(graph):
+    return StackedLayers(
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        ConvLayer([5, 5, 3, 6], 2, graph, 'conv1', True),
+        DropOutLayer(graph, 'dropout1'),
+        ConvLayer([5, 5, 6, 12], 2, graph, 'conv2', True),
+        DropOutLayer(graph, 'dropout2'),
+        ConvLayer([5, 5, 12, 36], 2, graph, 'conv2', True),
+        DropOutLayer(graph, 'dropout3'),
+        ConvLayer([5, 5, 36, 12], 2, graph, 'conv2', True),
+        DropOutLayer(graph, 'dropout3'),
+        LinearReshapeLayer(graph, 'reshape'),
+        #LinearLayer(100, graph, 'dense1'),
+        LinearMultiCharOutputLayer(5, graph, 'classificador'),
+    )
+
+
+def RMch(graph):
+    return StackedLayers(
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        LinearReshapeLayer(graph, 'reshape'),
+        LinearMultiCharOutputLayer(5, graph, 'classificador'),
+    )
+
+
+def RMchD(graph):
+    return StackedLayers(
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        LinearReshapeLayer(graph, 'reshape'),
+        DropOutLayer(graph, 'dropout1'),
+        LinearMultiCharOutputLayer(5, graph, 'classificador'),
+    )
+
+def C5s6RMch(graph):
+    return StackedLayers(
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        ConvLayer([5, 5, 3, 6], 2, graph, 'conv1'),
+        LinearReshapeLayer(graph, 'reshape'),
+        LinearMultiCharOutputLayer(5, graph, 'classificador'),
+    )
+
+def C5o6RMchD(graph):
+    return StackedLayers(
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        ConvLayer([5, 5, 3, 6], 2, graph, 'conv1'),
+        LinearReshapeLayer(graph, 'reshape'),
+        DropOutLayer(graph, 'dropout1'),
+        LinearMultiCharOutputLayer(5, graph, 'classificador'),
+    )
+
+
+def C5s6MaxRMch(graph):
+    return StackedLayers(
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        ConvLayer([5, 5, 3, 6], 2, graph, 'conv1', True),
+        LinearReshapeLayer(graph, 'reshape'),
+        LinearMultiCharOutputLayer(5, graph, 'classificador'),
+    )
+
+def C5s6MaxRMchD(graph):
+    return StackedLayers(
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        DropOutLayer(graph, 'dropout3'),
+        ConvLayer([5, 5, 3, 6], 2, graph, 'conv1', True),
+        LinearReshapeLayer(graph, 'reshape'),
+        DropOutLayer(graph, 'dropout3'),
+        LinearMultiCharOutputLayer(5, graph, 'classificador'),
+    )
+
+
+
+def C5o6C5o12RMchD(graph):
+    return StackedLayers(
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        ConvLayer([5, 5, 3, 6], 1, graph, 'conv1'),
+        DropOutLayer(graph, 'dropout1'),
+        ConvLayer([5, 5, 6, 12], 2, graph, 'conv2'),
+        DropOutLayer(graph, 'dropout2'),
+        LinearReshapeLayer(graph, 'reshape'),
+        LinearMultiCharOutputLayer(5, graph, 'classificador'),
+    )
+
+def C5s6C5s12MaxRMchD(graph):
+    return StackedLayers(
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        ConvLayer([5, 5, 3, 6], 1, graph, 'conv1'),
+        DropOutLayer(graph, 'dropout1'),
+        ConvLayer([5, 5, 6, 12], 2, graph, 'conv2', True),
+        DropOutLayer(graph, 'dropout2'),
+        LinearReshapeLayer(graph, 'reshape'),
+        LinearMultiCharOutputLayer(5, graph, 'classificador'),
+    )
+
+
+def C5s6C5s12MaxRfl100MchD(graph):
+    return StackedLayers(
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        ConvLayer([5, 5, 3, 6], 1, graph, 'conv1'),
+        DropOutLayer(graph, 'dropout1'),
+        ConvLayer([5, 5, 6, 12], 2, graph, 'conv2', True),
+        DropOutLayer(graph, 'dropout2'),
+        LinearReshapeLayer(graph, 'reshape'),
+        LinearLayer(100, graph, 'dense1'),
+        LinearMultiCharOutputLayer(5, graph, 'classificador'),
+    )
+
+def C5s2o6C5s2o12C5s2o36C5s2o12MaxRMchD(graph):
+    return StackedLayers(
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        ConvLayer([5, 5, 3, 6], 1, graph, 'conv1'),
+        DropOutLayer(graph, 'dropout1'),
+        ConvLayer([5, 5, 6, 12], 2, graph, 'conv2', True),
+        DropOutLayer(graph, 'dropout2'),
+        ConvLayer([5, 5, 12, 36], 2, graph, 'conv2', True),
+        DropOutLayer(graph, 'dropout3'),
+        ConvLayer([5, 5, 36, 12], 2, graph, 'conv2', True),
+        DropOutLayer(graph, 'dropout3'),
+        LinearReshapeLayer(graph, 'reshape'),
+        #LinearLayer(100, graph, 'dense1'),
+        LinearMultiCharOutputLayer(5, graph, 'classificador'),
+    )
+
+
+
+def C5o6C5o12C5o36C5o36Rfl100MchD(graph):
+    return StackedLayers(
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        ConvLayer([5, 5, 3, 6], 1, graph, 'conv1'),
+        DropOutLayer(graph, 'dropout1'),
+        ConvLayer([5, 5, 6, 12], 2, graph, 'conv2'),
+        DropOutLayer(graph, 'dropout2'),
+        ConvLayer([5, 5, 12, 36], 2, graph, 'conv2'),
+        DropOutLayer(graph, 'dropout3'),
+        ConvLayer([5, 5, 36, 36], 2, graph, 'conv2'),
+        DropOutLayer(graph, 'dropout3'),
+        LinearReshapeLayer(graph, 'reshape'),
+        LinearLayer(100, graph, 'dense1'),
+        LinearMultiCharOutputLayer(5, graph, 'classificador'),
+    )
+
+
+def C5o6C5o12C5o36C5o36Rfl200MchD(graph):
+    return StackedLayers(
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        ConvLayer([5, 5, 3, 6], 1, graph, 'conv1'),
+        DropOutLayer(graph, 'dropout1'),
+        ConvLayer([5, 5, 6, 12], 2, graph, 'conv2'),
+        DropOutLayer(graph, 'dropout2'),
+        ConvLayer([5, 5, 12, 36], 2, graph, 'conv2'),
+        DropOutLayer(graph, 'dropout3'),
+        ConvLayer([5, 5, 36, 36], 2, graph, 'conv2'),
+        DropOutLayer(graph, 'dropout3'),
+        LinearReshapeLayer(graph, 'reshape'),
+        LinearLayer(200, graph, 'dense1'),
+        LinearMultiCharOutputLayer(5, graph, 'classificador'),
+    )
+
+
+
+def C5o6C5o12C5o36C5o36MaxRfl100MchD(graph):
+    return StackedLayers(
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        ConvLayer([5, 5, 3, 6], 1, graph, 'conv1'),
+        DropOutLayer(graph, 'dropout1'),
+        ConvLayer([5, 5, 6, 12], 2, graph, 'conv2', True),
+        DropOutLayer(graph, 'dropout2'),
+        ConvLayer([5, 5, 12, 36], 2, graph, 'conv2', True),
+        DropOutLayer(graph, 'dropout3'),
+        ConvLayer([5, 5, 36, 36], 2, graph, 'conv2', True),
+        DropOutLayer(graph, 'dropout3'),
+        LinearReshapeLayer(graph, 'reshape'),
+        LinearLayer(100, graph, 'dense1'),
+        LinearMultiCharOutputLayer(5, graph, 'classificador'),
+    )
+
+def C5o6C5o12C5o36C5o12MaxRfl100MchD(graph):
+    return StackedLayers(
+        InputLayer([None, 50, 200, 3], [None, 5, 36], graph, 'input'),
+        ConvLayer([5, 5, 3, 6], 1, graph, 'conv1'),
+        DropOutLayer(graph, 'dropout1'),
+        ConvLayer([5, 5, 6, 12], 2, graph, 'conv2', True),
+        DropOutLayer(graph, 'dropout2'),
+        ConvLayer([5, 5, 12, 36], 2, graph, 'conv2', True),
+        DropOutLayer(graph, 'dropout3'),
+        ConvLayer([5, 5, 36, 12], 2, graph, 'conv2', True),
+        DropOutLayer(graph, 'dropout3'),
+        LinearReshapeLayer(graph, 'reshape'),
+        LinearLayer(100, graph, 'dense1'),
+        LinearMultiCharOutputLayer(5, graph, 'classificador'),
+    )
+
+
+
+
+def experiment_lrate(model_func):
+    for lrate in [0.1, 0.001, 0.0001, 0.00001]:
+        max_learning_rate = lrate
+        min_learning_rate = lrate
+        graph = tf.Graph()
+        model_spec = model_func(graph)
+        run(model_spec, model_func.__name__, max_learning_rate, min_learning_rate)
+        for l, desc in zip(model_spec.layers, model_spec.desc()):
+            print('layer: {}, size: {}'.format(desc, l.num_parameters()))
+
+
+import sys
+#for m in [RMch, RMchD, C5s6RMch, C5s6MaxRMch, C5s6MaxRMchD]:
+#for m in [C5s6C5s12MaxRMchD, C5s6C5s12MaxRfl100MchD, C5s2o6C5s2o12C5s2o36C5s2o12MaxRMchD, C5s2o6C5s2o12C5s2o36C5s2o12MaxRfl100MchD]:
+#    experiment_lrate(m)
+
+#experiment_lrate(C5s6RMch)
+
+max_learning_rate = 1e-3
+min_learning_rate = 1e-4
+
+
+
+for model_func in [RMchD, C5o6RMchD, C5o6C5o12RMchD]:
+    graph = tf.Graph()
+    model_spec = model_func(graph)
+    run(model_spec, model_func.__name__, max_learning_rate, min_learning_rate)
+
+
+sys.exit(0)
+
+
+model_func = RMch
+
+for lrate in [0.1, 0.001, 0.0001, 0.00001]:
+    max_learning_rate = lrate
+    min_learning_rate = lrate
+    graph = tf.Graph()
+    model_spec = model_func(graph)
+    run(model_spec, model_func.__name__)
+    for l, desc in zip(model_spec.layers, model_spec.desc()):
+        print('layer: {}, size: {}'.format(desc, l.num_parameters()))
+
+
+model_func = RMch
+
+for lrate in [0.1, 0.001, 0.0001, 0.00001]:
+    max_learning_rate = lrate
+    min_learning_rate = lrate
+    graph = tf.Graph()
+    model_spec = model_func(graph)
+    run(model_spec, model_func.__name__)
+    for l, desc in zip(model_spec.layers, model_spec.desc()):
+        print('layer: {}, size: {}'.format(desc, l.num_parameters()))
+
+
+
+sys.exit(0)
 
 # model_func = C5s6C5s12RMch
 # max_learning_rate = 0.001

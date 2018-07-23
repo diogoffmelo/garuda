@@ -43,6 +43,10 @@ class LinearSingleCharOutputLayer(OuputLayer):
             'loss': self.loss
         }
 
+    def num_parameters(self):
+        c1, c2 = self.shape
+        return c1 * c2
+
 
 class LinearLayer(Layer):
     def __init__(self, oshape, graph, name):
@@ -58,6 +62,9 @@ class LinearLayer(Layer):
         self.xout = self.fl['aout']
         self.vars += [self.fl['W'], self.fl['b']]
         self.summ_ext += self.fl['summary']
+
+    def num_parameters(self):
+        return int(self.xin.shape[-1]) * int(self.oshape)
 
 
 class LinearMultiCharOutputLayer(OuputLayer):
@@ -96,3 +103,6 @@ class LinearMultiCharOutputLayer(OuputLayer):
             'pacc': self.wacc['pacc'], 
             'wacc': self.wacc['wacc'],
         }
+
+    def num_parameters(self):
+        return sum(c.num_parameters() for c in self.cmodels)

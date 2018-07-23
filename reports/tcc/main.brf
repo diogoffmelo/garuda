@@ -1,60 +1,63 @@
-\backcite {perceptron_58}{{9}{1}{chapter.1}}
-\backcite {Goodfellow-et-al-2016}{{9}{1}{chapter.1}}
-\backcite {jurgenReview2015}{{9}{1}{chapter.1}}
-\backcite {Barron1993UniversalAB, Andoni2014PolyAprox}{{9}{1}{chapter.1}}
-\backcite {imagenet_2012}{{9}{1}{chapter.1}}
-\backcite {mnih2015humanlevel}{{9}{1}{chapter.1}}
-\backcite {captcha2003}{{9}{1}{chapter.1}}
-\backcite {captcha_review_2017}{{9}{1}{chapter.1}}
-\backcite {lectures2005HIP}{{9}{1}{chapter.1}}
-\backcite {naivecaptcha}{{9}{1}{chapter.1}}
-\backcite {captcha_break_2013}{{9}{1}{chapter.1}}
-\backcite {captcha_break_2017}{{9}{1}{chapter.1}}
-\backcite {Bursztein2014TheEI}{{9}{1}{chapter.1}}
-\backcite {captcha2003}{{11}{2.1}{section.2.1}}
-\backcite {lectures2005HIP}{{11}{2.1}{section.2.1}}
-\backcite {lectures2005HIP}{{11}{2.1}{section.2.1}}
-\backcite {singh2014survey}{{11}{2.1}{section.2.1}}
-\backcite {securimage}{{11}{2.1}{section.2.1}}
-\backcite {naivecaptcha}{{11}{2.1}{figure.caption.11}}
-\backcite {captcha_break_2013}{{12}{2.1}{figure.caption.11}}
-\backcite {lectures2005HIP}{{12}{2.1}{figure.caption.11}}
-\backcite {recaptcha1}{{12}{2.1}{figure.caption.11}}
-\backcite {captcha_break_2013}{{13}{2.1}{figure.caption.11}}
-\backcite {imarobot}{{13}{2.1}{figure.caption.11}}
-\backcite {lectures2005HIP}{{13}{2.2}{section.2.2}}
-\backcite {lectures2005HIP}{{13}{2.2}{section.2.2}}
-\backcite {bursztein2011text}{{14}{2.2}{section.2.2}}
-\backcite {captcha_review_2017}{{14}{2.2}{section.2.2}}
-\backcite {GerstnerNeuronalDynamics}{{17}{3.2}{section.3.2}}
-\backcite {LeCun1989, LeCun98}{{18}{3.3}{section.3.3}}
-\backcite {lee2008sparse}{{20}{3.3}{figure.caption.14}}
-\backcite {Gatys2015, gatys2016image}{{20}{3.3}{figure.caption.14}}
-\backcite {sabour2017dynamic}{{21}{3.3}{figure.caption.14}}
-\backcite {jurgenReview2015}{{21}{3.3}{figure.caption.14}}
-\backcite {Goodfellow-et-al-2016}{{21}{3.3}{figure.caption.14}}
-\backcite {adam_op}{{23}{3.4}{equation.3.4.7}}
-\backcite {jurgenReview2015}{{23}{3.4}{figure.caption.15}}
-\backcite {friedman2001elements}{{24}{3.5}{section.3.5}}
-\backcite {hinton2012improving}{{25}{3.5}{equation.3.5.8}}
-\backcite {lectures2005HIP}{{26}{3.6}{section.3.6}}
-\backcite {bursztein2011text}{{26}{3.6}{section.3.6}}
-\backcite {yann1998mnist}{{26}{3.6}{section.3.6}}
-\backcite {ciresan2012column}{{26}{3.6}{section.3.6}}
-\backcite {netzer2011reading}{{26}{3.6}{section.3.6}}
-\backcite {sermanet2012convolutional}{{26}{3.6}{section.3.6}}
-\backcite {captcha_break_2013}{{27}{3.6}{section.3.6}}
-\backcite {otaro}{{27}{3.6}{section.3.6}}
-\backcite {captcha_break_2017}{{27}{3.6}{section.3.6}}
-\backcite {netzer2011reading}{{28}{\caption@xref {??}{ on input line 152}}{table.caption.17}}
-\backcite {sermanet2012convolutional}{{28}{\caption@xref {??}{ on input line 153}}{table.caption.17}}
-\backcite {captcha_break_2013}{{28}{\caption@xref {??}{ on input line 154}}{table.caption.17}}
-\backcite {otaro}{{28}{\caption@xref {??}{ on input line 155}}{table.caption.17}}
-\backcite {captcha_break_2017}{{28}{\caption@xref {??}{ on input line 156}}{table.caption.17}}
-\backcite {simplecaptcha}{{30}{5.1}{section.5.1}}
-\backcite {lectures2005HIP}{{30}{5.1}{section.5.1}}
-\backcite {adam_op}{{31}{5.2}{section.5.2}}
-\backcite {HeZR015relu}{{31}{5.2}{section.5.2}}
-\backcite {lutz_early_stop}{{31}{5.2}{section.5.2}}
-\backcite {abadi2016tensorflow}{{32}{5.2}{equation.5.2.2}}
-\backcite {otaro}{{34}{6}{chapter.6}}
+\backcite {perceptron_58}{{10}{1}{chapter.1}}
+\backcite {Goodfellow-et-al-2016}{{10}{1}{chapter.1}}
+\backcite {jurgenReview2015}{{10}{1}{chapter.1}}
+\backcite {Barron1993UniversalAB, Andoni2014PolyAprox}{{10}{1}{chapter.1}}
+\backcite {imagenet_2012}{{10}{1}{chapter.1}}
+\backcite {mnih2015humanlevel}{{10}{1}{chapter.1}}
+\backcite {captcha2003}{{10}{1}{chapter.1}}
+\backcite {captcha_review_2017}{{10}{1}{chapter.1}}
+\backcite {lectures2005HIP}{{10}{1}{chapter.1}}
+\backcite {naivecaptcha}{{10}{1}{chapter.1}}
+\backcite {captcha_break_2013}{{10}{1}{chapter.1}}
+\backcite {captcha_break_2017}{{10}{1}{chapter.1}}
+\backcite {Bursztein2014TheEI}{{10}{1}{chapter.1}}
+\backcite {captcha2003}{{12}{2.1}{section.2.1}}
+\backcite {lectures2005HIP}{{12}{2.1}{section.2.1}}
+\backcite {lectures2005HIP}{{12}{2.1}{section.2.1}}
+\backcite {singh2014survey}{{12}{2.1}{section.2.1}}
+\backcite {securimage}{{12}{2.1}{section.2.1}}
+\backcite {naivecaptcha}{{13}{2.1}{figure.caption.12}}
+\backcite {captcha_break_2013}{{13}{2.1}{figure.caption.12}}
+\backcite {lectures2005HIP}{{13}{2.1}{figure.caption.12}}
+\backcite {recaptcha1}{{13}{2.1}{figure.caption.12}}
+\backcite {captcha_break_2013}{{14}{2.1}{figure.caption.12}}
+\backcite {imarobot}{{14}{2.1}{figure.caption.12}}
+\backcite {lectures2005HIP}{{14}{2.2}{section.2.2}}
+\backcite {lectures2005HIP}{{14}{2.2}{section.2.2}}
+\backcite {bursztein2011text}{{15}{2.2}{section.2.2}}
+\backcite {captcha_review_2017}{{15}{2.2}{section.2.2}}
+\backcite {Goodfellow-et-al-2016}{{18}{3.1}{equation.3.1.3}}
+\backcite {GerstnerNeuronalDynamics}{{18}{3.2}{section.3.2}}
+\backcite {LeCun1989, LeCun98}{{19}{3.3}{section.3.3}}
+\backcite {lee2008sparse}{{22}{3.3}{figure.caption.15}}
+\backcite {Gatys2015, gatys2016image}{{22}{3.3}{figure.caption.15}}
+\backcite {sabour2017dynamic}{{23}{3.3}{figure.caption.15}}
+\backcite {jurgenReview2015}{{23}{3.3}{figure.caption.15}}
+\backcite {Goodfellow-et-al-2016}{{23}{3.3}{figure.caption.15}}
+\backcite {adam_op}{{24}{3.4}{equation.3.4.7}}
+\backcite {jurgenReview2015}{{24}{3.4}{figure.caption.16}}
+\backcite {friedman2001elements}{{25}{3.5}{section.3.5}}
+\backcite {hinton2012improving}{{27}{3.5}{equation.3.5.8}}
+\backcite {lectures2005HIP}{{27}{3.6}{section.3.6}}
+\backcite {bursztein2011text}{{27}{3.6}{section.3.6}}
+\backcite {yann1998mnist}{{28}{3.6}{section.3.6}}
+\backcite {ciresan2012column}{{28}{3.6}{section.3.6}}
+\backcite {netzer2011reading}{{28}{3.6}{section.3.6}}
+\backcite {sermanet2012convolutional}{{28}{3.6}{section.3.6}}
+\backcite {captcha_break_2013}{{28}{3.6}{section.3.6}}
+\backcite {captcha_break_2017}{{28}{3.6}{section.3.6}}
+\backcite {otaro}{{29}{3.6}{section.3.6}}
+\backcite {netzer2011reading}{{30}{1}{table.caption.18}}
+\backcite {sermanet2012convolutional}{{30}{1}{table.caption.18}}
+\backcite {captcha_break_2013}{{30}{1}{table.caption.18}}
+\backcite {otaro}{{30}{1}{table.caption.18}}
+\backcite {captcha_break_2017}{{30}{1}{table.caption.18}}
+\backcite {simplecaptcha}{{31}{4.1}{section.4.1}}
+\backcite {lectures2005HIP}{{31}{4.1}{section.4.1}}
+\backcite {adam_op}{{32}{4.2}{section.4.2}}
+\backcite {HeZR015relu}{{33}{4.2}{section.4.2}}
+\backcite {lutz_early_stop}{{33}{4.2}{section.4.2}}
+\backcite {abadi2016tensorflow}{{33}{4.2}{equation.4.2.2}}
+\backcite {otaro}{{39}{2}{table.caption.20}}
+\backcite {otaro}{{42}{3}{table.caption.22}}
+\backcite {otaro}{{42}{\caption@xref {??}{ on input line 160}}{table.caption.22}}

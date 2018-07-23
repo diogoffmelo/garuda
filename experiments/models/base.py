@@ -24,6 +24,9 @@ class Layer(object):
     def _food(self, batch, **kwargs):
         return {}
 
+    def num_parameters(self):
+        raise NotImplementedError()
+
 
 class InputLayer(Layer):
     def __init__(self, xshape, yshape, graph, name):
@@ -47,9 +50,14 @@ class InputLayer(Layer):
     def build(self, other):
         raise NotImplementedError()
 
+    def num_parameters(self):
+        return 0
+
 
 class OuputLayer(Layer):
-    pass
+    def num_parameters(self):
+        return 0
+
 
 
 class DropOutLayer(Layer):
@@ -68,6 +76,9 @@ class DropOutLayer(Layer):
     def _food(self, batch, **kwargs):
         return {self.pkeep: kwargs.get('pkeep', 1.0)}
 
+    def num_parameters(self):
+        return 0
+
 
 class ReshapeLayer(Layer):
     def __init__(self, outshape, graph, name):
@@ -82,6 +93,9 @@ class ReshapeLayer(Layer):
                                    self.outshape,
                                    name='reshape')
 
+    def num_parameters(self):
+        return 0
+
 
 class LinearReshapeLayer(ReshapeLayer):
     def __init__(self, graph, name):
@@ -92,6 +106,9 @@ class LinearReshapeLayer(ReshapeLayer):
         _, x1 ,x2, x3 = other.xout.shape
         self.outshape = [-1, int(x1)*int(x2)*int(x3)]
         ReshapeLayer.build(self, other)
+
+    def num_parameters(self):
+        return 0
 
 
 class StackedLayers(object):
@@ -118,6 +135,9 @@ class StackedLayers(object):
             )
 
         return llayers
+
+    def total_size(self):
+        return sum(map(lambda l: l.num_parameters(), self.layers))
 
     def food(self, batch, **kwargs):
         _food = {}

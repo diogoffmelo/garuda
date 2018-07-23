@@ -34,6 +34,7 @@
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{multicol}			% multiplas colunas no texto
+\usepackage{multirow}
 \usepackage{subcaption}
 \usepackage{caption}
 \usepackage{float}
@@ -41,10 +42,11 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{lipsum}
+\usepackage{amsmath}
 \usepackage{blindtext}
 \usepackage{csvsimple}
 
-
+\usepackage{tabularx}
 %\usepackage{url}
 %\usepackage{hyperref}
 
@@ -58,6 +60,8 @@
 % --- 
 % CONFIGURAÇÕES DE PACOTES
 % --- 
+
+\renewcommand{\arraystretch}{1.2}
 
 % ---
 % Configurações do pacote backref
@@ -75,6 +79,10 @@
 		Citado #1 vezes nas páginas #2.%
 	\fi}%
 % ---
+
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
 
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
@@ -205,7 +213,7 @@
 
 % resumo e abstract
 \include{secoes/resumo}
-%\include{secoes/abstract}
+\include{secoes/abstract}
 
 % ---
 % inserir lista de ilustrações
@@ -253,9 +261,10 @@
 \include{secoes/introducao}
 \include{secoes/captchas}
 \include{secoes/redesneurais}
-\include{secoes/modelagem}
 \include{secoes/metodologia}
+\include{secoes/modelagem}
 \include{secoes/resultados}
+\include{secoes/conclusoes}
 
 
 % ----------------------------------------------------------

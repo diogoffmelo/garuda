@@ -1,7 +1,84 @@
-\chapter{Modelagem}\label{modelagem}
+\chapter{Modelagem}\label{cap:modelagem}
 
+Neste capítulo descrevemos a nomenclatura usada para a descrição das redes e os detalhes de funcionamento de cada camada.
 
+\section{Camadas}
 
-definição das redes
-definição da nomenclatura
- 
+Camadas densas ($\mathbf{Fl}_{O}$) mapeiam uma soma balanceada dos $I$ sinais de entrada em $O$ sinais de saída, tendo $I \times O$ parâmetros. Quando presente, a ativação \textit{relu} é aplicada aos sinais de saída. Camadas multi-caracteres (\textbf{M}) mapeiam os sinais de entrada nas distribuições de probabilidades para cada caractere no token. Mais especificamente, esta camada é formada por $N$ (sendo $N=5$, o tamanho fixo do token) classificadores independentes, cada um formado por uma camada densa seguida de uma ativação softmax. Os parâmetros de cada classificador não são compartilhados entre si. Em todas as arquiteturas, esta é sempre a última camada. Sendo o sinal de entrada um vetor de tamanho $I$ e o de saída de tamanho $O$ (onde $O=36$ é o tamanho fixo do alfabeto), o número de parâmetros desta camada é dado por $N \times I \times O$ ($ = 180 \times I$). 
+
+Camadas convolucionais $\mathbf{C}_{O}$ possuem núcleos de tamanho fixo $k=5$ em cada uma das direções, $O$ canais de saída e passo $s=1$ ou $s=2$ dependendo da arquitetura. Se a camada convolucional for seguida por uma agregação de \textit{maxpooling}, ela sempre terá passo $1$, caso contrário, o passo é $2$, exceto quando houver mais de uma camada convolucional. Neste caso, a primeira tem passo $1$ e as demais $2$. O tamanho de um camada convolucional com $I$ canais de entrada e $O$ canas de saída é dado por $k^2 \times I \times O$ ($= 25 \times I \times O$). Seja $X_{H, W, O}$ o tensor e entrada, a saída é um tensor $X^{'}_{\left(H - k + 1\right)/s, \left(W - k + 1\right)/s, O}$. Após cada camada convolucional é aplicada uma ativação \textit{relu}.
+
+A operação de linearização (\textbf{Lin}) transforma o tensor de entrada em vetor de saída, através da reordenação dos índices. Seja o tensor de entrada $X_{H, W, I}$, a saída desta camada é um vetor $x^{'}_{H \times W \times I}$. A linearização está sempre presente antes da primeira camada densa da arquitetura. As operações de \textit{dropout} (\textbf{D}) e de \textit{maxpooling} (\textbf{Max}) podem estar presentes ou não, dependendo da arquitetura. Quando presente, o \textit{dropout} atuará em cada uma das camadas ocultas da rede, anulando cada um dos sinais de saída da camada forma independente com probabilidade de $p_{drop} = 30\%$. A única exceção é nas arquiteturas com apenas a camada multi-caractere. Neste caso, o \textit{dropout} é aplicado diretamente nos sinais de entrada da rede, isto é, diretamente na imagem. A operação de \textit{maxpooling}, quando presente, atua depois de cada camada convolucional, com passo fixo em $2$ em ambas as direções. Ou seja, apenas o maior valor dos quatro pixels de entrada ($2$ na direção $i$ e $2$ na direção $j$) estará presente no canal de saída. A operação agregação só é aplicada ao fim de camadas convolucionais que teriam passo $2$ (vide descrição no parágrafo anterior). Caso presente, as camadas convolucionais passam a ter passo $1$. O tensor de saída tem as dimensões transformadas de forma similar à uma operação convolucional com $k = 2$ e $s = 2$. Nenhuma dessas operações adicionam parâmetros à arquitetura, tendo tamanho 0.
+
+\section{Arquiteturas}
+
+Nas tabelas a seguir as arquiteturas utilizadas neste trabalho estão descritas camada por camada, estando as dimensões de entrada e saída e número de parâmetros explicitados. A presença da regularização é indicada entre colchetes. O fluxo de dados durante a computação ocorre da primeira para a última linha na tabela. O detalhamento das arquiteturas usando agregação \textit{maxout} pode ser facilmente obtidos a partir das descrições apresentadas, sendo, portanto, omitidas.
+
+\noindent
+\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+	\multicolumn{5}{c}{$M[D]$} \\ \hline \hline
+	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+	Lin & [Dropout] & (50,200,3) & (30000) & 0 \\ \hline
+	$M$ & 5 classificadores. & (30000) & (5,36) & 5400000 \\ \hline
+	total &  &  &  & 5400000 \\ \hline
+\end{tabularx}
+
+\noindent
+\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+	\multicolumn{5}{c}{$C_6M[D]$} \\ \hline \hline
+	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+	$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo 2.  [Dropout] & (50,200,3) & (23,98,6) & 450 \\ \hline
+	Lin & - & (23,98,6) & (13524) & 0 \\ \hline
+	$M$ & 5 classificadores. & (13524) & (5,36) & 2434320 \\ \hline
+	total &  &  &  & 2434770 \\ \hline
+\end{tabularx}
+
+\noindent
+\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+	\multicolumn{5}{c}{$C_6C_{12}M[D]$} \\ \hline \hline
+	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+	$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo 1. [Dropout]& (50,200,3) & (46,196,6) & 450 \\ \hline
+	$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo 2.  [Dropout] & (46,196,6) & (21,96,12) & 1800 \\ \hline
+	Lin & - & (21,96,12) & (24192) & 0 \\ \hline
+	$M$ & 5 classificadores. & (24192) & (5,36) & 4354560 \\ \hline
+	total &  &  &  & 4356810 \\ \hline
+\end{tabularx}
+
+\noindent
+\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+	\multicolumn{5}{c}{$C_6C_{12}Fl_{100}M[D]$} \\ \hline \hline
+	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+	$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo 1.  [Dropout] & (50,200,3) & (46,196,6) & 450 \\ \hline
+	$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo 2.  [Dropout] & (46,196,6) & (21,96,12) & 1800 \\ \hline
+	Lin & - & (21,96,12) & (24192) & 0 \\ \hline
+	$Fl_{100}$ & Camada densa com 24192 sinais de entrada e 100 sinais de saída.  [Dropout] & (24192) & (100) & 2419200 \\ \hline
+	$M$ & 5 classificadores. & (100) & (5,36) & 18000 \\ \hline
+	total &  &  &  & 2439450 \\ \hline
+\end{tabularx}
+
+\noindent
+\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+	\multicolumn{5}{c}{$C_6C_{12}C_{36}C_{36}M[D]$} \\ \hline \hline
+	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+	$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo 1.  [Dropout] & (50,200,3) & (46,196,6) & 450 \\ \hline
+	$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo 2.  [Dropout] & (46,196,6) & (21,96,12) & 1800 \\ \hline
+	$C_{36}$ & Convolucional com 12 canais de entrada e 36 de saída. Passo 2.  [Dropout] & (21,96,12) & (9,46,36) & 10800 \\ \hline
+	$C_{36}$ & Convolucional com 36 canais de entrada e 36 de saída. Passo 2.  [Dropout] & (9,46,36) & (3,21,36) & 32400 \\ \hline
+	Lin & - & (3,21,36) & (2268) & 0 \\ \hline
+	$M$ & 5 classificadores. & (2268) & (5,36) & 408240 \\ \hline
+	total &  &  &  & 453690 \\ \hline
+\end{tabularx}
+
+\noindent
+\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+	\multicolumn{5}{c}{$C_6C_{12}C_{36}C_{36}Fl_{100}M[D]$} \\ \hline \hline
+	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+	$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo 1.  [Dropout] & (50,200,3) & (46,196,6) & 450 \\ \hline
+	$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo 2.  [Dropout] & (46,196,6) & (21,96,12) & 1800 \\ \hline
+	$C_{36}$ & Convolucional com 12 canais de entrada e 36 de saída. Passo 2.  [Dropout] & (21,96,12) & (9,46,36) & 10800 \\ \hline
+	$C_{36}$ & Convolucional com 36 canais de entrada e 36 de saída. Passo 2.  [Dropout] & (9,46,36) & (3,21,36) & 32400 \\ \hline
+	Lin & - & (3,21,36) & (2268) & 0 \\ \hline
+	$Fl_{100}$ & Camada densa com 2268 sinais de entrada e 100 sinais de saída.  [Dropout] & (2268) & (100) & 226800 \\ \hline
+	$M$ & 5 classificadores. & (100) & (5,36) & 18000 \\ \hline
+	total &  &  &  & 290250 \\ \hline
+\end{tabularx}

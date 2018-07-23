@@ -1,0 +1,18 @@
+\chapter{Conclusões}
+
+Neste trabalho propomos uma abordagem comparativa entre diferentes arquiteturas de redes neurais para a solução de CAPTCHAs baseados em texto sem informação humana em um ambiente com capacidade computacional inferior às comumente encontradas na literatura. Mostramos que é possível obter performances próximas ao estado da arte a despeito das limitações. O modelo final escolhido obteve uma acuráciafinal de $96.06\%$ de acerto por token, utilizando menos parâmetros, com requisitos de tempo factíveis e treinado em um mero computador pessoal. Seguem nossas observações para que esse tipo de resultado possa ser reproduzido em outras aplicações.
+
+A experimentação dos hiper-parâmetros é um fator chave na obtenção de bons resultados. Como mostrado pelos experimentos, diferentes configurações do hiper-parâmetro de aprendizado podem levar a dinâmicas de treino substancialmente diferentes. Adicionalmente, diferentes arquiteturas possuem diferentes requisitos. É possível projetar arquiteturas que atendam diferentes especificações (tempo de treino, tamanho, acurácia, etc.) e escolher dentre elas a que melhor se aplica ao problema. Para tal, a análise da dinâmica inicial da rede e o uso de validação cruzada são essenciais. Em particular, a avaliação comparativa da evolução da função custo fornece informação crucial para a escolha e projeto de modelos melhores. Escolhido cuidadosamente uma arquitetura que atenda aos requisitos e os valores ideais para os hiper-parâmetros, é possível realizar seções de treino mais longas, com uma maior exposição do modelo à base de treino e refinar ainda mais os resultados. 
+
+Arquiteturas convolucionais mostraram-se extremamente eficazes para o problema. De fato, esse tipo de camada tem sido aplicada com sucesso em diversos problemas de processamento de imagem. O compartilhamento de parâmetros ao mesmo tempo reduz o tamanho e adiciona maior poder de expressão aos modelos. O \textit{dropout} mostrou-se uma ferramenta eficaz e computacionalmente barata para combater o \textit{overfitting}, melhorando a performance dos modelos estudados sem degradação preceptiva no tempo de computação. A operação de agrupamento com valor fixo apresentou desempenho superior à de \textit{maxout}, tanto no requisito de tempo quanto na acurácia final dos modelos.
+
+\section{Trabalhos futuros}
+
+Segue uma lista de trabalhos futuros que podem enriquecer a discussão iniciapa pelo presente trabalho.
+
+\begin{enumerate}
+	\item Explorar mais detalhadamente a influência do número de canais e do tamanho dos núcleos das camadas convolucionais no desempenho das redes, buscando tanto diminuir o número de parâmetros quanto aumentar a acurácia final dos modelos.
+	\item Aplicar a mesma abordagem à outros problemas de processamento de imagem, como detecção de objetos, por exemplo, ou outras áreas como predição de sequências temporais.
+	\item Estender os modelos os modelos para CAPTCHAs com palavras de sequência variável e/ou diferentes formatos.
+	\item Utilizar as mesmas técnicas em CAPTCHAs de texto reais. Em particular, avaliar qual o nível de segurança que esses mecanismos de proteção tem fornecido a instituições no Brasil  
+\end{enumerate}

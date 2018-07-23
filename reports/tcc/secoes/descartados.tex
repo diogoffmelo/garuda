@@ -1,0 +1,19 @@
+comparação com predição do token
+
+ Adicionalmente, se supormos que os $\hat{p}_i^{(D)}$ sejam independentes entre si, podemos definir uma estimativa para a \textbf{probabilidade de acerto do token} como o produto das probabilidades individuais, ou seja,
+\begin{equation} \label{eq:phat}
+	\hat{q}_u^{(D)} = \prod_{i} \hat{p}_i^{(D)}.
+\end{equation}
+
+Chamamos a atenção de que as equações \ref{eq:phat} e \ref{eq:accw} não necessariamente representam a mesma grandeza, fornecendo duas estimativas independentes para a qualidade do modelo. De fato, para o caso simples de tokens com comprimento 2, se definirmos $A$($B$) como o evento do classificador acertar corretamente o primeiro(segundo) caractere da sequência, a equação \ref{eq:phat} pode ser reescrita como $\hat{q}_u = P(A).P(B)$ enquanto a equação \ref{eq:accw} como $\hat{p}_u = P(A \cap B)$. Agora, utilizando a Lei de Bayes e a simetria entre os eventos $A$ e $B$, a última pode ser reescrita como $\hat{p}_u = \frac{1}{2} (P(A | B) P(B) + P(B|A)P(A))$. De outra forma, \ref{eq:phat} estima a performance supondo predições independentes, enquanto \ref{eq:accw} nos fornece uma estimativa para quando o modelo compartilha informação. Assim, definimos a \textbf{eficiência no compartilhamento de informação}, inspirado no conceito de informação mútua, como sendo: 
+\begin{equation} \label{eq:sharing_efficiency}
+\xi = D_{KL}(\hat{p}_u, \hat{q}_u),
+\end{equation}
+onde $D_{KL}(P, Q)$ é a divergência de \textit{Kullback–Leibler} entre as distribuições de probabilidade $P$ e $Q$.
+
+%  = - \sum \hat{p}_u \log_2 \left(\frac{\hat{q}_u }{\hat{p}_u} \right)
+%\begin{equation} \label{eq:sharing_efficiency}
+%D_{KL}(\hat{p_u}, \hat{q_u})  =  \log_2 \left(\frac{acc_u^{(D)} - %\hat{p_u}^{(D)}}{acc_u^{(D)}} \right),
+%\end{equation}
+
+
