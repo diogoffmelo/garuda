@@ -1,84 +1,136 @@
 \chapter{Modelagem}\label{cap:modelagem}
 
-Neste capítulo descrevemos a nomenclatura usada para a descrição das redes e os detalhes de funcionamento de cada camada.
+Neste capítulo apresentamos uma justificativa para a abordagem comparativa proposta no presente estudo. Em seguida descrevemos as camadas e arquiteturas que foram utilizadas. Adicionalmente, definimos a nomenclatura adotada de forma a simplificar a transmissão de nossos resultados.  
 
-\section{Camadas}
+\section{Abordagem Comparativa}\label{sec:abordagem}
 
-Camadas densas ($\mathbf{Fl}_{O}$) mapeiam uma soma balanceada dos $I$ sinais de entrada em $O$ sinais de saída, tendo $I \times O$ parâmetros. Quando presente, a ativação \textit{relu} é aplicada aos sinais de saída. Camadas multi-caracteres (\textbf{M}) mapeiam os sinais de entrada nas distribuições de probabilidades para cada caractere no token. Mais especificamente, esta camada é formada por $N$ (sendo $N=5$, o tamanho fixo do token) classificadores independentes, cada um formado por uma camada densa seguida de uma ativação softmax. Os parâmetros de cada classificador não são compartilhados entre si. Em todas as arquiteturas, esta é sempre a última camada. Sendo o sinal de entrada um vetor de tamanho $I$ e o de saída de tamanho $O$ (onde $O=36$ é o tamanho fixo do alfabeto), o número de parâmetros desta camada é dado por $N \times I \times O$ ($ = 180 \times I$). 
+O projeto da arquitetura é um ponto crucial para a obtenção de resultados satisfatórios. Infelizmente, até o presente momento, não existe nenhum estudo que demonstre de forma precisa como as camadas interagem entre si ou sobre como estimar o impacto de cada componente no modelo final. Encontramos um problema similar na escolha dos hiper-parâmetros. Em sua grande maioria, não existe uma metodologia definida de como escolher os valores que apresentarão os melhores resultados, sendo nosso conhecimento usualmente limitado a ideias gerais. De fato, se imaginarmos que um hiper-parâmetro é um valor que altera o funcionamento de um método, mas que precisa ser escolhido para cada caso, a própria arquitetura da rede pode ser vista como uma espécie de hiper-parâmetro que precisa ser definido. Assim, deste ponto em diante, iremos nos referir à escolha da arquitetura e dos hiper-parâmetros simplesmente como configuração. A falta de um suporte teórico para as decisões à serem tomadas no projeto de uma configuração, obrigam o projetista a basear suas escolhas em critérios empíricos.
 
-Camadas convolucionais $\mathbf{C}_{O}$ possuem núcleos de tamanho fixo $k=5$ em cada uma das direções, $O$ canais de saída e passo $s=1$ ou $s=2$ dependendo da arquitetura. Se a camada convolucional for seguida por uma agregação de \textit{maxpooling}, ela sempre terá passo $1$, caso contrário, o passo é $2$, exceto quando houver mais de uma camada convolucional. Neste caso, a primeira tem passo $1$ e as demais $2$. O tamanho de um camada convolucional com $I$ canais de entrada e $O$ canas de saída é dado por $k^2 \times I \times O$ ($= 25 \times I \times O$). Seja $X_{H, W, O}$ o tensor e entrada, a saída é um tensor $X^{'}_{\left(H - k + 1\right)/s, \left(W - k + 1\right)/s, O}$. Após cada camada convolucional é aplicada uma ativação \textit{relu}.
+Uma forma de contornar o problema seria realizar uma busca em todas as possíveis combinações e escolher a melhor dentre elas. Entretanto, basta notar que as possibilidades de configurações aumentam de forma algébrica com cada possibilidade para se convencer de que esta é uma solução computacionalmente intratável. Mesmo se encontrarmos uma forma de simplificar a busca por soluções, impondo limites às configurações válidas e/ou utilizando alguma algoritmo inteligente (busca heurística, algoritmos evolucionários, etc.), ainda teríamos de realizar um treino completo de cada configuração para poder estimar sua performance\footnote{O problema de encontrar configurações de algoritmos de aprendizado de máquina de forma automática é referido na literatura como automl (do ingles, auto machine learning). Mesmo para modelos mais simples ainda é um problema de intensa pesquisa.}. O problema de escolher uma boa configuração é ainda mais grave em ambientes restritivos, onde adicionalmente temos que nos limitar aos recursos disponíveis. 
 
-A operação de linearização (\textbf{Lin}) transforma o tensor de entrada em vetor de saída, através da reordenação dos índices. Seja o tensor de entrada $X_{H, W, I}$, a saída desta camada é um vetor $x^{'}_{H \times W \times I}$. A linearização está sempre presente antes da primeira camada densa da arquitetura. As operações de \textit{dropout} (\textbf{D}) e de \textit{maxpooling} (\textbf{Max}) podem estar presentes ou não, dependendo da arquitetura. Quando presente, o \textit{dropout} atuará em cada uma das camadas ocultas da rede, anulando cada um dos sinais de saída da camada forma independente com probabilidade de $p_{drop} = 30\%$. A única exceção é nas arquiteturas com apenas a camada multi-caractere. Neste caso, o \textit{dropout} é aplicado diretamente nos sinais de entrada da rede, isto é, diretamente na imagem. A operação de \textit{maxpooling}, quando presente, atua depois de cada camada convolucional, com passo fixo em $2$ em ambas as direções. Ou seja, apenas o maior valor dos quatro pixels de entrada ($2$ na direção $i$ e $2$ na direção $j$) estará presente no canal de saída. A operação agregação só é aplicada ao fim de camadas convolucionais que teriam passo $2$ (vide descrição no parágrafo anterior). Caso presente, as camadas convolucionais passam a ter passo $1$. O tensor de saída tem as dimensões transformadas de forma similar à uma operação convolucional com $k = 2$ e $s = 2$. Nenhuma dessas operações adicionam parâmetros à arquitetura, tendo tamanho 0.
+Podemos, entretanto, lançar mão de alguns pressupostos para realizar uma escolha eficiente de configurações para experimentação:
+\begin{enumerate}
+	\item O início da dinâmica de uma configuração fornece informações importantes sobre o comportamento seu ao longo do resto treino.
+	\item Configurações similares tendem a produzir resultados similares.
+	\item Uma experimentação mais consistente resulta em conclusões mais consistentes.
+\end{enumerate}
+Neste trabalho, propomos a realização de experimentos comparativos entre diferentes configurações como uma forma de ajudar o processo do projeto da arquitetura e escolha de hiper-parâmetros satisfazendo os pressupostos da seguinte forma:
+\begin{enumerate}
+	\item Várias configurações são treinadas durante um tempo reduzido e sua performance avaliada.
+	\item As arquiteturas à serem estudadas são substancialmente diferentes entre sí. Esse princípio também é aplicado à parâmetros contínuos como a taxa de aprendizado, por exemplo.
+	\item Um conjunto de hiper-parâmetros sempre será mantido fixo enquanto os demais são explorados de forma mais minuciosa, permitindo uma comparação direta do impacto de cada escolha. De outra forma, é preferível fixar um configuração e variar apenas um parâmetro do que ter diferentes configurações que não podem ser diretamente comparadas.
+\end{enumerate}
+
+Este método nos permite, ao mesmo tempo, satisfazer as restrições e executar treinos de forma mais eficiente. Tipicamente, cada etapa de treino consiste dos mesmos passos, assim, se calcularmos o tempo médio de duração de cada etapa no inicio da dinâmica, podemos estimar o tempo máximo do treino (restrição de tempo). Tipicamente, fenômenos como coadaptação e divergência podem ser detectados nas primeiras etapas de treino, poupando-nos de prosseguir com a experimentação. Adicionalmente, durante o tempo que seria usado em um treino completo, podemos realizar vários treinos mais rápidos. Como projetamos cada uma das arquiteturas, podemos nos restringir àquelas que obedecem ao limite disponível de recursos (restrição de memória e processamento) e ainda obter uma variabilidade de experimentação. A escolha consistente dos hiper-parâmetros nos permite determinar de forma mais precisa sua influência na performance e decidir de forma consciente qual valor usar. O método pode ser aplicado de forma iterativa quantas vezes forem necessárias de forma a refinar ainda mais os resultados. Neste caso, os novos experimentos devem ser construídos com base nos já realizados. Com os experimentos conclusos, podemos então escolher uma configuração que apresente boa performance e obedeça os critérios impostos e então realizar um treino completo.
+
+\section{Camadas}\label{sec:camadas}
+
+Nesta secção descrevemos as camadas utilizadas no presente trabalho. De acordo com a metodologia proposta, manteremos fixas um conjunto escolhas e variamos as demais. Desta forma, cada camada é descrita explicitando o que será mantido fixo e o que será experimentado.
+
+Camadas densas ($\mathbf{Fl}_{O}$) possuem $O$ neurônios ou projeções como visto no capítulo \ref{cap:neurais}. Estas camadas mapeiam uma soma balanceada dos $I$ sinais de entrada em $O$ sinais de saída, tendo $I \times O$ parâmetros. Quando presente, a ativação \textit{relu} é aplicada aos sinais de saída. Camadas multi-caracteres (\textbf{M}) mapeiam os sinais de entrada em uma distribuição de probabilidades para cada caractere no token. Mais especificamente, esta camada é formada por $N$ (sendo $N=5$, o tamanho fixo do token) classificadores independentes, cada um formado por uma camada densa seguida de uma ativação softmax. Os parâmetros de cada classificador não são compartilhados entre si. A camada multi-caracteres está presente em todas as arquiteturas, sendo sempre a última. Sendo o sinal de entrada um vetor de tamanho $I$ e o de saída de tamanho $O$ (onde $O=36$ é o tamanho fixo do alfabeto), o número de parâmetros da camada \textbf{M} é dado por $N \times I \times O$ ($ = 180 \times I$). 
+
+Camadas convolucionais $\mathbf{C}_{O}$ possuem núcleos de tamanho fixo $k=5$ em cada uma das direções, $O$ canais de saída e passo $s=1$ ou $s=2$ dependendo da arquitetura. Se a camada convolucional for seguida por uma agregação de \textit{maxpooling}, ela sempre terá passo $1$, caso contrário, o passo é $2$, exceto quando houver mais de uma camada convolucional. Neste caso, a primeira tem passo $1$ e as demais $2$. O tamanho de um camada convolucional com $I$ canais de entrada e $O$ canas de saída é dado por $k^2 \times I \times O$ ($= 25 \times I \times O$). Seja $\mathbf{X}^{H, W, I}$ o tensor e entrada, a saída é um tensor $\mathbf{Z}^{\left(H - k + 1\right)/s, \left(W - k + 1\right)/s, O}$. Após cada camada convolucional é aplicada uma ativação \textit{relu}.
+
+A operação de linearização transforma o tensor de entrada em vetor de saída, através da reordenação dos índices. Seja o tensor de entrada $X_{H, W, I}$, a saída desta camada é um vetor $x^{'}_{H \times W \times I}$. A linearização está sempre presente antes da primeira camada densa da arquitetura. As operações de \textit{dropout} (\textbf{D}) e de \textit{maxpooling} (\textbf{Max}) podem estar presentes ou não, dependendo da arquitetura. Quando presente, o \textit{dropout} atuará em cada uma das camadas ocultas da rede, anulando cada um dos sinais de saída da camada de forma independente com probabilidade de $p_{drop} = 30\%$. A única exceção é nas arquiteturas com apenas a camada multi-caractere. Neste caso, o \textit{dropout} é aplicado diretamente nos sinais de entrada da rede, isto é, diretamente na imagem. A operação de \textit{maxpooling}, quando presente, atua depois de cada camada convolucional, com passo fixo em $2$ em ambas as direções. Ou seja, apenas o maior valor dos quatro pixels de entrada ($2$ na direção $i$ e $2$ na direção $j$) estará presente no canal de saída. A operação agregação só é aplicada ao fim de camadas convolucionais que teriam passo $2$ (vide descrição no parágrafo anterior). Caso presente, as camadas convolucionais passam a ter passo $1$. O tensor de saída tem as dimensões transformadas de forma similar à uma operação convolucional com $k = 2$ e $s = 2$. Nenhuma dessas operações (linearização, agrupamento ou \textit{dropout}) adicionam parâmetros à arquitetura, tendo tamanho $0$.
 
 \section{Arquiteturas}
 
-Nas tabelas a seguir as arquiteturas utilizadas neste trabalho estão descritas camada por camada, estando as dimensões de entrada e saída e número de parâmetros explicitados. A presença da regularização é indicada entre colchetes. O fluxo de dados durante a computação ocorre da primeira para a última linha na tabela. O detalhamento das arquiteturas usando agregação \textit{maxout} pode ser facilmente obtidos a partir das descrições apresentadas, sendo, portanto, omitidas.
+As arquiteturas estudadas são formadas pela composição das camadas descritas na seção \ref{sec:camadas}. De modo a facilitar a referência posterior, os nome dado a cada uma é definido pela concatenação dos nomes de cada camada, com a indicação das operações facultativas quando presentes. Nas tabelas \ref{tab_md}-\ref{tab_ccccfmd} a seguir as arquiteturas são descritas por camada, estando as dimensões de entrada e saída e número de parâmetros explicitados. A presença da regularização é indicada entre colchetes. O fluxo de dados durante a computação ocorre da primeira para a última linha na tabela. O detalhamento das arquiteturas usando agregação \textit{maxout} pode ser facilmente obtidos a partir das descrições apresentadas, sendo, portanto, omitidas.
+
+No próximo capítulo descrevemos os detalhes do treino e validação das arquiteturas aqui descritas, completando a definição de uma configuração e de como foram executadas as experimentações. Para os hiper-parâmetros foram utilizados os mesmos princípios explicitados neste capítulo. No capítulo de resultados, as métricas de interesses paras essas arquiteturas são comparadas e um modelo escolhido à luz da metodologia proposta.
 
 \noindent
+\begin{table}[!p]
+\begin{center}
+	\caption{Arquitetura $M[D]$}
+	\label{tab_md}
+\end{center}
 \begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
-	\multicolumn{5}{c}{$M[D]$} \\ \hline \hline
-	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+	\hline
+	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline\hline
 	Lin & [Dropout] & (50,200,3) & (30000) & 0 \\ \hline
 	$M$ & 5 classificadores. & (30000) & (5,36) & 5400000 \\ \hline
 	total &  &  &  & 5400000 \\ \hline
 \end{tabularx}
-
+\end{table}
 \noindent
+\begin{table}[!p]
+	\begin{center}
+		\caption{Arquitetura $C_6M[D]$}
+	\end{center}
 \begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
-	\multicolumn{5}{c}{$C_6M[D]$} \\ \hline \hline
-	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
-	$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo 2.  [Dropout] & (50,200,3) & (23,98,6) & 450 \\ \hline
+	\hline
+	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline \hline
+	$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da convolução 2.  [Dropout] & (50,200,3) & (23,98,6) & 450 \\ \hline
 	Lin & - & (23,98,6) & (13524) & 0 \\ \hline
 	$M$ & 5 classificadores. & (13524) & (5,36) & 2434320 \\ \hline
 	total &  &  &  & 2434770 \\ \hline
 \end{tabularx}
-
+\end{table}
 \noindent
+\begin{table}[!p]
+\begin{center}
+	\caption{Arquitetura $C_6C_{12}M[D]$}
+\end{center}
 \begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
-	\multicolumn{5}{c}{$C_6C_{12}M[D]$} \\ \hline \hline
-	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
-	$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo 1. [Dropout]& (50,200,3) & (46,196,6) & 450 \\ \hline
-	$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo 2.  [Dropout] & (46,196,6) & (21,96,12) & 1800 \\ \hline
+	\hline
+	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline \hline
+	$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da convolução 1. [Dropout]& (50,200,3) & (46,196,6) & 450 \\ \hline
+	$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo da convolução 2.  [Dropout] & (46,196,6) & (21,96,12) & 1800 \\ \hline
 	Lin & - & (21,96,12) & (24192) & 0 \\ \hline
 	$M$ & 5 classificadores. & (24192) & (5,36) & 4354560 \\ \hline
 	total &  &  &  & 4356810 \\ \hline
 \end{tabularx}
-
+\end{table}
 \noindent
+\begin{table}[!p]
+	\begin{center}
+		\caption{Arquitetura $C_6C_{12}Fl_{100}M[D]$}
+	\end{center}
 \begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
-	\multicolumn{5}{c}{$C_6C_{12}Fl_{100}M[D]$} \\ \hline \hline
-	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
-	$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo 1.  [Dropout] & (50,200,3) & (46,196,6) & 450 \\ \hline
-	$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo 2.  [Dropout] & (46,196,6) & (21,96,12) & 1800 \\ \hline
+	\hline
+	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline \hline
+	$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da convolução 1.  [Dropout] & (50,200,3) & (46,196,6) & 450 \\ \hline
+	$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo da convolução 2.  [Dropout] & (46,196,6) & (21,96,12) & 1800 \\ \hline
 	Lin & - & (21,96,12) & (24192) & 0 \\ \hline
 	$Fl_{100}$ & Camada densa com 24192 sinais de entrada e 100 sinais de saída.  [Dropout] & (24192) & (100) & 2419200 \\ \hline
 	$M$ & 5 classificadores. & (100) & (5,36) & 18000 \\ \hline
 	total &  &  &  & 2439450 \\ \hline
 \end{tabularx}
-
+\end{table}
 \noindent
+\begin{table}[!p]
+	\begin{center}
+		\caption{Arquitetura $C_6C_{12}C_{36}C_{36}M[D]$}
+	\end{center}
 \begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
-	\multicolumn{5}{c}{$C_6C_{12}C_{36}C_{36}M[D]$} \\ \hline \hline
-	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
-	$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo 1.  [Dropout] & (50,200,3) & (46,196,6) & 450 \\ \hline
-	$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo 2.  [Dropout] & (46,196,6) & (21,96,12) & 1800 \\ \hline
-	$C_{36}$ & Convolucional com 12 canais de entrada e 36 de saída. Passo 2.  [Dropout] & (21,96,12) & (9,46,36) & 10800 \\ \hline
-	$C_{36}$ & Convolucional com 36 canais de entrada e 36 de saída. Passo 2.  [Dropout] & (9,46,36) & (3,21,36) & 32400 \\ \hline
+	\hline
+	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline \hline
+	$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da convolução 1.  [Dropout] & (50,200,3) & (46,196,6) & 450 \\ \hline
+	$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo da convolução 2.  [Dropout] & (46,196,6) & (21,96,12) & 1800 \\ \hline
+	$C_{36}$ & Convolucional com 12 canais de entrada e 36 de saída. Passo da convolução 2.  [Dropout] & (21,96,12) & (9,46,36) & 10800 \\ \hline
+	$C_{36}$ & Convolucional com 36 canais de entrada e 36 de saída. Passo da convolução 2.  [Dropout] & (9,46,36) & (3,21,36) & 32400 \\ \hline
 	Lin & - & (3,21,36) & (2268) & 0 \\ \hline
 	$M$ & 5 classificadores. & (2268) & (5,36) & 408240 \\ \hline
 	total &  &  &  & 453690 \\ \hline
 \end{tabularx}
-
+\end{table}
 \noindent
+\begin{table}[!p]
+	\begin{center}
+		\caption{Arquitetura $C_6C_{12}C_{36}C_{36}Fl_{100}M[D]$}
+		\label{tab_ccccfmd}
+	\end{center}
 \begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
-	\multicolumn{5}{c}{$C_6C_{12}C_{36}C_{36}Fl_{100}M[D]$} \\ \hline \hline
-	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
-	$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo 1.  [Dropout] & (50,200,3) & (46,196,6) & 450 \\ \hline
-	$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo 2.  [Dropout] & (46,196,6) & (21,96,12) & 1800 \\ \hline
-	$C_{36}$ & Convolucional com 12 canais de entrada e 36 de saída. Passo 2.  [Dropout] & (21,96,12) & (9,46,36) & 10800 \\ \hline
-	$C_{36}$ & Convolucional com 36 canais de entrada e 36 de saída. Passo 2.  [Dropout] & (9,46,36) & (3,21,36) & 32400 \\ \hline
+	\hline
+	Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline \hline
+	$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da convolução 1.  [Dropout] & (50,200,3) & (46,196,6) & 450 \\ \hline
+	$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo da convolução 2.  [Dropout] & (46,196,6) & (21,96,12) & 1800 \\ \hline
+	$C_{36}$ & Convolucional com 12 canais de entrada e 36 de saída. Passo da convolução 2.  [Dropout] & (21,96,12) & (9,46,36) & 10800 \\ \hline
+	$C_{36}$ & Convolucional com 36 canais de entrada e 36 de saída. Passo da convolução 2.  [Dropout] & (9,46,36) & (3,21,36) & 32400 \\ \hline
 	Lin & - & (3,21,36) & (2268) & 0 \\ \hline
 	$Fl_{100}$ & Camada densa com 2268 sinais de entrada e 100 sinais de saída.  [Dropout] & (2268) & (100) & 226800 \\ \hline
 	$M$ & 5 classificadores. & (100) & (5,36) & 18000 \\ \hline
 	total &  &  &  & 290250 \\ \hline
 \end{tabularx}
+\end{table}

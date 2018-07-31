@@ -5,6 +5,7 @@
 \backcite {imagenet_2012}{{10}{1}{chapter.1}}
 \backcite {mnih2015humanlevel}{{10}{1}{chapter.1}}
 \backcite {captcha2003}{{10}{1}{chapter.1}}
+\backcite {lectures2005HIP}{{10}{1}{chapter.1}}
 \backcite {captcha_review_2017}{{10}{1}{chapter.1}}
 \backcite {lectures2005HIP}{{10}{1}{chapter.1}}
 \backcite {naivecaptcha}{{10}{1}{chapter.1}}
@@ -22,7 +23,6 @@
 \backcite {recaptcha1}{{13}{2.1}{figure.caption.12}}
 \backcite {captcha_break_2013}{{14}{2.1}{figure.caption.12}}
 \backcite {imarobot}{{14}{2.1}{figure.caption.12}}
-\backcite {lectures2005HIP}{{14}{2.2}{section.2.2}}
 \backcite {lectures2005HIP}{{14}{2.2}{section.2.2}}
 \backcite {bursztein2011text}{{15}{2.2}{section.2.2}}
 \backcite {captcha_review_2017}{{15}{2.2}{section.2.2}}
@@ -52,12 +52,11 @@
 \backcite {captcha_break_2013}{{30}{1}{table.caption.18}}
 \backcite {otaro}{{30}{1}{table.caption.18}}
 \backcite {captcha_break_2017}{{30}{1}{table.caption.18}}
-\backcite {simplecaptcha}{{31}{4.1}{section.4.1}}
-\backcite {lectures2005HIP}{{31}{4.1}{section.4.1}}
-\backcite {adam_op}{{32}{4.2}{section.4.2}}
-\backcite {HeZR015relu}{{33}{4.2}{section.4.2}}
-\backcite {lutz_early_stop}{{33}{4.2}{section.4.2}}
-\backcite {abadi2016tensorflow}{{33}{4.2}{equation.4.2.2}}
-\backcite {otaro}{{39}{2}{table.caption.20}}
-\backcite {otaro}{{42}{3}{table.caption.22}}
-\backcite {otaro}{{42}{\caption@xref {??}{ on input line 160}}{table.caption.22}}
+\backcite {simplecaptcha}{{38}{5.1}{section.5.1}}
+\backcite {lectures2005HIP}{{38}{5.1}{section.5.1}}
+\backcite {adam_op}{{39}{5.2}{section.5.2}}
+\backcite {HeZR015relu}{{40}{5.2}{section.5.2}}
+\backcite {lutz_early_stop}{{40}{5.2}{section.5.2}}
+\backcite {abadi2016tensorflow}{{40}{5.2}{equation.5.2.2}}
+\backcite {otaro}{{45}{9}{table.caption.28}}
+\backcite {otaro}{{45}{\caption@xref {??}{ on input line 159}}{table.caption.28}}
