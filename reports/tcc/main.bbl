@@ -58,18 +58,18 @@ Dispon{\'\i}vel em: \url{http://dx.doi.org/10.1038/nature14236}.}
   \emph{Advances in Cryptology, Eurocrypt}. Berlin, Heidelberg: Springer Berlin
   Heidelberg, 2003. v.~2656, p. 294--311.}
 
+\bibitem{lectures2005HIP}
+\abntrefinfo{Chellapilla et al.}{CHELLAPILLA et al.}{2005}
+{CHELLAPILLA, K. et al. \emph{Building Segmentation Based Human-Friendly Human
+  Interaction Proofs (HIPs)}. [S.l.]: Springer, Berlin, Heidelberg, 2005.
+  v.~3517. 1-26~p.}
+
 \bibitem{captcha_review_2017}
 \abntrefinfo{Chow e Susilo}{CHOW; SUSILO}{2017}
 {CHOW, Y.~W.; SUSILO, W. Text-based captchas over the years.
 \emph{IOP Conference Series: Materials Science and Engineering}, v.~273, n.~1,
   p. 012001, 2017.
 Dispon{\'\i}vel em: \url{http://stacks.iop.org/1757-899X/273/i=1/a=012001}.}
-
-\bibitem{lectures2005HIP}
-\abntrefinfo{Chellapilla et al.}{CHELLAPILLA et al.}{2005}
-{CHELLAPILLA, K. et al. \emph{Building Segmentation Based Human-Friendly Human
-  Interaction Proofs (HIPs)}. [S.l.]: Springer, Berlin, Heidelberg, 2005.
-  v.~3517. 1-26~p.}
 
 \bibitem{naivecaptcha}
 \abntrefinfo{Yan e Ahmad}{YAN; AHMAD}{2008}

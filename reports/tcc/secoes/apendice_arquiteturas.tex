@@ -1,0 +1,264 @@
+
+\chapter{Descrição completa das arquiteturas.}\label{cap:apendice_arquiteturas}
+
+\begin{tiny}
+
+\section*{$M$[D]}
+
+\begin{table}[H]
+	$M$ $\tilde{\tau}=726.29 (+0.00\%), \tau=1009.74 (+0.00\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (50,200,3) & (30000) & 0 \\ \hline
+		$M$ & 5 classificadores. & (30000) & (5,36) & 5400000 \\ \hline
+		total &  &  &  & 5400000 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+	$MD$ $\tilde{\tau}=759.56 (+4.58\%), \tau=1081.43 (+7.10\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (50,200,3) & (30000) & 0 \\ \hline
+		Dropout & Dropout com $p_{drop} = 30\%$. & (30000) & (30000) & 0 \\ \hline
+		$M$ & 5 classificadores. & (30000) & (5,36) & 5400000 \\ \hline
+		total &  &  &  & 5400000 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\section*{$C_6M$[D][Max]}
+
+\begin{table}[H]
+	$C_6M$ $\tilde{\tau}=669.60 (+0.00\%), \tau=912.38 (+0.00\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da transformação 2. & (50,200,3) & (23,98,6) & 450 \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (23,98,6) & (13524) & 0 \\ \hline
+		$M$ & 5 classificadores. & (13524) & (5,36) & 2434320 \\ \hline
+		total &  &  &  & 2434770 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+	$C_6MD$ $\tilde{\tau}=711.85 (+6.31\%), \tau=975.67 (+6.94\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da transformação 2. & (50,200,3) & (23,98,6) & 450 \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (23,98,6) & (13524) & 0 \\ \hline
+		Dropout & Dropout com $p_{drop} = 30\%$. & (13524) & (13524) & 0 \\ \hline
+		$M$ & 5 classificadores. & (13524) & (5,36) & 2434320 \\ \hline
+		total &  &  &  & 2434770 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+	$C_6MMax$ $\tilde{\tau}=1334.50 (+99.30\%), \tau=1652.03 (+81.07\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da transformação 2. Maxout. & (50,200,3) & (23,98,6) & 450 \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (23,98,6) & (13524) & 0 \\ \hline
+		$M$ & 5 classificadores. & (13524) & (5,36) & 2434320 \\ \hline
+		total &  &  &  & 2434770 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\section*{$C_6C_{12}M$[D][Max]}
+
+\begin{table}[H]
+	$C_6C_{12}M$ $\tilde{\tau}=2138.93 (+0.00\%), \tau=2547.99 (+0.00\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da transformação 1. & (50,200,3) & (46,196,6) & 450 \\ \hline
+		$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo da transformação 2. & (46,196,6) & (21,96,12) & 1800 \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (21,96,12) & (24192) & 0 \\ \hline
+		$M$ & 5 classificadores. & (24192) & (5,36) & 4354560 \\ \hline
+		total &  &  &  & 4356810 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+	$C_6C_{12}MD$ $\tilde{\tau}=2386.58 (+11.58\%), \tau=2910.10 (+14.21\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da transformação 1. & (50,200,3) & (46,196,6) & 450 \\ \hline
+		Dropout & Dropout com $p_{drop} = 30\%$. & (46,196,6) & (46,196,6) & 0 \\ \hline
+		$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo da transformação 2. & (46,196,6) & (21,96,12) & 1800 \\ \hline
+		Dropout & Dropout com $p_{drop} = 30\%$. & (21,96,12) & (21,96,12) & 0 \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (21,96,12) & (24192) & 0 \\ \hline
+		$M$ & 5 classificadores. & (24192) & (5,36) & 4354560 \\ \hline
+		total &  &  &  & 4356810 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+	$C_6C_{12}MMax$ $\tilde{\tau}=3821.52 (+78.67\%), \tau=4365.97 (+71.35\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da transformação 1. Maxout. & (50,200,3) & (46,196,6) & 450 \\ \hline
+		$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo da transformação 2. Maxout. & (46,196,6) & (21,96,12) & 1800 \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (21,96,12) & (24192) & 0 \\ \hline
+		$M$ & 5 classificadores. & (24192) & (5,36) & 4354560 \\ \hline
+		total &  &  &  & 4356810 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\section*{$C_6C_{12}Fl_{100}M$[D][Max]}
+
+\begin{table}[H]
+	$C_6C_{12}Fl_{100}M$ $\tilde{\tau}=2873.60 (+0.00\%), \tau=3219.16 (+0.00\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da transformação 1. & (50,200,3) & (46,196,6) & 450 \\ \hline
+		$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo da transformação 2. & (46,196,6) & (21,96,12) & 1800 \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (21,96,12) & (24192) & 0 \\ \hline
+		$Fl_{100}$ & Camada densa com 24192 sinais de entrada e 100 sinais de saída. & (24192) & (100) & 2419200 \\ \hline
+		$M$ & 5 classificadores. & (100) & (5,36) & 18000 \\ \hline
+		total &  &  &  & 2439450 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+	$C_6C_{12}Fl_{100}MD$ $\tilde{\tau}=3114.23 (+8.37\%), \tau=3575.14 (+11.06\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da transformação 1. & (50,200,3) & (46,196,6) & 450 \\ \hline
+		Dropout & Dropout com $p_{drop} = 30\%$. & (46,196,6) & (46,196,6) & 0 \\ \hline
+		$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo da transformação 2. & (46,196,6) & (21,96,12) & 1800 \\ \hline
+		Dropout & Dropout com $p_{drop} = 30\%$. & (21,96,12) & (21,96,12) & 0 \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (21,96,12) & (24192) & 0 \\ \hline
+		$Fl_{100}$ & Camada densa com 24192 sinais de entrada e 100 sinais de saída. & (24192) & (100) & 2419200 \\ \hline
+		$M$ & 5 classificadores. & (100) & (5,36) & 18000 \\ \hline
+		total &  &  &  & 2439450 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+	$C_6C_{12}Fl_{100}MMax$ $\tilde{\tau}=4563.22 (+58.80\%), \tau=5045.06 (+56.72\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da transformação 1. Maxout. & (50,200,3) & (46,196,6) & 450 \\ \hline
+		$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo da transformação 2. Maxout. & (46,196,6) & (21,96,12) & 1800 \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (21,96,12) & (24192) & 0 \\ \hline
+		$Fl_{100}$ & Camada densa com 24192 sinais de entrada e 100 sinais de saída. & (24192) & (100) & 2419200 \\ \hline
+		$M$ & 5 classificadores. & (100) & (5,36) & 18000 \\ \hline
+		total &  &  &  & 2439450 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\section*{$C_6C_{12}C_{36}C_{36}M$[D][Max]}
+
+\begin{table}[H]
+	$C_6C_{12}C_{36}C_{36}M$ $\tilde{\tau}=2191.11 (+0.00\%), \tau=2580.79 (+0.00\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da transformação 1. & (50,200,3) & (46,196,6) & 450 \\ \hline
+		$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo da transformação 2. & (46,196,6) & (21,96,12) & 1800 \\ \hline
+		$C_{36}$ & Convolucional com 12 canais de entrada e 36 de saída. Passo da transformação 2. & (21,96,12) & (9,46,36) & 10800 \\ \hline
+		$C_{36}$ & Convolucional com 36 canais de entrada e 36 de saída. Passo da transformação 2. & (9,46,36) & (3,21,36) & 32400 \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (3,21,36) & (2268) & 0 \\ \hline
+		$M$ & 5 classificadores. & (2268) & (5,36) & 408240 \\ \hline
+		total &  &  &  & 453690 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+	$C_6C_{12}C_{36}C_{36}MD$ $\tilde{\tau}=2495.31 (+13.88\%), \tau=3024.40 (+17.19\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da transformação 1. & (50,200,3) & (46,196,6) & 450 \\ \hline
+		Dropout & Dropout com $p_{drop} = 30\%$. & (46,196,6) & (46,196,6) & 0 \\ \hline
+		$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo da transformação 2. & (46,196,6) & (21,96,12) & 1800 \\ \hline
+		Dropout & Dropout com $p_{drop} = 30\%$. & (21,96,12) & (21,96,12) & 0 \\ \hline
+		$C_{36}$ & Convolucional com 12 canais de entrada e 36 de saída. Passo da transformação 2. & (21,96,12) & (9,46,36) & 10800 \\ \hline
+		Dropout & Dropout com $p_{drop} = 30\%$. & (9,46,36) & (9,46,36) & 0 \\ \hline
+		$C_{36}$ & Convolucional com 36 canais de entrada e 36 de saída. Passo da transformação 2. & (9,46,36) & (3,21,36) & 32400 \\ \hline
+		Dropout & Dropout com $p_{drop} = 30\%$. & (3,21,36) & (3,21,36) & 0 \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (3,21,36) & (2268) & 0 \\ \hline
+		$M$ & 5 classificadores. & (2268) & (5,36) & 408240 \\ \hline
+		total &  &  &  & 453690 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+	$C_6C_{12}C_{36}C_{36}MMax$ $\tilde{\tau}=5099.87 (+132.75\%), \tau=5718.50 (+121.58\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da transformação 1. Maxout. & (50,200,3) & (46,196,6) & 450 \\ \hline
+		$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo da transformação 2. Maxout. & (46,196,6) & (21,96,12) & 1800 \\ \hline
+		$C_{36}$ & Convolucional com 12 canais de entrada e 36 de saída. Passo da transformação 2. Maxout. & (21,96,12) & (8,46,36) & 10800 \\ \hline
+		$C_{36}$ & Convolucional com 36 canais de entrada e 36 de saída. Passo da transformação 2. Maxout. & (8,46,36) & (2,21,36) & 32400 \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (2,21,36) & (1512) & 0 \\ \hline
+		$M$ & 5 classificadores. & (1512) & (5,36) & 272160 \\ \hline
+		total &  &  &  & 317610 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\section*{$C_6C_{12}C_{36}C_{36}Fl_{100}M$[D][Max]}
+
+\begin{table}[H]
+	$C_6C_{12}C_{36}C_{36}Fl_{100}M$ $\tilde{\tau}=2262.46 (+0.00\%), \tau=2625.29 (+0.00\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da transformação 1. & (50,200,3) & (46,196,6) & 450 \\ \hline
+		$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo da transformação 2. & (46,196,6) & (21,96,12) & 1800 \\ \hline
+		$C_{36}$ & Convolucional com 12 canais de entrada e 36 de saída. Passo da transformação 2. & (21,96,12) & (9,46,36) & 10800 \\ \hline
+		$C_{36}$ & Convolucional com 36 canais de entrada e 36 de saída. Passo da transformação 2. & (9,46,36) & (3,21,36) & 32400 \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (3,21,36) & (2268) & 0 \\ \hline
+		$Fl_{100}$ & Camada densa com 2268 sinais de entrada e 100 sinais de saída. & (2268) & (100) & 226800 \\ \hline
+		$M$ & 5 classificadores. & (100) & (5,36) & 18000 \\ \hline
+		total &  &  &  & 290250 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+	$C_6C_{12}C_{36}C_{36}Fl_{100}MD$ $\tilde{\tau}=2568.47 (+13.53\%), \tau=3086.29 (+17.56\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da transformação 1. & (50,200,3) & (46,196,6) & 450 \\ \hline
+		Dropout & Dropout com $p_{drop} = 30\%$. & (46,196,6) & (46,196,6) & 0 \\ \hline
+		$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo da transformação 2. & (46,196,6) & (21,96,12) & 1800 \\ \hline
+		Dropout & Dropout com $p_{drop} = 30\%$. & (21,96,12) & (21,96,12) & 0 \\ \hline
+		$C_{36}$ & Convolucional com 12 canais de entrada e 36 de saída. Passo da transformação 2. & (21,96,12) & (9,46,36) & 10800 \\ \hline
+		Dropout & Dropout com $p_{drop} = 30\%$. & (9,46,36) & (9,46,36) & 0 \\ \hline
+		$C_{36}$ & Convolucional com 36 canais de entrada e 36 de saída. Passo da transformação 2. & (9,46,36) & (3,21,36) & 32400 \\ \hline
+		Dropout & Dropout com $p_{drop} = 30\%$. & (3,21,36) & (3,21,36) & 0 \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (3,21,36) & (2268) & 0 \\ \hline
+		$Fl_{100}$ & Camada densa com 2268 sinais de entrada e 100 sinais de saída. & (2268) & (100) & 226800 \\ \hline
+		$M$ & 5 classificadores. & (100) & (5,36) & 18000 \\ \hline
+		total &  &  &  & 290250 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+	$C_6C_{12}C_{36}C_{36}Fl_{100}MMax$ $\tilde{\tau}=5159.74 (+128.06\%), \tau=5769.04 (+119.75\%)$\newline
+	\begin{tabularx}{\linewidth}{ |c|X|c|c|c| }
+		\hline
+		Camada & Descrição & Entrada & Saída & Parâmetros \\ \hline
+		$C_{6}$ & Convolucional com 3 canais de entrada e 6 de saída. Passo da transformação 1. Maxout. & (50,200,3) & (46,196,6) & 450 \\ \hline
+		$C_{12}$ & Convolucional com 6 canais de entrada e 12 de saída. Passo da transformação 2. Maxout. & (46,196,6) & (21,96,12) & 1800 \\ \hline
+		$C_{36}$ & Convolucional com 12 canais de entrada e 36 de saída. Passo da transformação 2. Maxout. & (21,96,12) & (8,46,36) & 10800 \\ \hline
+		$C_{36}$ & Convolucional com 36 canais de entrada e 36 de saída. Passo da transformação 2. Maxout. & (8,46,36) & (2,21,36) & 32400 \\ \hline
+		Lin & \multicolumn{1}{c|}{-} & (2,21,36) & (1512) & 0 \\ \hline
+		$Fl_{100}$ & Camada densa com 1512 sinais de entrada e 100 sinais de saída. & (1512) & (100) & 151200 \\ \hline
+		$M$ & 5 classificadores. & (100) & (5,36) & 18000 \\ \hline
+		total &  &  &  & 214650 \\ \hline
+	\end{tabularx}
+\end{table}
+
+\end{tiny}

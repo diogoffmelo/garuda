@@ -6,3 +6,13 @@ Demonstrar importância de experimentos desde metodologia
 Aumentar discussão nos experimentos
 
 Adicionar discussão para q = \prod p_i
+
+
+treinar M  e MD com 1e-4 -> 1e-5
+
+
+Capítulo - Modelagem
+Consistênte - Variar poucas variáveis por vez
+
+
+6.2 preterir -> preferrir

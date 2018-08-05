@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2018/dev/Debian) (preloaded format=pdflatex 2018.5.11)  31 JUL 2018 17:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2018/dev/Debian) (preloaded format=pdflatex 2018.5.11)  5 AUG 2018 15:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1225,7 +1225,8 @@ Writing index file main.idx
 (./secoes/abstract.aux) (./secoes/siglas.aux) (./secoes/simbolos.aux)
 (./secoes/introducao.aux) (./secoes/captchas.aux) (./secoes/redesneurais.aux)
 (./secoes/modelagem.aux) (./secoes/metodologia.aux) (./secoes/resultados.aux)
-(./secoes/conclusoes.aux))
+(./secoes/conclusoes.aux) (./secoes/apendice.aux)
+(./secoes/apendice_arquiteturas.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 157.
@@ -1445,37 +1446,37 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 
 
-]) (./main.toc) [9
+]) (./main.toc [9
 
 
-]
+]) [10]
 \openout2 = `secoes/introducao.aux'.
 
 
-(./secoes/introducao.tex [10
+(./secoes/introducao.tex [11
 
 
 
-]) [11]
+]) [12]
 \openout2 = `secoes/captchas.aux'.
 
  (./secoes/captchas.tex
-<figuras/captcha_letras.png, id=231, 332.24126pt x 178.6675pt>
+<figuras/captcha_letras.png, id=241, 332.24126pt x 178.6675pt>
 File: figuras/captcha_letras.png Graphic file (type png)
 <use figuras/captcha_letras.png>
 Package pdftex.def Info: figuras/captcha_letras.png  used on input line 16.
 (pdftex.def)             Requested size: 204.74861pt x 110.10748pt.
-<figuras/captcha_mat.png, id=232, 367.3725pt x 177.66376pt>
+<figuras/captcha_mat.png, id=242, 367.3725pt x 177.66376pt>
 File: figuras/captcha_mat.png Graphic file (type png)
 <use figuras/captcha_mat.png>
 Package pdftex.def Info: figuras/captcha_mat.png  used on input line 21.
 (pdftex.def)             Requested size: 204.74861pt x 99.01932pt.
-<figuras/captcha_texto.png, id=233, 331.2375pt x 178.6675pt>
+<figuras/captcha_texto.png, id=243, 331.2375pt x 178.6675pt>
 File: figuras/captcha_texto.png Graphic file (type png)
 <use figuras/captcha_texto.png>
 Package pdftex.def Info: figuras/captcha_texto.png  used on input line 27.
 (pdftex.def)             Requested size: 204.74861pt x 110.4401pt.
-<figuras/captcha_audio2.png, id=234, 912.40875pt x 475.7775pt>
+<figuras/captcha_audio2.png, id=244, 912.40875pt x 475.7775pt>
 File: figuras/captcha_audio2.png Graphic file (type png)
 <use figuras/captcha_audio2.png>
 Package pdftex.def Info: figuras/captcha_audio2.png  used on input line 32.
@@ -1490,11 +1491,11 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 14--36
 []$ $[]$
  []
 
-[12
+[13
 
 
 
-] [13 <./figuras/captcha_letras.png (PNG copy)> <./figuras/captcha_mat.png (PNG
+] [14 <./figuras/captcha_letras.png (PNG copy)> <./figuras/captcha_mat.png (PNG
  copy)> <./figuras/captcha_texto.png (PNG copy)> <./figuras/captcha_audio2.png>
 ]
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1503,14 +1504,14 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 46.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 46.
- [14]
-<figuras/captcha_banco_central.png, id=268, 301.125pt x 200.75pt>
+ [15]
+<figuras/captcha_banco_central.png, id=277, 301.125pt x 200.75pt>
 File: figuras/captcha_banco_central.png Graphic file (type png)
 <use figuras/captcha_banco_central.png>
 Package pdftex.def Info: figuras/captcha_banco_central.png  used on input line 
 55.
 (pdftex.def)             Requested size: 194.5205pt x 86.45253pt.
-<figuras/captcha_inss.jpeg, id=269, 163.61125pt x 58.2175pt>
+<figuras/captcha_inss.jpeg, id=278, 163.61125pt x 58.2175pt>
 File: figuras/captcha_inss.jpeg Graphic file (type jpg)
 <use figuras/captcha_inss.jpeg>
 Package pdftex.def Info: figuras/captcha_inss.jpeg  used on input line 61.
@@ -1520,12 +1521,12 @@ Overfull \hbox (5.22908pt too wide) in paragraph at lines 53--64
 [][]   [] 
  []
 
-<figuras/captcha_itau.jpeg, id=270, 131.74219pt x 48.93282pt>
+<figuras/captcha_itau.jpeg, id=279, 131.74219pt x 48.93282pt>
 File: figuras/captcha_itau.jpeg Graphic file (type jpg)
 <use figuras/captcha_itau.jpeg>
 Package pdftex.def Info: figuras/captcha_itau.jpeg  used on input line 68.
 (pdftex.def)             Requested size: 194.52306pt x 86.45499pt.
-<figuras/captcha_mec.png, id=271, 113.42375pt x 49.18375pt>
+<figuras/captcha_mec.png, id=280, 113.42375pt x 49.18375pt>
 File: figuras/captcha_mec.png Graphic file (type png)
 <use figuras/captcha_mec.png>
 Package pdftex.def Info: figuras/captcha_mec.png  used on input line 74.
@@ -1535,12 +1536,12 @@ Overfull \hbox (5.22908pt too wide) in paragraph at lines 66--77
 [][]   [] 
  []
 
-<figuras/captcha_mprj.jpeg, id=272, 170.6375pt x 80.3pt>
+<figuras/captcha_mprj.jpeg, id=281, 170.6375pt x 80.3pt>
 File: figuras/captcha_mprj.jpeg Graphic file (type jpg)
 <use figuras/captcha_mprj.jpeg>
 Package pdftex.def Info: figuras/captcha_mprj.jpeg  used on input line 81.
 (pdftex.def)             Requested size: 194.52615pt x 86.4519pt.
-<figuras/captcha_tjpe.png, id=273, 160.6pt x 50.1875pt>
+<figuras/captcha_tjpe.png, id=282, 160.6pt x 50.1875pt>
 File: figuras/captcha_tjpe.png Graphic file (type png)
 <use figuras/captcha_tjpe.png>
 Package pdftex.def Info: figuras/captcha_tjpe.png  used on input line 87.
@@ -1588,71 +1589,71 @@ Underfull \hbox (badness 10000) in paragraph at lines 79--98
 cesso em: 23/06/201. (f) Dis-po-ní-vel em:
  []
 
-) [15] [16 <./figuras/captcha_banco_central.png (PNG copy)> <./figuras/captcha_
+) [16] [17 <./figuras/captcha_banco_central.png (PNG copy)> <./figuras/captcha_
 inss.jpeg> <./figuras/captcha_itau.jpeg> <./figuras/captcha_mec.png (PNG copy)>
  <./figuras/captcha_mprj.jpeg> <./figuras/captcha_tjpe.png>]
 \openout2 = `secoes/redesneurais.aux'.
 
 
-(./secoes/redesneurais.tex [17
+(./secoes/redesneurais.tex [18
 
 
 
-] [18]
-<figuras/projlin.png, id=316, 455.7025pt x 444.66125pt>
+] [19]
+<figuras/projlin.png, id=324, 455.7025pt x 444.66125pt>
 File: figuras/projlin.png Graphic file (type png)
 <use figuras/projlin.png>
 Package pdftex.def Info: figuras/projlin.png  used on input line 44.
 (pdftex.def)             Requested size: 232.05402pt x 226.43498pt.
-<figuras/projcon.png, id=317, 455.7025pt x 444.66125pt>
+<figuras/projcon.png, id=325, 455.7025pt x 444.66125pt>
 File: figuras/projcon.png Graphic file (type png)
 <use figuras/projcon.png>
 Package pdftex.def Info: figuras/projcon.png  used on input line 50.
 (pdftex.def)             Requested size: 232.05402pt x 226.43498pt.
- [19]
+ [20]
 
-LaTeX Warning: Text page 20 contains only floats.
+LaTeX Warning: Text page 21 contains only floats.
 
 
 Overfull \vbox (3.46567pt too high) has occurred while \output is active []
 
 
-[20 <./figuras/projlin.png> <./figuras/projcon.png>]
-<figuras/convwa.png, id=338, 497.86pt x 444.66125pt>
+[21 <./figuras/projlin.png> <./figuras/projcon.png>]
+<figuras/convwa.png, id=346, 497.86pt x 444.66125pt>
 File: figuras/convwa.png Graphic file (type png)
 <use figuras/convwa.png>
 Package pdftex.def Info: figuras/convwa.png  used on input line 75.
 (pdftex.def)             Requested size: 273.00278pt x 243.83844pt.
- [21] [22 <./figuras/convwa.png>] [23]
-<figuras/convergence.png, id=373, 384.43625pt x 308.15125pt>
+ [22] [23 <./figuras/convwa.png>] [24]
+<figuras/convergence.png, id=382, 384.43625pt x 308.15125pt>
 File: figuras/convergence.png Graphic file (type png)
 <use figuras/convergence.png>
 Package pdftex.def Info: figuras/convergence.png  used on input line 104.
 (pdftex.def)             Requested size: 273.00278pt x 218.84532pt.
- [24] [25 <./figuras/convergence.png>]
-<figuras/overfitting.png, id=392, 384.43625pt x 308.15125pt>
+ [25] [26 <./figuras/convergence.png>]
+<figuras/overfitting.png, id=400, 384.43625pt x 308.15125pt>
 File: figuras/overfitting.png Graphic file (type png)
 <use figuras/overfitting.png>
 Package pdftex.def Info: figuras/overfitting.png  used on input line 123.
 (pdftex.def)             Requested size: 273.00278pt x 218.84532pt.
- [26 <./figuras/overfitting.png>] [27] [28]) [29] [30]
+ [27 <./figuras/overfitting.png>] [28] [29]) [30] [31]
 \openout2 = `secoes/modelagem.aux'.
 
- (./secoes/modelagem.tex [31
+ (./secoes/modelagem.tex [32
 
 
 
-] [32] [33]) [34] [35]
-[36] [37]
+] [33] [34]) [35] [36]
+[37] [38]
 \openout2 = `secoes/metodologia.aux'.
 
  (./secoes/metodologia.tex
-<figuras/7103_b26bf.png, id=493, 200.75pt x 50.1875pt>
+<figuras/7103_b26bf.png, id=502, 200.75pt x 50.1875pt>
 File: figuras/7103_b26bf.png Graphic file (type png)
 <use figuras/7103_b26bf.png>
 Package pdftex.def Info: figuras/7103_b26bf.png  used on input line 15.
 (pdftex.def)             Requested size: 204.74861pt x 51.19055pt.
-<figuras/9456_ep8nb.png, id=494, 200.75pt x 50.1875pt>
+<figuras/9456_ep8nb.png, id=503, 200.75pt x 50.1875pt>
 File: figuras/9456_ep8nb.png Graphic file (type png)
 <use figuras/9456_ep8nb.png>
 Package pdftex.def Info: figuras/9456_ep8nb.png  used on input line 20.
@@ -1662,12 +1663,12 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 13--24
 []$[]$ $[]$ 
  []
 
-<figuras/21856_b7rw8.png, id=495, 200.75pt x 50.1875pt>
+<figuras/21856_b7rw8.png, id=504, 200.75pt x 50.1875pt>
 File: figuras/21856_b7rw8.png Graphic file (type png)
 <use figuras/21856_b7rw8.png>
 Package pdftex.def Info: figuras/21856_b7rw8.png  used on input line 27.
 (pdftex.def)             Requested size: 204.74861pt x 51.19055pt.
-<figuras/19816_74wf6.png, id=496, 200.75pt x 50.1875pt>
+<figuras/19816_74wf6.png, id=505, 200.75pt x 50.1875pt>
 File: figuras/19816_74wf6.png Graphic file (type png)
 <use figuras/19816_74wf6.png>
 Package pdftex.def Info: figuras/19816_74wf6.png  used on input line 32.
@@ -1677,12 +1678,12 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 25--36
 []$[]$ $[]$ 
  []
 
-<figuras/12248_dnyny.png, id=497, 200.75pt x 50.1875pt>
+<figuras/12248_dnyny.png, id=506, 200.75pt x 50.1875pt>
 File: figuras/12248_dnyny.png Graphic file (type png)
 <use figuras/12248_dnyny.png>
 Package pdftex.def Info: figuras/12248_dnyny.png  used on input line 39.
 (pdftex.def)             Requested size: 204.74861pt x 51.19055pt.
-<figuras/8873_g4cxh.png, id=498, 200.75pt x 50.1875pt>
+<figuras/8873_g4cxh.png, id=507, 200.75pt x 50.1875pt>
 File: figuras/8873_g4cxh.png Graphic file (type png)
 <use figuras/8873_g4cxh.png>
 Package pdftex.def Info: figuras/8873_g4cxh.png  used on input line 44.
@@ -1692,25 +1693,25 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 37--48
 []$[]$ $[]$ 
  []
 
-[38
+[39
 
 
 
  <./figuras/7103_b26bf.png (PNG copy)> <./figuras/9456_ep8nb.png (PNG copy)> <.
 /figuras/21856_b7rw8.png (PNG copy)> <./figuras/19816_74wf6.png (PNG copy)> <./
 figuras/12248_dnyny.png (PNG copy)> <./figuras/8873_g4cxh.png (PNG copy)>]
-[39]
+[40]
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 75.
  (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <8> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 75.
- [40]) [41]
+ [41]) [42]
 \openout2 = `secoes/resultados.aux'.
 
 
-(./secoes/resultados.tex [42
+(./secoes/resultados.tex [43
 
 
 
@@ -1725,7 +1726,7 @@ Package epstopdf Info: Source file: <figuras/RMch.eps>
 -to.pdf figuras/RMch.eps>
 (epstopdf)             \includegraphics on input line 51.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/RMch-eps-converted-to.pdf, id=550, 381.425pt x 269.005pt>
+<figuras/RMch-eps-converted-to.pdf, id=560, 381.425pt x 269.005pt>
 File: figuras/RMch-eps-converted-to.pdf Graphic file (type pdf)
 <use figuras/RMch-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/RMch-eps-converted-to.pdf  used on input line 
@@ -1741,7 +1742,7 @@ Package epstopdf Info: Source file: <figuras/RMchD.eps>
 d-to.pdf figuras/RMchD.eps>
 (epstopdf)             \includegraphics on input line 55.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/RMchD-eps-converted-to.pdf, id=551, 381.425pt x 269.005pt>
+<figuras/RMchD-eps-converted-to.pdf, id=561, 381.425pt x 269.005pt>
 File: figuras/RMchD-eps-converted-to.pdf Graphic file (type pdf)
 <use figuras/RMchD-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/RMchD-eps-converted-to.pdf  used on input line
@@ -1757,7 +1758,7 @@ Package epstopdf Info: Source file: <figuras/C5o6RMch.eps>
 rted-to.pdf figuras/C5o6RMch.eps>
 (epstopdf)             \includegraphics on input line 60.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6RMch-eps-converted-to.pdf, id=552, 381.425pt x 270.00874pt>
+<figuras/C5o6RMch-eps-converted-to.pdf, id=562, 381.425pt x 270.00874pt>
 File: figuras/C5o6RMch-eps-converted-to.pdf Graphic file (type pdf)
 <use figuras/C5o6RMch-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/C5o6RMch-eps-converted-to.pdf  used on input l
@@ -1773,7 +1774,7 @@ Package epstopdf Info: Source file: <figuras/C5o6RMchD.eps>
 erted-to.pdf figuras/C5o6RMchD.eps>
 (epstopdf)             \includegraphics on input line 64.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6RMchD-eps-converted-to.pdf, id=553, 381.425pt x 270.00874pt>
+<figuras/C5o6RMchD-eps-converted-to.pdf, id=563, 381.425pt x 270.00874pt>
 File: figuras/C5o6RMchD-eps-converted-to.pdf Graphic file (type pdf)
 <use figuras/C5o6RMchD-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/C5o6RMchD-eps-converted-to.pdf  used on input 
@@ -1790,7 +1791,7 @@ f>
 -converted-to.pdf figuras/C5o6C5o12RMchD.eps>
 (epstopdf)             \includegraphics on input line 69.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6C5o12RMchD-eps-converted-to.pdf, id=554, 381.425pt x 270.00874pt>
+<figuras/C5o6C5o12RMchD-eps-converted-to.pdf, id=564, 381.425pt x 270.00874pt>
 File: figuras/C5o6C5o12RMchD-eps-converted-to.pdf Graphic file (type pdf)
 <use figuras/C5o6C5o12RMchD-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/C5o6C5o12RMchD-eps-converted-to.pdf  used on i
@@ -1807,7 +1808,7 @@ to.pdf>
 D-eps-converted-to.pdf figuras/C5o6C5o12Rfl100MchD.eps>
 (epstopdf)             \includegraphics on input line 73.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6C5o12Rfl100MchD-eps-converted-to.pdf, id=555, 381.425pt x 270.0087
+<figuras/C5o6C5o12Rfl100MchD-eps-converted-to.pdf, id=565, 381.425pt x 270.0087
 4pt>
 File: figuras/C5o6C5o12Rfl100MchD-eps-converted-to.pdf Graphic file (type pdf)
 <use figuras/C5o6C5o12Rfl100MchD-eps-converted-to.pdf>
@@ -1825,7 +1826,7 @@ rted-to.pdf>
 6RMchD-eps-converted-to.pdf figuras/C5o6C5o12C5o36C5o36RMchD.eps>
 (epstopdf)             \includegraphics on input line 78.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6C5o12C5o36C5o36RMchD-eps-converted-to.pdf, id=556, 381.425pt x 270
+<figuras/C5o6C5o12C5o36C5o36RMchD-eps-converted-to.pdf, id=566, 381.425pt x 270
 .00874pt>
 File: figuras/C5o6C5o12C5o36C5o36RMchD-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -1845,7 +1846,7 @@ converted-to.pdf>
 6Rfl100MchD-eps-converted-to.pdf figuras/C5o6C5o12C5o36C5o36Rfl100MchD.eps>
 (epstopdf)             \includegraphics on input line 82.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6C5o12C5o36C5o36Rfl100MchD-eps-converted-to.pdf, id=557, 381.425pt 
+<figuras/C5o6C5o12C5o36C5o36Rfl100MchD-eps-converted-to.pdf, id=567, 381.425pt 
 x 270.00874pt>
 File: figuras/C5o6C5o12C5o36C5o36Rfl100MchD-eps-converted-to.pdf Graphic file (
 type pdf)
@@ -1853,12 +1854,12 @@ type pdf)
 Package pdftex.def Info: figuras/C5o6C5o12C5o36C5o36Rfl100MchD-eps-converted-to
 .pdf  used on input line 82.
 (pdftex.def)             Requested size: 216.1243pt x 152.99193pt.
- [43] [44 <./figuras/RMch-eps-converted-to.pdf> <./figuras/RMchD-eps-converted-
+ [44] [45 <./figuras/RMch-eps-converted-to.pdf> <./figuras/RMchD-eps-converted-
 to.pdf> <./figuras/C5o6RMch-eps-converted-to.pdf> <./figuras/C5o6RMchD-eps-conv
 erted-to.pdf> <./figuras/C5o6C5o12RMchD-eps-converted-to.pdf> <./figuras/C5o6C5
 o12Rfl100MchD-eps-converted-to.pdf> <./figuras/C5o6C5o12C5o36C5o36RMchD-eps-con
 verted-to.pdf> <./figuras/C5o6C5o12C5o36C5o36Rfl100MchD-eps-converted-to.pdf>] 
-[45] [46]
+[46] [47]
 Package epstopdf Info: Source file: <figuras/C5o6C5o12C5o36C5o36Rfl100MchD_loss
 .eps>
 (epstopdf)                    date: 2018-07-23 09:39:28
@@ -1872,7 +1873,7 @@ Package epstopdf Info: Source file: <figuras/C5o6C5o12C5o36C5o36Rfl100MchD_loss
 s.eps>
 (epstopdf)             \includegraphics on input line 182.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6C5o12C5o36C5o36Rfl100MchD_loss-eps-converted-to.pdf, id=738, 403.5
+<figuras/C5o6C5o12C5o36C5o36Rfl100MchD_loss-eps-converted-to.pdf, id=750, 403.5
 075pt x 291.0875pt>
 File: figuras/C5o6C5o12C5o36C5o36Rfl100MchD_loss-eps-converted-to.pdf Graphic f
 ile (type pdf)
@@ -1893,7 +1894,7 @@ eps-converted-to.pdf>
 eps>
 (epstopdf)             \includegraphics on input line 186.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acc-eps-converted-to.pdf, id=739, 394.47
+<figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acc-eps-converted-to.pdf, id=751, 394.47
 375pt x 291.0875pt>
 File: figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acc-eps-converted-to.pdf Graphic fi
 le (type pdf)
@@ -1914,7 +1915,7 @@ i-eps-converted-to.pdf>
 ssi.eps>
 (epstopdf)             \includegraphics on input line 191.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6C5o12C5o36C5o36Rfl100MchD_lossi-eps-converted-to.pdf, id=740, 399.
+<figuras/C5o6C5o12C5o36C5o36Rfl100MchD_lossi-eps-converted-to.pdf, id=752, 399.
 4925pt x 291.0875pt>
 File: figuras/C5o6C5o12C5o36C5o36Rfl100MchD_lossi-eps-converted-to.pdf Graphic 
 file (type pdf)
@@ -1935,7 +1936,7 @@ Package epstopdf Info: Source file: <figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acci
 i.eps>
 (epstopdf)             \includegraphics on input line 195.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acci-eps-converted-to.pdf, id=741, 394.4
+<figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acci-eps-converted-to.pdf, id=753, 394.4
 7375pt x 291.0875pt>
 File: figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acci-eps-converted-to.pdf Graphic f
 ile (type pdf)
@@ -1943,17 +1944,17 @@ ile (type pdf)
 Package pdftex.def Info: figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acci-eps-convert
 ed-to.pdf  used on input line 195.
 (pdftex.def)             Requested size: 216.1243pt x 159.48122pt.
- [47] [48 <./figuras/C5o6C5o12C5o36C5o36Rfl100MchD_loss-eps-converted-to.pdf> <
+ [48] [49 <./figuras/C5o6C5o12C5o36C5o36Rfl100MchD_loss-eps-converted-to.pdf> <
 ./figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acc-eps-converted-to.pdf> <./figuras/C5
 o6C5o12C5o36C5o36Rfl100MchD_lossi-eps-converted-to.pdf> <./figuras/C5o6C5o12C5o
-36C5o36Rfl100MchD_acci-eps-converted-to.pdf>]) [49]
+36C5o36Rfl100MchD_acci-eps-converted-to.pdf>]) [50]
 \openout2 = `secoes/conclusoes.aux'.
 
- (./secoes/conclusoes.tex) [50
+ (./secoes/conclusoes.tex) [51
 
 
 
-] [51] (./main.bbl (./main.brf)
+] [52] (./main.bbl (./main.brf)
 \tf@brf=\write6
 \openout6 = `main.brf'.
 
@@ -1963,12 +1964,77 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 3.
 
 bibitemlist
-[52
+[53
 
 
-] [53])
+] [54])
 No file main.ind.
-[54]
+[55]
+\openout2 = `secoes/apendice.aux'.
+
+ (./secoes/apendice.tex
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <24.88> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <20.74> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <17.28> on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                \kern 3.26286pt
+(hyperref)                removed on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                \kern 3.26286pt
+(hyperref)                removed on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                \kern 3.26286pt
+(hyperref)                removed on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                \kern 3.26286pt
+(hyperref)                removed on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3.
+
+[56
+
+
+]
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <17.28> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 72.
+) [57]
+\openout2 = `secoes/apendice_arquiteturas.aux'.
+
+ (./secoes/apendice_arquiteturas.tex [58
+
+
+
+] [59] [60] [61] [62]
+[63]) [64]
 \tf@lof=\write7
 \openout7 = `main.lof'.
 
@@ -1978,35 +2044,36 @@ No file main.ind.
 \tf@toc=\write9
 \openout9 = `main.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 290.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 290.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 293.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 293.
  (./main.aux (./secoes/agradecimentos.aux) (./secoes/resumo.aux)
 (./secoes/abstract.aux) (./secoes/siglas.aux) (./secoes/simbolos.aux)
 (./secoes/introducao.aux) (./secoes/captchas.aux) (./secoes/redesneurais.aux)
 (./secoes/modelagem.aux) (./secoes/metodologia.aux) (./secoes/resultados.aux)
-(./secoes/conclusoes.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 290.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 290.
+(./secoes/conclusoes.aux) (./secoes/apendice.aux)
+(./secoes/apendice_arquiteturas.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 293.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 293.
 Package rerunfilecheck Info: File `main.brf' has not changed.
-(rerunfilecheck)             Checksum: 348C4A7AEC5D8695FABEA85F44984A9E;3362.
+(rerunfilecheck)             Checksum: 6B31BC8B10FA17A7DE035553BC2BA506;3362.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 290.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 293.
  ) 
 Here is how much of TeX's memory you used:
- 17865 strings out of 492978
- 281045 string characters out of 6134922
- 576469 words of memory out of 5000000
- 20533 multiletter control sequences out of 15000+600000
- 127289 words of font info for 209 fonts, out of 8000000 for 9000
+ 17999 strings out of 492978
+ 283508 string characters out of 6134922
+ 579809 words of memory out of 5000000
+ 20609 multiletter control sequences out of 15000+600000
+ 171771 words of font info for 238 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 45i,17n,46p,3921b,610s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,17n,46p,3921b,610s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/t
-exmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-m
-athsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}</usr/share/texliv
+ips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share
+/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
+-rmtt.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
@@ -2020,21 +2087,24 @@ e1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr
 /share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/pub
 lic/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/shar
 e/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm
-/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/
-fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pf
-b></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type
-1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/s
-hare/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/publi
-c/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/
-texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/l
-m/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt1
-2.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt8.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (55 pages, 1100061 bytes).
+/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/
+fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.p
+fb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/ty
+pe1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/s
+hare/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/
+lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/te
+xmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lm
+ss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmsso17.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy
+10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/font
+s/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb><
+/usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf/fonts/type1
+/public/lm/lmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/symbols/msam10.pfb>
+Output written on main.pdf (65 pages, 1173493 bytes).
 PDF statistics:
- 1220 PDF objects out of 1440 (max. 8388607)
- 1075 compressed objects within 11 object streams
- 234 named destinations out of 1000 (max. 500000)
- 39384 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 1328 PDF objects out of 1440 (max. 8388607)
+ 1168 compressed objects within 12 object streams
+ 272 named destinations out of 1000 (max. 500000)
+ 47592 words of extra memory for PDF output out of 51595 (max. 10000000)
 

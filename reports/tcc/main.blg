@@ -9,10 +9,11 @@ A level-1 auxiliary file: secoes/simbolos.aux
 A level-1 auxiliary file: secoes/introducao.aux
 A level-1 auxiliary file: secoes/captchas.aux
 A level-1 auxiliary file: secoes/redesneurais.aux
-A level-1 auxiliary file: secoes/metodologia.aux
 A level-1 auxiliary file: secoes/modelagem.aux
+A level-1 auxiliary file: secoes/metodologia.aux
 A level-1 auxiliary file: secoes/resultados.aux
 A level-1 auxiliary file: secoes/conclusoes.aux
+A level-1 auxiliary file: secoes/apendice.aux
 The style file: abntex2-num.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -36,7 +37,7 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 +---------------------------------------------------------+
 You've used 39 entries,
             6714 wiz_defined-function locations,
-            1463 strings with 17788 characters,
+            1464 strings with 17807 characters,
 and the built_in function-call counts, 47177 in all, are:
 = -- 4847
 > -- 1218

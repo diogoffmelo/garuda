@@ -9,39 +9,43 @@
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdu\IeC {\c c}\IeC {\~a}o}}{10}{chapter.1}
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdu\IeC {\c c}\IeC {\~a}o}}{11}{chapter.1}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {CAPTCHAs}}{12}{chapter.2}
-\contentsline {section}{\numberline {2.1}Introdu\IeC {\c c}\IeC {\~a}o}{12}{section.2.1}
-\contentsline {section}{\numberline {2.2}Captchas de texto}{14}{section.2.2}
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {CAPTCHAs}}{13}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introdu\IeC {\c c}\IeC {\~a}o}{13}{section.2.1}
+\contentsline {section}{\numberline {2.2}Captchas de texto}{15}{section.2.2}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Redes Neurais}}{17}{chapter.3}
-\contentsline {section}{\numberline {3.1}Introdu\IeC {\c c}\IeC {\~a}o}{17}{section.3.1}
-\contentsline {section}{\numberline {3.2}Camadas Densas}{18}{section.3.2}
-\contentsline {section}{\numberline {3.3}Camadas Convolucionais}{19}{section.3.3}
-\contentsline {section}{\numberline {3.4}Aprendizado}{23}{section.3.4}
-\contentsline {section}{\numberline {3.5}Regulariza\IeC {\c c}\IeC {\~a}o}{25}{section.3.5}
-\contentsline {section}{\numberline {3.6}Redes Neurais e CAPTCHAs}{27}{section.3.6}
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Redes Neurais}}{18}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introdu\IeC {\c c}\IeC {\~a}o}{18}{section.3.1}
+\contentsline {section}{\numberline {3.2}Camadas Densas}{19}{section.3.2}
+\contentsline {section}{\numberline {3.3}Camadas Convolucionais}{20}{section.3.3}
+\contentsline {section}{\numberline {3.4}Aprendizado}{24}{section.3.4}
+\contentsline {section}{\numberline {3.5}Regulariza\IeC {\c c}\IeC {\~a}o}{26}{section.3.5}
+\contentsline {section}{\numberline {3.6}Redes Neurais e CAPTCHAs}{28}{section.3.6}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Modelagem}}{31}{chapter.4}
-\contentsline {section}{\numberline {4.1}Abordagem Comparativa}{31}{section.4.1}
-\contentsline {section}{\numberline {4.2}Camadas}{33}{section.4.2}
-\contentsline {section}{\numberline {4.3}Arquiteturas}{34}{section.4.3}
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Modelagem}}{32}{chapter.4}
+\contentsline {section}{\numberline {4.1}Abordagem Comparativa}{32}{section.4.1}
+\contentsline {section}{\numberline {4.2}Camadas}{34}{section.4.2}
+\contentsline {section}{\numberline {4.3}Arquiteturas}{35}{section.4.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Metodologia}}{38}{chapter.5}
-\contentsline {section}{\numberline {5.1}Gera\IeC {\c c}\IeC {\~a}o dos CAPTCHAs}{38}{section.5.1}
-\contentsline {section}{\numberline {5.2}Treino e Valida\IeC {\c c}\IeC {\~a}o}{39}{section.5.2}
-\contentsline {section}{\numberline {5.3}M\IeC {\'e}tricas}{40}{section.5.3}
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Metodologia}}{39}{chapter.5}
+\contentsline {section}{\numberline {5.1}Gera\IeC {\c c}\IeC {\~a}o dos CAPTCHAs}{39}{section.5.1}
+\contentsline {section}{\numberline {5.2}Treino e Valida\IeC {\c c}\IeC {\~a}o}{40}{section.5.2}
+\contentsline {section}{\numberline {5.3}M\IeC {\'e}tricas}{41}{section.5.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Resultados e Discuss\IeC {\~a}o}}{42}{chapter.6}
-\contentsline {section}{\numberline {6.1}Experimentos Preliminares}{42}{section.6.1}
-\contentsline {section}{\numberline {6.2}Treino completo}{46}{section.6.2}
-\contentsline {section}{\numberline {6.3}Discuss\IeC {\~a}o do M\IeC {\'e}todo}{48}{section.6.3}
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Resultados e Discuss\IeC {\~a}o}}{43}{chapter.6}
+\contentsline {section}{\numberline {6.1}Experimentos Preliminares}{43}{section.6.1}
+\contentsline {section}{\numberline {6.2}Treino completo}{47}{section.6.2}
+\contentsline {section}{\numberline {6.3}Discuss\IeC {\~a}o do M\IeC {\'e}todo}{49}{section.6.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase {Conclus\IeC {\~o}es e Trabalhos futuros}}{50}{chapter.7}
-\contentsline {section}{\numberline {7.1}Conclus\IeC {\~o}es}{50}{section.7.1}
-\contentsline {section}{\numberline {7.2}Trabalhos futuros}{50}{section.7.2}
+\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase {Conclus\IeC {\~o}es e Trabalhos futuros}}{51}{chapter.7}
+\contentsline {section}{\numberline {7.1}Conclus\IeC {\~o}es}{51}{section.7.1}
+\contentsline {section}{\numberline {7.2}Trabalhos futuros}{51}{section.7.2}
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {Refer\^encias}}{52}{section*.35}
+\contentsline {chapter}{\uppercase {Refer\^encias}}{53}{section*.35}
 \vspace {\cftbeforechapterskip }
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {Configura\IeC {\c c}\IeC {\~o}es com $l_r = 10^{-3} \tmspace +\thickmuskip {.2777em}\tmspace +\thickmuskip {.2777em} \text {e} \tmspace +\thickmuskip {.2777em}\tmspace +\thickmuskip {.2777em} 10^{-4}$ na d\IeC {\'e}cima \IeC {\'e}poca.}}{56}{appendix.A}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase {Descri\IeC {\c c}\IeC {\~a}o completa das arquiteturas.}}{58}{appendix.B}
