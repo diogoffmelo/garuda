@@ -1,11 +1,11 @@
 \babel@toc {brazil}{}
 \babel@toc {brazil}{}
-\contentsline {figure}{\numberline {1}{\ignorespaces Diferentes tipos de CAPTCHAs\relax }}{14}{figure.caption.12}
-\contentsline {figure}{\numberline {2}{\ignorespaces Diferentes CPATCHAs de texto em uso por institui\IeC {\c c}\IeC {\~o}es brasileiras.\relax }}{17}{figure.caption.13}
-\contentsline {figure}{\numberline {3}{\ignorespaces Imagem ilustrativa das poss\IeC {\'\i }veis proje\IeC {\c c}\IeC {\~o}es aprendidas em uma camada (a) densa e (b) convolucional em um problema de reconhecimento de faces.\relax }}{21}{figure.caption.14}
-\contentsline {figure}{\numberline {4}{\ignorespaces Exemplo esquem\IeC {\'a}tico da execu\IeC {\c c}\IeC {\~a}o da opera\IeC {\c c}\IeC {\~a}o de convolu\IeC {\c c}\IeC {\~a}o em um canal do tensor de entrada $x$.\relax }}{23}{figure.caption.15}
-\contentsline {figure}{\numberline {5}{\ignorespaces Exemplo de comportamento caracter\IeC {\'\i }stico da fun\IeC {\c c}\IeC {\~a}o de custo durante o aprendizado.\relax }}{26}{figure.caption.16}
-\contentsline {figure}{\numberline {6}{\ignorespaces Exemplo ilustrativo de \textit {overfitting} e \textit {underfitting}.\relax }}{27}{figure.caption.17}
-\contentsline {figure}{\numberline {7}{\ignorespaces Exemplos de CAPTCHAs gerados e seus respectivos tokens.\relax }}{39}{figure.caption.25}
-\contentsline {figure}{\numberline {8}{\ignorespaces Din\IeC {\^a}mica inicial de arquiteturas selecionadas.\relax }}{45}{figure.caption.27}
-\contentsline {figure}{\numberline {9}{\ignorespaces Din\IeC {\^a}mica da arquitetura $C_6C_{12}C_{36}C_{36}Fl_{100}MD$.\relax }}{49}{figure.caption.29}
+\contentsline {figure}{\numberline {1}{\ignorespaces Diferentes tipos de CAPTCHAs\relax }}{15}{figure.caption.12}
+\contentsline {figure}{\numberline {2}{\ignorespaces Diferentes CPATCHAs de texto em uso por institui\IeC {\c c}\IeC {\~o}es brasileiras.\relax }}{18}{figure.caption.13}
+\contentsline {figure}{\numberline {3}{\ignorespaces Imagem ilustrativa das poss\IeC {\'\i }veis proje\IeC {\c c}\IeC {\~o}es aprendidas em uma camada (a) densa e (b) convolucional em um problema de reconhecimento de faces.\relax }}{22}{figure.caption.14}
+\contentsline {figure}{\numberline {4}{\ignorespaces Exemplo esquem\IeC {\'a}tico da execu\IeC {\c c}\IeC {\~a}o da opera\IeC {\c c}\IeC {\~a}o de convolu\IeC {\c c}\IeC {\~a}o em um canal do tensor de entrada $x$.\relax }}{24}{figure.caption.15}
+\contentsline {figure}{\numberline {5}{\ignorespaces Exemplo de comportamento caracter\IeC {\'\i }stico da fun\IeC {\c c}\IeC {\~a}o de custo durante o aprendizado.\relax }}{27}{figure.caption.16}
+\contentsline {figure}{\numberline {6}{\ignorespaces Exemplo ilustrativo de \textit {overfitting} e \textit {underfitting}.\relax }}{28}{figure.caption.17}
+\contentsline {figure}{\numberline {7}{\ignorespaces Exemplos de CAPTCHAs gerados e seus respectivos tokens.\relax }}{40}{figure.caption.25}
+\contentsline {figure}{\numberline {8}{\ignorespaces Din\IeC {\^a}mica inicial de arquiteturas selecionadas.\relax }}{46}{figure.caption.27}
+\contentsline {figure}{\numberline {9}{\ignorespaces Din\IeC {\^a}mica da arquitetura $C_6C_{12}C_{36}C_{36}Fl_{100}MD$.\relax }}{50}{figure.caption.29}

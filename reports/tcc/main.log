@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2018/dev/Debian) (preloaded format=pdflatex 2018.5.11)  19 AUG 2018 14:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2018/dev/Debian) (preloaded format=pdflatex 2018.5.11)  19 AUG 2018 14:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1214,8 +1214,26 @@ LaTeX Info: Redefining \newblock on input line 591.
 LaTeX Info: Redefining \cite on input line 862.
 \ABCItoken=\toks43
 )
-Package color Info: Redefining color blue on input line 118.
-Package hyperref Info: Option `colorlinks' set `true' on input line 134.
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2017/10/31 v0.5l Insert pages of external PDF documents (AM)
+
+(/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
+)
+\AM@pagewidth=\dimen184
+\AM@pageheight=\dimen185
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2017/10/31 v0.5l Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box60
+\AM@global@opts=\toks44
+\AM@toc@title=\toks45
+\c@AM@survey=\count288
+\AM@templatesizebox=\box61
+)
+Package color Info: Redefining color blue on input line 120.
+Package hyperref Info: Option `colorlinks' set `true' on input line 136.
 \main@idxfile=\write5
 \openout5 = `main.idx'.
 
@@ -1229,26 +1247,26 @@ Writing index file main.idx
 (./secoes/apendice_arquiteturas.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 157.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 159.
  (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-\AtBeginShipoutBox=\box60
-Package hyperref Info: Link coloring ON on input line 157.
+\AtBeginShipoutBox=\box62
+Package hyperref Info: Link coloring ON on input line 159.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1256,29 +1274,29 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count288
+\c@section@level=\count289
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 157.
-LaTeX Info: Redefining \ref on input line 157.
-LaTeX Info: Redefining \pageref on input line 157.
-LaTeX Info: Redefining \nameref on input line 157.
-\myptabbox=\box61
+LaTeX Info: Redefining \nameref on input line 159.
+LaTeX Info: Redefining \ref on input line 159.
+LaTeX Info: Redefining \pageref on input line 159.
+LaTeX Info: Redefining \nameref on input line 159.
+\myptabbox=\box63
 \myptabboxwidth=\skip271
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count289
-\scratchdimen=\dimen184
-\scratchbox=\box62
-\nofMPsegments=\count290
-\nofMParguments=\count291
-\everyMPshowfont=\toks44
-\MPscratchCnt=\count292
-\MPscratchDim=\dimen185
-\MPnumerator=\count293
-\makeMPintoPDFobject=\count294
-\everyMPtoPDFconversion=\toks45
+\scratchcounter=\count290
+\scratchdimen=\dimen186
+\scratchbox=\box64
+\nofMPsegments=\count291
+\nofMParguments=\count292
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count293
+\MPscratchDim=\dimen187
+\MPnumerator=\count294
+\makeMPintoPDFobject=\count295
+\everyMPtoPDFconversion=\toks47
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1296,7 +1314,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \microtypecontext on input line 157.
+LaTeX Info: Redefining \microtypecontext on input line 159.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1314,18 +1332,27 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/pdflscape.sty
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
 <figuras/logo_ufrpe_horizontal.png, id=4, 197.2971pt x 85.2786pt>
 File: figuras/logo_ufrpe_horizontal.png Graphic file (type png)
 <use figuras/logo_ufrpe_horizontal.png>
 Package pdftex.def Info: figuras/logo_ufrpe_horizontal.png  used on input line 
-188.
+190.
 (pdftex.def)             Requested size: 197.4923pt x 85.35826pt.
 <figuras/bcc_logo.png, id=6, 401.5pt x 401.5pt>
 File: figuras/bcc_logo.png Graphic file (type png)
 <use figuras/bcc_logo.png>
-Package pdftex.def Info: figuras/bcc_logo.png  used on input line 190.
+Package pdftex.def Info: figuras/bcc_logo.png  used on input line 192.
 (pdftex.def)             Requested size: 85.35896pt x 85.35826pt.
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 197.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 199.
 
 
 (/usr/share/texmf/tex/latex/lm/t1lmss.fd
@@ -1339,36 +1366,36 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figuras/logo_ufrpe_horiz
 ontal.png> <./figuras/bcc_logo.png>]
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 205.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 207.
 
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 205.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 207.
 
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 205
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 207
 .
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 205
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 207
 .
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 205.
+(Font)              <12> on input line 207.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 205.
+(Font)              <8> on input line 207.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 205.
-LaTeX Font Info:    Try loading font information for U+msa on input line 205.
+(Font)              <6> on input line 207.
+LaTeX Font Info:    Try loading font information for U+msa on input line 207.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1376,7 +1403,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 205.
+LaTeX Font Info:    Try loading font information for U+msb on input line 207.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1387,43 +1414,75 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.205 
+l.207 
        [1
 
 
 
 ]
+<folhaAprovacao.pdf, id=23, 597.23125pt x 844.15375pt>
+File: folhaAprovacao.pdf Graphic file (type pdf)
+<use folhaAprovacao.pdf>
+Package pdftex.def Info: folhaAprovacao.pdf  used on input line 208.
+(pdftex.def)             Requested size: 597.22978pt x 844.15169pt.
+File: folhaAprovacao.pdf Graphic file (type pdf)
+<use folhaAprovacao.pdf>
+Package pdftex.def Info: folhaAprovacao.pdf  used on input line 208.
+(pdftex.def)             Requested size: 597.22978pt x 844.15169pt.
+<folhaAprovacao.pdf, id=26, page=1, 597.23125pt x 844.15375pt>
+File: folhaAprovacao.pdf Graphic file (type pdf)
+<use folhaAprovacao.pdf, page 1>
+Package pdftex.def Info: folhaAprovacao.pdf , page1 used on input line 208.
+(pdftex.def)             Requested size: 597.22978pt x 844.15169pt.
+File: folhaAprovacao.pdf Graphic file (type pdf)
+<use folhaAprovacao.pdf, page 1>
+Package pdftex.def Info: folhaAprovacao.pdf , page1 used on input line 208.
+(pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
+File: folhaAprovacao.pdf Graphic file (type pdf)
+<use folhaAprovacao.pdf, page 1>
+Package pdftex.def Info: folhaAprovacao.pdf , page1 used on input line 208.
+(pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
+File: folhaAprovacao.pdf Graphic file (type pdf)
+<use folhaAprovacao.pdf, page 1>
+Package pdftex.def Info: folhaAprovacao.pdf , page1 used on input line 208.
+(pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
+File: folhaAprovacao.pdf Graphic file (type pdf)
+<use folhaAprovacao.pdf, page 1>
+Package pdftex.def Info: folhaAprovacao.pdf , page1 used on input line 208.
+(pdftex.def)             Requested size: 597.73099pt x 844.86012pt.
+ [2
+
+ <./folhaAprovacao.pdf>]
 \openout2 = `secoes/agradecimentos.aux'.
 
- (./secoes/agradecimentos.tex [2
-
+ (./secoes/agradecimentos.tex [3
 
 
 ])
 \openout2 = `secoes/resumo.aux'.
 
- (./secoes/resumo.tex [3
+
+(./secoes/resumo.tex [4
 
 
 
 ])
 \openout2 = `secoes/abstract.aux'.
 
-
-(./secoes/abstract.tex [4
-
+ (./secoes/abstract.tex [5
 
 
-]) (./main.lof) [5
+
+]) (./main.lof) [6
 
 
-] (./main.lot) [6
+]
+(./main.lot) [7
 
 ]
 \openout2 = `secoes/siglas.aux'.
 
-
-(./secoes/siglas.tex [7
+ (./secoes/siglas.tex [8
 
 
 
@@ -1441,42 +1500,42 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [8
+ [9
 
 
 
 
-]) (./main.toc [9
+]) (./main.toc [10
 
 
-]) [10]
+]) [11]
 \openout2 = `secoes/introducao.aux'.
 
 
-(./secoes/introducao.tex [11
+(./secoes/introducao.tex [12
 
 
 
-]) [12]
+]) [13]
 \openout2 = `secoes/captchas.aux'.
 
  (./secoes/captchas.tex
-<figuras/captcha_letras.png, id=242, 332.24126pt x 178.6675pt>
+<figuras/captcha_letras.png, id=253, 332.24126pt x 178.6675pt>
 File: figuras/captcha_letras.png Graphic file (type png)
 <use figuras/captcha_letras.png>
 Package pdftex.def Info: figuras/captcha_letras.png  used on input line 16.
 (pdftex.def)             Requested size: 204.74861pt x 110.10748pt.
-<figuras/captcha_mat.png, id=243, 367.3725pt x 177.66376pt>
+<figuras/captcha_mat.png, id=254, 367.3725pt x 177.66376pt>
 File: figuras/captcha_mat.png Graphic file (type png)
 <use figuras/captcha_mat.png>
 Package pdftex.def Info: figuras/captcha_mat.png  used on input line 21.
 (pdftex.def)             Requested size: 204.74861pt x 99.01932pt.
-<figuras/captcha_texto.png, id=244, 331.2375pt x 178.6675pt>
+<figuras/captcha_texto.png, id=255, 331.2375pt x 178.6675pt>
 File: figuras/captcha_texto.png Graphic file (type png)
 <use figuras/captcha_texto.png>
 Package pdftex.def Info: figuras/captcha_texto.png  used on input line 27.
 (pdftex.def)             Requested size: 204.74861pt x 110.4401pt.
-<figuras/captcha_audio2.png, id=245, 912.40875pt x 475.7775pt>
+<figuras/captcha_audio2.png, id=256, 912.40875pt x 475.7775pt>
 File: figuras/captcha_audio2.png Graphic file (type png)
 <use figuras/captcha_audio2.png>
 Package pdftex.def Info: figuras/captcha_audio2.png  used on input line 32.
@@ -1491,11 +1550,11 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 14--36
 []$ $[]$
  []
 
-[13
+[14
 
 
 
-] [14 <./figuras/captcha_letras.png (PNG copy)> <./figuras/captcha_mat.png (PNG
+] [15 <./figuras/captcha_letras.png (PNG copy)> <./figuras/captcha_mat.png (PNG
  copy)> <./figuras/captcha_texto.png (PNG copy)> <./figuras/captcha_audio2.png>
 ]
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1504,14 +1563,14 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 46.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 46.
- [15]
-<figuras/captcha_banco_central.png, id=278, 301.125pt x 200.75pt>
+ [16]
+<figuras/captcha_banco_central.png, id=289, 301.125pt x 200.75pt>
 File: figuras/captcha_banco_central.png Graphic file (type png)
 <use figuras/captcha_banco_central.png>
 Package pdftex.def Info: figuras/captcha_banco_central.png  used on input line 
 55.
 (pdftex.def)             Requested size: 194.5205pt x 86.45253pt.
-<figuras/captcha_inss.jpeg, id=279, 163.61125pt x 58.2175pt>
+<figuras/captcha_inss.jpeg, id=290, 163.61125pt x 58.2175pt>
 File: figuras/captcha_inss.jpeg Graphic file (type jpg)
 <use figuras/captcha_inss.jpeg>
 Package pdftex.def Info: figuras/captcha_inss.jpeg  used on input line 61.
@@ -1521,12 +1580,12 @@ Overfull \hbox (5.22908pt too wide) in paragraph at lines 53--64
 [][]   [] 
  []
 
-<figuras/captcha_itau.jpeg, id=280, 131.74219pt x 48.93282pt>
+<figuras/captcha_itau.jpeg, id=291, 131.74219pt x 48.93282pt>
 File: figuras/captcha_itau.jpeg Graphic file (type jpg)
 <use figuras/captcha_itau.jpeg>
 Package pdftex.def Info: figuras/captcha_itau.jpeg  used on input line 68.
 (pdftex.def)             Requested size: 194.52306pt x 86.45499pt.
-<figuras/captcha_mec.png, id=281, 113.42375pt x 49.18375pt>
+<figuras/captcha_mec.png, id=292, 113.42375pt x 49.18375pt>
 File: figuras/captcha_mec.png Graphic file (type png)
 <use figuras/captcha_mec.png>
 Package pdftex.def Info: figuras/captcha_mec.png  used on input line 74.
@@ -1536,12 +1595,12 @@ Overfull \hbox (5.22908pt too wide) in paragraph at lines 66--77
 [][]   [] 
  []
 
-<figuras/captcha_mprj.jpeg, id=282, 170.6375pt x 80.3pt>
+<figuras/captcha_mprj.jpeg, id=293, 170.6375pt x 80.3pt>
 File: figuras/captcha_mprj.jpeg Graphic file (type jpg)
 <use figuras/captcha_mprj.jpeg>
 Package pdftex.def Info: figuras/captcha_mprj.jpeg  used on input line 81.
 (pdftex.def)             Requested size: 194.52615pt x 86.4519pt.
-<figuras/captcha_tjpe.png, id=283, 160.6pt x 50.1875pt>
+<figuras/captcha_tjpe.png, id=294, 160.6pt x 50.1875pt>
 File: figuras/captcha_tjpe.png Graphic file (type png)
 <use figuras/captcha_tjpe.png>
 Package pdftex.def Info: figuras/captcha_tjpe.png  used on input line 87.
@@ -1589,71 +1648,71 @@ Underfull \hbox (badness 10000) in paragraph at lines 79--98
 cesso em: 23/06/201. (f) Dis-po-ní-vel em:
  []
 
-) [16] [17 <./figuras/captcha_banco_central.png (PNG copy)> <./figuras/captcha_
+) [17] [18 <./figuras/captcha_banco_central.png (PNG copy)> <./figuras/captcha_
 inss.jpeg> <./figuras/captcha_itau.jpeg> <./figuras/captcha_mec.png (PNG copy)>
  <./figuras/captcha_mprj.jpeg> <./figuras/captcha_tjpe.png>]
 \openout2 = `secoes/redesneurais.aux'.
 
 
-(./secoes/redesneurais.tex [18
+(./secoes/redesneurais.tex [19
 
 
 
-] [19]
-<figuras/projlin.png, id=326, 455.7025pt x 444.66125pt>
+] [20]
+<figuras/projlin.png, id=337, 455.7025pt x 444.66125pt>
 File: figuras/projlin.png Graphic file (type png)
 <use figuras/projlin.png>
 Package pdftex.def Info: figuras/projlin.png  used on input line 44.
 (pdftex.def)             Requested size: 232.05402pt x 226.43498pt.
-<figuras/projcon.png, id=327, 455.7025pt x 444.66125pt>
+<figuras/projcon.png, id=338, 455.7025pt x 444.66125pt>
 File: figuras/projcon.png Graphic file (type png)
 <use figuras/projcon.png>
 Package pdftex.def Info: figuras/projcon.png  used on input line 50.
 (pdftex.def)             Requested size: 232.05402pt x 226.43498pt.
- [20]
+ [21]
 
-LaTeX Warning: Text page 21 contains only floats.
+LaTeX Warning: Text page 22 contains only floats.
 
 
 Overfull \vbox (3.46567pt too high) has occurred while \output is active []
 
 
-[21 <./figuras/projlin.png> <./figuras/projcon.png>]
-<figuras/convwa.png, id=348, 497.86pt x 444.66125pt>
+[22 <./figuras/projlin.png> <./figuras/projcon.png>]
+<figuras/convwa.png, id=359, 497.86pt x 444.66125pt>
 File: figuras/convwa.png Graphic file (type png)
 <use figuras/convwa.png>
 Package pdftex.def Info: figuras/convwa.png  used on input line 76.
 (pdftex.def)             Requested size: 273.00278pt x 243.83844pt.
- [22] [23 <./figuras/convwa.png>] [24]
-<figuras/convergence.png, id=384, 384.43625pt x 308.15125pt>
+ [23] [24 <./figuras/convwa.png>] [25]
+<figuras/convergence.png, id=395, 384.43625pt x 308.15125pt>
 File: figuras/convergence.png Graphic file (type png)
 <use figuras/convergence.png>
 Package pdftex.def Info: figuras/convergence.png  used on input line 105.
 (pdftex.def)             Requested size: 273.00278pt x 218.84532pt.
- [25] [26 <./figuras/convergence.png>]
-<figuras/overfitting.png, id=402, 384.43625pt x 308.15125pt>
+ [26] [27 <./figuras/convergence.png>]
+<figuras/overfitting.png, id=413, 384.43625pt x 308.15125pt>
 File: figuras/overfitting.png Graphic file (type png)
 <use figuras/overfitting.png>
 Package pdftex.def Info: figuras/overfitting.png  used on input line 124.
 (pdftex.def)             Requested size: 273.00278pt x 218.84532pt.
- [27 <./figuras/overfitting.png>] [28] [29]) [30] [31]
+ [28 <./figuras/overfitting.png>] [29] [30]) [31] [32]
 \openout2 = `secoes/modelagem.aux'.
 
- (./secoes/modelagem.tex [32
+ (./secoes/modelagem.tex [33
 
 
 
-] [33] [34]) [35] [36]
-[37] [38]
+] [34] [35]) [36] [37]
+[38] [39]
 \openout2 = `secoes/metodologia.aux'.
 
  (./secoes/metodologia.tex
-<figuras/7103_b26bf.png, id=504, 200.75pt x 50.1875pt>
+<figuras/7103_b26bf.png, id=515, 200.75pt x 50.1875pt>
 File: figuras/7103_b26bf.png Graphic file (type png)
 <use figuras/7103_b26bf.png>
 Package pdftex.def Info: figuras/7103_b26bf.png  used on input line 15.
 (pdftex.def)             Requested size: 204.74861pt x 51.19055pt.
-<figuras/9456_ep8nb.png, id=505, 200.75pt x 50.1875pt>
+<figuras/9456_ep8nb.png, id=516, 200.75pt x 50.1875pt>
 File: figuras/9456_ep8nb.png Graphic file (type png)
 <use figuras/9456_ep8nb.png>
 Package pdftex.def Info: figuras/9456_ep8nb.png  used on input line 20.
@@ -1663,12 +1722,12 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 13--24
 []$[]$ $[]$ 
  []
 
-<figuras/21856_b7rw8.png, id=506, 200.75pt x 50.1875pt>
+<figuras/21856_b7rw8.png, id=517, 200.75pt x 50.1875pt>
 File: figuras/21856_b7rw8.png Graphic file (type png)
 <use figuras/21856_b7rw8.png>
 Package pdftex.def Info: figuras/21856_b7rw8.png  used on input line 27.
 (pdftex.def)             Requested size: 204.74861pt x 51.19055pt.
-<figuras/19816_74wf6.png, id=507, 200.75pt x 50.1875pt>
+<figuras/19816_74wf6.png, id=518, 200.75pt x 50.1875pt>
 File: figuras/19816_74wf6.png Graphic file (type png)
 <use figuras/19816_74wf6.png>
 Package pdftex.def Info: figuras/19816_74wf6.png  used on input line 32.
@@ -1678,12 +1737,12 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 25--36
 []$[]$ $[]$ 
  []
 
-<figuras/12248_dnyny.png, id=508, 200.75pt x 50.1875pt>
+<figuras/12248_dnyny.png, id=519, 200.75pt x 50.1875pt>
 File: figuras/12248_dnyny.png Graphic file (type png)
 <use figuras/12248_dnyny.png>
 Package pdftex.def Info: figuras/12248_dnyny.png  used on input line 39.
 (pdftex.def)             Requested size: 204.74861pt x 51.19055pt.
-<figuras/8873_g4cxh.png, id=509, 200.75pt x 50.1875pt>
+<figuras/8873_g4cxh.png, id=520, 200.75pt x 50.1875pt>
 File: figuras/8873_g4cxh.png Graphic file (type png)
 <use figuras/8873_g4cxh.png>
 Package pdftex.def Info: figuras/8873_g4cxh.png  used on input line 44.
@@ -1693,25 +1752,25 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 37--48
 []$[]$ $[]$ 
  []
 
-[39
+[40
 
 
 
  <./figuras/7103_b26bf.png (PNG copy)> <./figuras/9456_ep8nb.png (PNG copy)> <.
 /figuras/21856_b7rw8.png (PNG copy)> <./figuras/19816_74wf6.png (PNG copy)> <./
 figuras/12248_dnyny.png (PNG copy)> <./figuras/8873_g4cxh.png (PNG copy)>]
-[40]
+[41]
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 75.
  (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <8> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 75.
- [41]) [42]
+ [42]) [43]
 \openout2 = `secoes/resultados.aux'.
 
 
-(./secoes/resultados.tex [43
+(./secoes/resultados.tex [44
 
 
 
@@ -1726,7 +1785,7 @@ Package epstopdf Info: Source file: <figuras/RMch.eps>
 -to.pdf figuras/RMch.eps>
 (epstopdf)             \includegraphics on input line 51.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/RMch-eps-converted-to.pdf, id=563, 381.425pt x 269.005pt>
+<figuras/RMch-eps-converted-to.pdf, id=574, 381.425pt x 269.005pt>
 File: figuras/RMch-eps-converted-to.pdf Graphic file (type pdf)
 <use figuras/RMch-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/RMch-eps-converted-to.pdf  used on input line 
@@ -1742,7 +1801,7 @@ Package epstopdf Info: Source file: <figuras/RMchD.eps>
 d-to.pdf figuras/RMchD.eps>
 (epstopdf)             \includegraphics on input line 55.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/RMchD-eps-converted-to.pdf, id=564, 381.425pt x 269.005pt>
+<figuras/RMchD-eps-converted-to.pdf, id=575, 381.425pt x 269.005pt>
 File: figuras/RMchD-eps-converted-to.pdf Graphic file (type pdf)
 <use figuras/RMchD-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/RMchD-eps-converted-to.pdf  used on input line
@@ -1758,7 +1817,7 @@ Package epstopdf Info: Source file: <figuras/C5o6RMch.eps>
 rted-to.pdf figuras/C5o6RMch.eps>
 (epstopdf)             \includegraphics on input line 60.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6RMch-eps-converted-to.pdf, id=565, 381.425pt x 270.00874pt>
+<figuras/C5o6RMch-eps-converted-to.pdf, id=576, 381.425pt x 270.00874pt>
 File: figuras/C5o6RMch-eps-converted-to.pdf Graphic file (type pdf)
 <use figuras/C5o6RMch-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/C5o6RMch-eps-converted-to.pdf  used on input l
@@ -1774,7 +1833,7 @@ Package epstopdf Info: Source file: <figuras/C5o6RMchD.eps>
 erted-to.pdf figuras/C5o6RMchD.eps>
 (epstopdf)             \includegraphics on input line 64.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6RMchD-eps-converted-to.pdf, id=566, 381.425pt x 270.00874pt>
+<figuras/C5o6RMchD-eps-converted-to.pdf, id=577, 381.425pt x 270.00874pt>
 File: figuras/C5o6RMchD-eps-converted-to.pdf Graphic file (type pdf)
 <use figuras/C5o6RMchD-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/C5o6RMchD-eps-converted-to.pdf  used on input 
@@ -1791,7 +1850,7 @@ f>
 -converted-to.pdf figuras/C5o6C5o12RMchD.eps>
 (epstopdf)             \includegraphics on input line 69.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6C5o12RMchD-eps-converted-to.pdf, id=567, 381.425pt x 270.00874pt>
+<figuras/C5o6C5o12RMchD-eps-converted-to.pdf, id=578, 381.425pt x 270.00874pt>
 File: figuras/C5o6C5o12RMchD-eps-converted-to.pdf Graphic file (type pdf)
 <use figuras/C5o6C5o12RMchD-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/C5o6C5o12RMchD-eps-converted-to.pdf  used on i
@@ -1808,7 +1867,7 @@ to.pdf>
 D-eps-converted-to.pdf figuras/C5o6C5o12Rfl100MchD.eps>
 (epstopdf)             \includegraphics on input line 73.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6C5o12Rfl100MchD-eps-converted-to.pdf, id=568, 381.425pt x 270.0087
+<figuras/C5o6C5o12Rfl100MchD-eps-converted-to.pdf, id=579, 381.425pt x 270.0087
 4pt>
 File: figuras/C5o6C5o12Rfl100MchD-eps-converted-to.pdf Graphic file (type pdf)
 <use figuras/C5o6C5o12Rfl100MchD-eps-converted-to.pdf>
@@ -1826,7 +1885,7 @@ rted-to.pdf>
 6RMchD-eps-converted-to.pdf figuras/C5o6C5o12C5o36C5o36RMchD.eps>
 (epstopdf)             \includegraphics on input line 78.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6C5o12C5o36C5o36RMchD-eps-converted-to.pdf, id=569, 381.425pt x 270
+<figuras/C5o6C5o12C5o36C5o36RMchD-eps-converted-to.pdf, id=580, 381.425pt x 270
 .00874pt>
 File: figuras/C5o6C5o12C5o36C5o36RMchD-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -1846,7 +1905,7 @@ converted-to.pdf>
 6Rfl100MchD-eps-converted-to.pdf figuras/C5o6C5o12C5o36C5o36Rfl100MchD.eps>
 (epstopdf)             \includegraphics on input line 82.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6C5o12C5o36C5o36Rfl100MchD-eps-converted-to.pdf, id=570, 381.425pt 
+<figuras/C5o6C5o12C5o36C5o36Rfl100MchD-eps-converted-to.pdf, id=581, 381.425pt 
 x 270.00874pt>
 File: figuras/C5o6C5o12C5o36C5o36Rfl100MchD-eps-converted-to.pdf Graphic file (
 type pdf)
@@ -1854,12 +1913,12 @@ type pdf)
 Package pdftex.def Info: figuras/C5o6C5o12C5o36C5o36Rfl100MchD-eps-converted-to
 .pdf  used on input line 82.
 (pdftex.def)             Requested size: 216.1243pt x 152.99193pt.
- [44] [45 <./figuras/RMch-eps-converted-to.pdf> <./figuras/RMchD-eps-converted-
+ [45] [46 <./figuras/RMch-eps-converted-to.pdf> <./figuras/RMchD-eps-converted-
 to.pdf> <./figuras/C5o6RMch-eps-converted-to.pdf> <./figuras/C5o6RMchD-eps-conv
 erted-to.pdf> <./figuras/C5o6C5o12RMchD-eps-converted-to.pdf> <./figuras/C5o6C5
 o12Rfl100MchD-eps-converted-to.pdf> <./figuras/C5o6C5o12C5o36C5o36RMchD-eps-con
 verted-to.pdf> <./figuras/C5o6C5o12C5o36C5o36Rfl100MchD-eps-converted-to.pdf>] 
-[46] [47] [48]
+[47] [48] [49]
 Package epstopdf Info: Source file: <figuras/C5o6C5o12C5o36C5o36Rfl100MchD_loss
 .eps>
 (epstopdf)                    date: 2018-07-23 09:39:28
@@ -1873,7 +1932,7 @@ Package epstopdf Info: Source file: <figuras/C5o6C5o12C5o36C5o36Rfl100MchD_loss
 s.eps>
 (epstopdf)             \includegraphics on input line 182.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6C5o12C5o36C5o36Rfl100MchD_loss-eps-converted-to.pdf, id=759, 403.5
+<figuras/C5o6C5o12C5o36C5o36Rfl100MchD_loss-eps-converted-to.pdf, id=770, 403.5
 075pt x 291.0875pt>
 File: figuras/C5o6C5o12C5o36C5o36Rfl100MchD_loss-eps-converted-to.pdf Graphic f
 ile (type pdf)
@@ -1894,7 +1953,7 @@ eps-converted-to.pdf>
 eps>
 (epstopdf)             \includegraphics on input line 186.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acc-eps-converted-to.pdf, id=760, 394.47
+<figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acc-eps-converted-to.pdf, id=771, 394.47
 375pt x 291.0875pt>
 File: figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acc-eps-converted-to.pdf Graphic fi
 le (type pdf)
@@ -1915,7 +1974,7 @@ i-eps-converted-to.pdf>
 ssi.eps>
 (epstopdf)             \includegraphics on input line 191.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6C5o12C5o36C5o36Rfl100MchD_lossi-eps-converted-to.pdf, id=761, 399.
+<figuras/C5o6C5o12C5o36C5o36Rfl100MchD_lossi-eps-converted-to.pdf, id=772, 399.
 4925pt x 291.0875pt>
 File: figuras/C5o6C5o12C5o36C5o36Rfl100MchD_lossi-eps-converted-to.pdf Graphic 
 file (type pdf)
@@ -1936,7 +1995,7 @@ Package epstopdf Info: Source file: <figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acci
 i.eps>
 (epstopdf)             \includegraphics on input line 195.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acci-eps-converted-to.pdf, id=762, 394.4
+<figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acci-eps-converted-to.pdf, id=773, 394.4
 7375pt x 291.0875pt>
 File: figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acci-eps-converted-to.pdf Graphic f
 ile (type pdf)
@@ -1944,17 +2003,17 @@ ile (type pdf)
 Package pdftex.def Info: figuras/C5o6C5o12C5o36C5o36Rfl100MchD_acci-eps-convert
 ed-to.pdf  used on input line 195.
 (pdftex.def)             Requested size: 216.1243pt x 159.48122pt.
- [49 <./figuras/C5o6C5o12C5o36C5o36Rfl100MchD_loss-eps-converted-to.pdf> <./fig
+ [50 <./figuras/C5o6C5o12C5o36C5o36Rfl100MchD_loss-eps-converted-to.pdf> <./fig
 uras/C5o6C5o12C5o36C5o36Rfl100MchD_acc-eps-converted-to.pdf> <./figuras/C5o6C5o
 12C5o36C5o36Rfl100MchD_lossi-eps-converted-to.pdf> <./figuras/C5o6C5o12C5o36C5o
-36Rfl100MchD_acci-eps-converted-to.pdf>]) [50]
+36Rfl100MchD_acci-eps-converted-to.pdf>]) [51]
 \openout2 = `secoes/conclusoes.aux'.
 
- (./secoes/conclusoes.tex) [51
+ (./secoes/conclusoes.tex) [52
 
 
 
-] [52] (./main.bbl (./main.brf)
+] [53] (./main.bbl (./main.brf)
 \tf@brf=\write6
 \openout6 = `main.brf'.
 
@@ -1964,12 +2023,12 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 3.
 
 bibitemlist
-[53
+[54
 
 
-] [54])
+] [55])
 No file main.ind.
-[55]
+[56]
 \openout2 = `secoes/apendice.aux'.
 
  (./secoes/apendice.tex
@@ -2020,21 +2079,21 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 3.
 
-[56
+[57
 
 
 ]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <17.28> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 72.
-) [57]
+) [58]
 \openout2 = `secoes/apendice_arquiteturas.aux'.
 
- (./secoes/apendice_arquiteturas.tex [58
+ (./secoes/apendice_arquiteturas.tex [59
 
 
 
-] [59] [60] [61] [62]
-[63]) [64]
+] [60] [61] [62] [63]
+[64]) [65]
 \tf@lof=\write7
 \openout7 = `main.lof'.
 
@@ -2044,32 +2103,32 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <17.28> not available
 \tf@toc=\write9
 \openout9 = `main.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 293.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 293.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 297.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 297.
  (./main.aux (./secoes/agradecimentos.aux) (./secoes/resumo.aux)
 (./secoes/abstract.aux) (./secoes/siglas.aux) (./secoes/simbolos.aux)
 (./secoes/introducao.aux) (./secoes/captchas.aux) (./secoes/redesneurais.aux)
 (./secoes/modelagem.aux) (./secoes/metodologia.aux) (./secoes/resultados.aux)
 (./secoes/conclusoes.aux) (./secoes/apendice.aux)
 (./secoes/apendice_arquiteturas.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 293.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 293.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 297.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 297.
 Package rerunfilecheck Info: File `main.brf' has not changed.
-(rerunfilecheck)             Checksum: 4B0F389D568AACA2838936FEB49CACDC;3404.
+(rerunfilecheck)             Checksum: E9E4BF3642CB2598C809C2E248FA911F;3404.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 293.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 297.
  ) 
 Here is how much of TeX's memory you used:
- 18003 strings out of 492978
- 283553 string characters out of 6134922
- 579955 words of memory out of 5000000
- 20611 multiletter control sequences out of 15000+600000
+ 18637 strings out of 492978
+ 294008 string characters out of 6134922
+ 592311 words of memory out of 5000000
+ 21224 multiletter control sequences out of 15000+600000
  171816 words of font info for 239 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 47i,17n,46p,3921b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,18n,46p,3921b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share
 /texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
@@ -2101,10 +2160,10 @@ s/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb><
 /usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf/fonts/type1
 /public/lm/lmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /symbols/msam10.pfb>
-Output written on main.pdf (65 pages, 1176055 bytes).
+Output written on main.pdf (66 pages, 1936195 bytes).
 PDF statistics:
- 1335 PDF objects out of 1440 (max. 8388607)
- 1175 compressed objects within 12 object streams
- 272 named destinations out of 1000 (max. 500000)
- 47592 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 1346 PDF objects out of 1440 (max. 8388607)
+ 1180 compressed objects within 12 object streams
+ 273 named destinations out of 1000 (max. 500000)
+ 47612 words of extra memory for PDF output out of 51595 (max. 10000000)
 
