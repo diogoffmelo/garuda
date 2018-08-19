@@ -14,6 +14,7 @@ A level-1 auxiliary file: secoes/metodologia.aux
 A level-1 auxiliary file: secoes/resultados.aux
 A level-1 auxiliary file: secoes/conclusoes.aux
 A level-1 auxiliary file: secoes/apendice.aux
+A level-1 auxiliary file: secoes/apendice_arquiteturas.aux
 The style file: abntex2-num.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -37,42 +38,42 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 +---------------------------------------------------------+
 You've used 39 entries,
             6714 wiz_defined-function locations,
-            1464 strings with 17807 characters,
-and the built_in function-call counts, 47177 in all, are:
-= -- 4847
-> -- 1218
-< -- 761
-+ -- 1222
+            1470 strings with 17986 characters,
+and the built_in function-call counts, 49233 in all, are:
+= -- 5177
+> -- 1217
+< -- 863
++ -- 1327
 - -- 356
-* -- 3199
-:= -- 5737
-add.period$ -- 172
+* -- 3323
+:= -- 5971
+add.period$ -- 177
 call.type$ -- 39
 change.case$ -- 482
-chr.to.int$ -- 99
+chr.to.int$ -- 96
 cite$ -- 38
-duplicate$ -- 3733
-empty$ -- 2475
+duplicate$ -- 4030
+empty$ -- 2503
 format.name$ -- 1876
-if$ -- 10334
+if$ -- 10670
 int.to.chr$ -- 0
 int.to.str$ -- 0
 missing$ -- 707
-newline$ -- 193
+newline$ -- 194
 num.names$ -- 153
-pop$ -- 1021
+pop$ -- 1017
 preamble$ -- 1
 purify$ -- 175
 quote$ -- 0
-skip$ -- 3858
+skip$ -- 4149
 stack$ -- 1
-substring$ -- 2045
-swap$ -- 1551
+substring$ -- 2157
+swap$ -- 1641
 text.length$ -- 61
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
+type$ -- 13
 warning$ -- 0
-while$ -- 258
+while$ -- 261
 width$ -- 0
-write$ -- 553
+write$ -- 558

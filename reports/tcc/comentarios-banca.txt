@@ -1,0 +1,53 @@
+Legenda:
+Pa - Pablo
+Pe - Péricles
+D - Diogo
+T - texto da ocorrência
+
+
+Pablo
+
+T  - modelos de aprendizado profundo ainda mostram desempenho inferior ao humano... (Pag 11)
+Pa - E o trabalho de Goodfellow?
+D  - O trabalho Goodfellow de 2013 (Multi-digit Number Recognition from Street View Imagery using Deep
+Convolutional Neural Networks) se aplica a dois repósitórios específicos. Em geral, o humano ainda
+é melhor do que os algoritmos conhecidos.
+
+T  - A contribuição total para cada canal de saída é dado pela soma das convoluções nos canais de entrada... (Pag 22)
+Pa - "soma" (+) mesmo? União, junção? Não entendi.
+D  - Isso, soma. É o somatório em 'c' na equação 3.6. Adicionei um cometário no texto
+
+
+
+Péricles
+
+T  - Todo o texto, comentário sobre formato das referências
+Pe - Formato de referência não é o padrão
+D  - Existem dois formatos definidos pela ABNT (NOME, DATA) ou (número). Optei pelo segundo
+
+T  - performances sobrehumanas... (Pag11)
+Pe - Mudar este termo
+D  - Comparações com a performance humana são comuns na área, como em 
+"Human-level control through deep reinforcement learning", "At human-level or above", 
+"Deep learning has allowed us to achieve "super-human" performance in some tasks".
+
+T  - descobrir de forma automatizada um mapa.... (Pag11)
+Pe - mapeamento 
+D  - Um mapa mesmo, no sentido de descobrir uma função.
+https://pt.wikipedia.org/wiki/Mapa_(matem%C3%A1tica)
+http://mathworld.wolfram.com/Map.html
+
+T  - um hiper-parâmetro é um valor que altera o funcionamento de um método... precisa ser escolhido.. (Pag 32)
+caso
+Pe - Definição incorreta
+D  - Em Estatística Bayesiana um hiperparâmetro é um parâmetro de um modelo que é escolhido a partir do conhecimento
+a priori (crença do modelista) enquanto um parametro é determinado a posteriori (a partir dos dados). Em outras palavras,
+hiperparâmetros são escolhidos e parâmetros aprendidos. Esta interpretação foi transferida da estatística para aprendizado de máquina
+profundo(2). Esta definição também é utilizada no livro dde referência do estudo (3).
+
+(1) https://en.wikipedia.org/wiki/Hyperparameter 
+(2) https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning)
+(3) http://www.deeplearningbook.org/contents/guidelines.html
+
+
+

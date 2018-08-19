@@ -31,8 +31,10 @@ Published online 2014; based on TR arXiv:1404.7828 [cs.NE].}
 
 \bibitem{Andoni2014PolyAprox}
 \abntrefinfo{Andoni et al.}{ANDONI et al.}{2014}
-{ANDONI, A. et al. Learning polynomials with neural networks.
-v.~5, p. 3955--3963, 01 2014.}
+{ANDONI, A. et al. Learning polynomials with neural networks. In:
+  \emph{Proceedings of the 31st International Conference on Machine Learning,
+  ICML 2014}. Beijing, China: PMLR, 2014. v.~32, p. 1908--1916. Dispon{\'\i}vel
+  em: \url{http://proceedings.mlr.press/v32/}.}
 
 \bibitem{imagenet_2012}
 \abntrefinfo{Krizhevsky, Sutskever e Hinton}{KRIZHEVSKY; SUTSKEVER;
@@ -88,7 +90,10 @@ Dispon{\'\i}vel em: \url{http://arxiv.org/abs/1312.6082}.}
 \abntrefinfo{George et al.}{GEORGE et al.}{2017}
 {GEORGE, D. et al. A generative vision model that trains with high data
   efficiency and breaks text-based captchas.
-v.~358, p. eaag2612, 10 2017.}
+\emph{Science}, American Association for the Advancement of Science, 2017.
+ISSN 0036-8075.
+Dispon{\'\i}vel em:
+  \url{http://science.sciencemag.org/content/early/2017/10/26/science.aag2612}.}
 
 \bibitem{Bursztein2014TheEI}
 \abntrefinfo{Bursztein et al.}{BURSZTEIN et al.}{2014}
